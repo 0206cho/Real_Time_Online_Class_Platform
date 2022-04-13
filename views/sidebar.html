@@ -50,8 +50,9 @@
 
   <main>
 
-    <!-- <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
       <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> -->
         <svg class="bi me-2" width="40" height="32">
           <use xlink:href="#bootstrap"></use>
         </svg>
@@ -60,26 +61,35 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
+          <!-- <a href="#" class="nav-link active" aria-current="page">
             <svg class="bi me-2" width="16" height="16">
               <use xlink:href="#notice"></use>
             </svg>
             #공지        
-          </a>
+          </a> -->
+          <div class="row">
 
-          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-            Single toggle
+          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./notice.html"'>
+            #공지
           </button>
 
+          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./date.html"'>
+            #일정
+          </button>
+        </div>
+
+          <!-- <a href="http://www.naver.com " target="shut">naver</a> -->
+          <!-- <a href="./date.html" target="shut">date</a> -->
+
         </li>
-        <li>
+        <!-- <li>
           <a href="#" class="nav-link link-dark">
             <svg class="bi me-2" width="16" height="16">
               <use xlink:href="#date"></use>
             </svg>
             #일정
           </a>
-        </li>
+        </li> -->
         <li>
           <a href="#" class="nav-link link-dark">
             <svg class="bi me-2" width="16" height="16">
@@ -125,99 +135,9 @@
           <li><a class="dropdown-item" href="#">Sign out</a></li>
         </ul>
       </div>
-    </div> -->
-
-
-    <!--작업 공간-->
-
-    <div class="notice-mt">
-
-      <div class="container">
-        <h2>공지</h2>
-      </div>
-
-      <div class="container mt-4">
-        <!-- <div class="notice-mt"> -->
-        <!-- <h2>공지</h2> -->
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
-
-            <colgroup>
-              <col style="width:10%">
-              <col style="width:50%">
-              <col style="width:20%">
-            </colgroup>
-
-            <thead>
-              <tr>
-                <th scope="col" style="padding-left: 10px;">번호</th>
-                <th scope="col">공지명</th>
-                <th scope="col">작성일</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td><a href="notice_selec.html">공지입니다.</a></td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td style="padding-left: 10px;">1,001</td>
-                <td>random</td>
-                <td>data</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
-    <!--작업 공간-->
+
+
 
 
   </main>
@@ -226,9 +146,9 @@
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script> -->
+    crossorigin="anonymous"></script>
 
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--
