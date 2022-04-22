@@ -12,38 +12,6 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="..\public\css\sidebars.css" rel="stylesheet">
 
-  <title>공지</title>
-
-  <style>
-
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-    }
-
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .notice-mt {
-      width: 100%;
-      padding: 2%;
-    }
-  </style>
-
-
-
 </head>
 
 <body>
@@ -53,10 +21,11 @@
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
       <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> -->
-        <svg class="bi me-2" width="40" height="32">
+        <svg class="bi me-2" width="40" height="32" style="padding: 0px 0px 0px 50px;">
           <use xlink:href="#bootstrap"></use>
         </svg>
-        <span class="fs-4" style="font-weight: bold;">캡스톤</span>
+        <!-- <span class="fs-4" style="font-weight: bold; color: #409169;">캡스톤</span> -->
+        <span class="s_title" style="font-weight: bold; color: #409169;">캡스톤</span>
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
@@ -69,51 +38,35 @@
           </a> -->
           <div class="row">
 
-          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./notice.html"'>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./notice.html"'> -->
+          <button type="button" class="sbb_notice" data-toggle="button" onclick='parent.right.location.href="./notice.html"'>
             #공지
           </button>
 
-          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./date.html"'>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./date.html"'> -->
+          <button type="button" class="sbb_date" data-toggle="button" onclick='parent.right.location.href="./date.html"'>
+
             #일정
           </button>
+
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./attend.html"'> -->
+          <button type="button" class="sbb_attend" data-toggle="button" onclick='parent.right.location.href="./attend.html"'>
+            #참여율
+          </button>
+
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./meeting.html"'> -->
+          <button type="button" class="sbb_meeting" data-toggle="button" onclick='parent.right.location.href="./meeting.html"'>  
+            -MEETING
+          </button>
+
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./member.html"'> -->
+          <button type="button" class="sbb_member" data-toggle="button" onclick='parent.right.location.href="./member.html"'> 
+            -MEMBER
+          </button>
+
+
         </div>
 
-          <!-- <a href="http://www.naver.com " target="shut">naver</a> -->
-          <!-- <a href="./date.html" target="shut">date</a> -->
-
-        </li>
-        <!-- <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#date"></use>
-            </svg>
-            #일정
-          </a>
-        </li> -->
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#attend"></use>
-            </svg>
-            #참여율
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#meeting"></use>
-            </svg>
-            -METTING
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#member"></use>
-            </svg>
-            -MEMBER
-          </a>
-        </li>
       </ul>
       <hr>
       <div class="dropdown">
@@ -122,7 +75,7 @@
           <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
           <strong>관리자</strong>
         </a>
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" >
           <li><a class="dropdown-item" href="#">회원추가</a></li>
           <li><a class="dropdown-item" href="#">공지추가</a></li>
           <li><a class="dropdown-item" href="#">일정추가</a></li>

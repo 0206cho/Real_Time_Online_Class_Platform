@@ -87,3 +87,97 @@ main {
 
 .fw-semibold { font-weight: 600; }
 .lh-tight { line-height: 1.25; }
+
+html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .s_title {
+      font-size: 45px;
+
+    }
+
+    .notice-mt {
+      width: 100%;
+      padding: 2%;
+    }
+
+    .sbb_notice{
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color: #409169;
+      border-radius: 10px;
+      margin: 0px 0px 10px 0px;
+    }
+    .sbb_notice:hover {
+      background-color: #C3E1D2;
+    }
+
+    .sbb_date{
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color: #409169;
+      border-radius: 10px;
+      margin: 0px 0px 10px 0px;
+    }
+    .sbb_date:hover {
+      background-color: #C3E1D2;
+    }
+
+    .sbb_attend{
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color: #409169;
+      border-radius: 10px;
+      margin: 0px 0px 10px 0px;
+    }
+    .sbb_attend:hover {
+      background-color: #C3E1D2;
+    }
+
+    .sbb_meeting {
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color: #409169;
+      border-radius: 10px;
+      margin: 0px 0px 10px 0px;
+    }
+    .sbb_meeting:hover {
+      background-color: #C3E1D2;
+    }
+
+    .sbb_member {
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color: #409169;
+      border-radius: 10px;
+    }
+    .sbb_member:hover {
+      background-color: #C3E1D2;
+    }
