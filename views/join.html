@@ -4,14 +4,17 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>회원가입</title>
-	<style>
-		@import url("join.css");
-	</style>
-	<!-- 자바스크립트(유효성검사 해당) -->
 
+	<link href="..\public\css\join.css" rel="stylesheet">
+
+	<!-- 자바스크립트(유효성검사 해당) -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<!--아래꺼 있어야 모달 가능 주석 해제하면 ui바뀜,,,-->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 	<!------ Include the above in your HEAD tag ---------->
 </head>
 
@@ -23,10 +26,10 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
+								<a href="#" class="active" id="login-form-link">로그인</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="#" id="register-form-link">Register</a>
+								<a href="#" id="register-form-link">회원가입</a>
 							</div>
 						</div>
 						<hr>
@@ -35,12 +38,12 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<!--로그인-->
-								<form id="login-form" action="login.html" method="post" role="form"
+								<form id="login-form" action="home.html" method="post" role="form"
 									style="display: block;">
 									<!--이메일-->
 									<div class="form-group">
 										<input type="email" name="email" id="email" tabindex="1" class="form-control"
-											placeholder="Email" value="">
+											placeholder="이메일" value="">
 										<div class="msg_email">
 											<span class="msg_email" style='color:black'></span>
 										</div>
@@ -48,7 +51,7 @@
 									<!--비밀번호-->
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2"
-											class="form-control" placeholder="Password">
+											class="form-control" placeholder="비밀번호">
 										<div class="msg_password">
 											<span class="msg_password" style='color:black'></span>
 										</div>
@@ -56,15 +59,15 @@
 									<!--아이디 기억-->
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-										<label for="remember"> Remember Me</label>
+										<label for="remember">아이디 기억</label>
 									</div>
 									<!-- 로그인 버튼-->
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input href="join_check.html" type="submit" name="login-submit"
+												<input href="home.html" type="submit" name="login-submit"
 													id="login-submit" tabindex="4" class="form-control btn btn-login"
-													value="Log In">
+													value="로그인">
 											</div>
 										</div>
 									</div>
@@ -73,13 +76,35 @@
 											<div class="col-lg-12">
 												<div class="text-center">
 													<!--비밀번호 찾기-->
-													<a href="https://phpoll.com/recover" tabindex="5"
-														class="forgot-password">Forgot Password?</a>
+													<a href="#" tabindex="5" class="forgot-password"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+														비밀번호 찾기</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</form>
+
+								<!--비밀번호 찾기 모달창-->
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">서버 추가하기</h5>
+										  <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+										</div>
+										<div class="modal-body">
+										  <div class="mb-3">
+											<label for="server-name" class="col-form-label">서버명:</label>
+											<input type="text" class="form-control" id="server-name">
+										  </div>
+										</div>
+										<div class="modal-footer">
+										  <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
+										  <button type="button" class="btn btn-add">추가하기</button>
+										</div>
+									  </div>
+									</div>
+								  </div>
 
 
 								<!--회원가입-->
@@ -88,23 +113,26 @@
 									<!--이름-->
 									<div class="form-group">
 										<input type="text" name="r_name" id="r_name" tabindex="1" class="form-control"
-											placeholder="Name" value="">
+											placeholder="이름" value="">
 										<div class="msg_r_name">
 											<span class="msg_r_name" style='color:black'></span>
 										</div>
 									</div>
+									
 									<!--이메일-->
 									<div class="form-group">
-										<div class ="in-line">
-										<input type="email" name="r_email" id="r_email" tabindex="1"
-											class="form-control" placeholder="Email" value="">
-										<!--이메일 중복확인-->
-											<input type="button" id="email_check" name="check" value="중복확인" onclick="showEvent()"></div>
-											<script>
-												function showEvent() {
-													alert("사용가능한 이메일입니다.");
-												}
-											</script>
+										<div class="in-line">
+											<input type="email" name="r_email" id="r_email" tabindex="1"
+												class="form-control" placeholder="이메일" value="">
+											<!--이메일 중복확인-->
+											<input type="button" id="email_check" name="check" value="중복확인"
+												onclick="showEvent()">
+										</div>
+										<script>
+											function showEvent() {
+												alert("사용가능한 이메일입니다.");
+											}
+										</script>
 										<div class="msg_r_email" id="msg_r_email">
 											<span class="msg_r_email" style='color:black'></span>
 										</div>
@@ -112,7 +140,7 @@
 									<!--비밀번호-->
 									<div class="form-group">
 										<input type="password" name="r_password" id="r_password" tabindex="2"
-											class="form-control" placeholder="Password">
+											class="form-control" placeholder="비밀번호">
 										<div class="msg_r_password">
 											<span class="msg_r_password" style='color:black'></span>
 										</div>
@@ -120,7 +148,7 @@
 									<!--비밀번호 확인-->
 									<div class="form-group">
 										<input type="password" name="r_confirm-password" id="r_confirm-password"
-											tabindex="2" class="form-control" placeholder="Confirm Password">
+											tabindex="2" class="form-control" placeholder="비밀번호 확인">
 										<div class="msg_r_confirm-password">
 											<span class="msg_r_confirm-password" style='color:black'></span>
 										</div>
@@ -128,7 +156,7 @@
 									<!--전화번호-->
 									<div class="form-group">
 										<input type="text" name="r_phone" id="r_phone" tabindex="2" class="form-control"
-											placeholder="Phone">
+											placeholder="전화번호">
 										<div class="msg_r_phone">
 											<span class="msg_r_phone" style='color:black'></span>
 										</div>
@@ -142,7 +170,7 @@
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="register-submit" id="register-submit"
 													tabindex="4" class="form-control btn btn-register"
-													value="Register Now">
+													value="회원가입">
 											</div>
 										</div>
 									</div>
@@ -154,8 +182,9 @@
 			</div>
 		</div>
 	</div>
-	<script src="jQuery.js"></script>
-	<script type="text/javascript" src="C:\Users\0206c\OneDrive\바탕 화면\Project_Git\drdr-react\html\join.js"></script>
+	<script src="../public/js/jQuery.js"></script>
+	<script type="text/javascript" src="../public/js/join.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

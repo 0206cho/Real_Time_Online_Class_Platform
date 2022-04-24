@@ -1,3 +1,11 @@
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
 body {
 	padding-top: 90px;
 }
@@ -11,7 +19,7 @@ body {
 
 .panel-login>.panel-heading {
 	/*탭 부분*/
-	color: #00415d;
+	color: #409169;
 	background-color: #fff;
 	border-color: #fff;
 	text-align: center;
@@ -30,8 +38,7 @@ body {
 
 .panel-login>.panel-heading a.active {
 	/*탭 로그인 글자*/
-	color: #FFE359;
-	/* color: #029f5b; */
+	color: #409169;
 	font-size: 18px;
 }
 
@@ -62,35 +69,31 @@ body {
 
 .panel-login input:hover,
 .panel-login input:focus {
-	/*마우스 호버링*/
+	/*input 마우스 호버링*/
 	outline: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	border-color: #ccc;
+	border-color: rgb(163, 162, 162);
 }
 
 .btn-login {
-	background-color: #FFE359;
-	/* background-color: #59B2E0; */
+	background-color: #C3E1D2;
 	outline: none;
-	color: #fff;
+	color: #409169;
 	font-size: 14px;
 	height: auto;
 	font-weight: normal;
 	padding: 14px 0;
 	text-transform: uppercase;
-	border-color: #FFE359;
-	/* border-color: #59B2E6; */
+	border-color: #409169;
 }
 
 .btn-login:hover,
 .btn-login:focus {
 	color: #fff;
-	background-color: #FFE359;
-	border-color: #FFE359;
-	/* background-color: #53A3CD;
-	border-color: #53A3CD; */
+	background-color: #C3E1D2;
+	border-color: #409169;
 }
 
 .forgot-password {
@@ -101,12 +104,11 @@ body {
 .forgot-password:hover,
 .forgot-password:focus {
 	text-decoration: underline;
-	color: #666;
+	color: #409169;
 }
 
 .btn-register {
-	background-color: #FFE359;
-	/* background-color: #1CB94E; */
+	background-color: #C3E1D2;
 	outline: none;
 	color: #fff;
 	font-size: 14px;
@@ -114,22 +116,18 @@ body {
 	font-weight: normal;
 	padding: 14px 0;
 	text-transform: uppercase;
-	/* border-color: #1CB94A; */
-	border-color: #FFE359;
+	border-color: #409169;
 }
 
 .btn-register:hover,
 .btn-register:focus {
 	color: #fff;
-	background-color: #FFE359;
-	border-color: #FFE359;
-	/* background-color: #1CA347;
-	border-color: #1CA347; */
+	background-color: #C3E1D2;
+	border-color: #C3E1D2;
 }
 
 .in-line {
-	/* width: 710px; */
-	height: 40px;
+	height: 50px;
 }
 
 /*회원가입 이메일*/
@@ -140,17 +138,14 @@ body {
 	-webkit-transition: all 0.1s linear;
 	-moz-transition: all 0.1s linear;
 	transition: all 0.1s linear;
-	
-
-	/* width: 64%; */
+	width: 86%;
 	display: inline;
 }
+
 /*이메일 중복확인*/
 #email_check {
-	height: 110%;
-	border-color :#666;
-	/* background-color: #1CA347; */
-	background-color: #FFE359;
+	height: 45px;
+	background-color: #C3E1D2;
 	border: none;
 	font-size: 1em;
 	color: black;
@@ -159,6 +154,6 @@ body {
 	outline: none;
 }
 
-#msg_r_email{
+#msg_r_email {
 	margin-top: 7px;
 }
