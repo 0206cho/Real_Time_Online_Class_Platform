@@ -21,18 +21,12 @@
 <body style="padding-top: 5rem;">
   <!--아이콘-->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <!--홈 아이콘-->
-    <symbol id="home" viewBox="0 0 16 16">
-      <path
-        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
-    </symbol>
-
-    <!--설정 아이콘-->
-    <symbol id="system" viewBox="0 0 16 16">
-      <path
-        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
-      <path
-        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+    <!--닫기버튼 아이콘-->
+    <symbol id="close" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+      <path fill-rule="evenodd"
+        d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
     </symbol>
   </svg>
 
@@ -54,19 +48,10 @@
           <li>
           </li>
           <li>
-            <a href="home.html" class="nav-link">
+            <a href="javascript:history.back();" class="nav-link">
               <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                <use xlink:href="#home" />
+                <use xlink:href="#close" />
               </svg>
-              홈으로
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">
-              <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                <use xlink:href="#system" />
-              </svg>
-              설정
             </a>
           </li>
         </ul>
@@ -76,317 +61,283 @@
 
   <!--system-->
   <main role="main" class="container">
+    <p>
+    <div class="row">
+      <h4 style="font-weight: bold;">계정설정</h4>
+      <br>
+      <br>
+      <br>
+      <div class="col-md-8">
 
-    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist" style="padding-top: 1rem;">
-      <button class="nav-link active" id="nav-setup-tab" data-bs-toggle="tab" data-bs-target="#nav-setup" type="button"
-        role="tab" aria-controls="nav-setup" aria-selected="true">시스템</button>
-      <button class="nav-link" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button"
-        role="tab" aria-controls="nav-account" aria-selected="false">계정</button>
+        <h5 style="font-weight: bold;">이름</h5>
+        유저이름
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
+          data-bs-target="#usernameModal">수정</button>
+      </div>
     </div>
-    <div class="tab-content" id="nav-tabContent">
-      <!---------------시스템-------------->
-      <div class="tab-pane fade show active" id="nav-setup" role="tabpanel" aria-labelledby="nav-setup-tab"
-        style="padding: 2%;">
-        <!--음성설정-->
-        <h5 style="font-weight: bold;">음성설정</h5>
+    </p>
+    <br>
+    <br>
 
-        <!--장치-->
+
+    <p>
+    <div class="row">
+
+      <div class="col-md-8">
+        <h5 style="font-weight: bold;">상태메시지</h5>
+        상태메시지
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
+          data-bs-target="#msgModal">수정</button>
+      </div>
+    </div>
+    </p>
+    <br>
+    <br>
+
+    <p>
+    <div class="row">
+      <div class="col-md-8">
+        <h5 style="font-weight: bold;">계정 삭제</h5>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
+          data-bs-target="#accountdeleteModal">계정 삭제</button>
+      </div>
+    </div>
+    </p>
+    <br>
+    <hr class="my-5">
+
+
+    <!--음성설정-->
+    <h4 style="font-weight: bold;">시스템설정</h4>
+    <br>
+    <h5 style="font-weight: bold;">음성설정</h5>
+
+    <!--장치-->
+    <p>
+    <div class="row">
+
+      <div class="col">
         <p>
-        <div class="row">
-
-          <div class="col">
-            <p>
-              녹음장치
-            <div class="dropdown">
-              <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%; text-align: left;">
-                <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
-                Default
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-                <li><a class="dropdown-item" href="#">Default</a></li>
-                <li><a class="dropdown-item" href="#">헤드셋 마이크</a></li>
-                <li><a class="dropdown-item" href="#">마이크배열</a></li>
-              </ul>
-            </div>
-            </p>
-          </div>
-
-          <div class="col">
-            <p>
-              출력장치
-            <div class="dropdown">
-              <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
-                Default
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-                <li><a class="dropdown-item" href="#">Default</a></li>
-                <li><a class="dropdown-item" href="#">헤드셋 마이크</a></li>
-                <li><a class="dropdown-item" href="#">마이크배열</a></li>
-              </ul>
-            </div>
-            </p>
-          </div>
-
+          녹음장치
+        <div class="dropdown">
+          <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false" style="width: 100%; text-align: left;">
+            <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
+            Default
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
+            <li><a class="dropdown-item" href="#">Default</a></li>
+            <li><a class="dropdown-item" href="#">헤드셋 마이크</a></li>
+            <li><a class="dropdown-item" href="#">마이크배열</a></li>
+          </ul>
         </div>
         </p>
-
-        <!--음량-->
-        <p>
-        <div class="row">
-
-          <div class="col">
-            <p>
-              입력음량
-            <div><input type="range" class="form-range" min="0" max="100" step="0.5" id="customRange3"></div>
-            </p>
-          </div>
-
-          <div class="col">
-            <p>
-              출력음량
-            <div><input type="range" class="form-range" id="customRange3"></div>
-            </p>
-          </div>
-
-        </div>
-        </p>
-
-        <!--마이크 테스트하기-->
-        <p>
-        <div class="row">
-          <div class="col">
-            <p>
-              마이크 테스트하기
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-                aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #409169;">
-              </div>
-            </div>
-            </p>
-          </div>
-        </div>
-        </p>
-
-        <hr class="my-5">
-
-        <!--영상설정-->
-        <h5 style="font-weight: bold;">영상설정</h5>
-
-        <!--영상테스트-->
-        <p>
-        <div class="row">
-          <div class="col">
-            <p>
-            <div>
-              <button type="button" class="btn btn-drdr" onclick="{getVideo()}">영상 테스트</button>
-              <video id="myVideo" width="400" height="300" style="width: 100%; height: 50%; background-color: #409169;">
-            </div>
-            </p>
-          </div>
-        </div>
-        </p>
-
-        <!--카메라 선택-->
-        <p>
-        <div class="row">
-          <div class="col">
-            <p>
-              카메라
-            <div class="dropdown">
-              <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
-                Default
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-                <li><a class="dropdown-item" href="#">Default</a></li>
-                <li><a class="dropdown-item" href="#">외부 카메라</a></li>
-                <li><a class="dropdown-item" href="#">웹 카메라</a></li>
-              </ul>
-            </div>
-            </p>
-          </div>
-        </div>
-        </p>
-
       </div>
 
-      <!---------------계정-------------->
-      <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="../public/imgs/imgtest.jpg" class="figure-img img-fluid rounded"
-              style="border : solid #409169; width: 100%; height: 10cm;" alt="민솔이와 학교 유령들">
-
-            <label class="input-file-button" for="input-file">
-              이미지 변경
-            </label>
-            <input type="file" id="input-file" style="display:none;">
-
-          </div>
-
-
-          <div class="col-md-8">
-            <p>
-            <div class="row">
-              <h5 style="font-weight: bold;">이름</h5>
-              <div class="col-md-8">
-                유저이름
-              </div>
-              <div class="col-md-4">
-                <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#usernameModal">수정</button>
-              </div>
-            </div>
-            </p>
-
-            <p>
-            <div class="row">
-              <h5 style="font-weight: bold;">상태메시지</h5>
-              <div class="col-md-8">
-                상태메시지
-              </div>
-              <div class="col-md-4">
-                <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#msgModal">수정</button>
-              </div>
-            </div>
-            </p>
-
-          </div>
-        </div>
-        <hr class="my-2">
-        <br>
-
+      <div class="col">
         <p>
-        <div class="row">
-          <div class="col-md-8">
-            <h5 style="font-weight: bold;">비밀번호 변경</h5>
-          </div>
-          <div class="col-md-4">
-            <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#pwchangeModal">비밀번호 변경하기</button>
-          </div>
+          출력장치
+        <div class="dropdown">
+          <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
+            Default
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
+            <li><a class="dropdown-item" href="#">Default</a></li>
+            <li><a class="dropdown-item" href="#">헤드셋 마이크</a></li>
+            <li><a class="dropdown-item" href="#">마이크배열</a></li>
+          </ul>
         </div>
         </p>
-
-        <p>
-        <div class="row">
-          <div class="col-md-8">
-            <h5 style="font-weight: bold;">계정 삭제</h5>
-          </div>
-          <div class="col-md-4">
-            <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#accountdeleteModal">계정 삭제</button>
-          </div>
-        </div>
-        </p>
-
-
-
-
-
-
-
       </div>
 
-      <!--이름 수정 모달창-->
-      <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" style="border: none;">
-              <h5 class="modal-title" id="usernameModal" style="font-weight: bold;">이름 변경하기</h5>
-              <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+    </div>
+    </p>
+
+    <!--음량-->
+    <p>
+    <div class="row">
+
+      <div class="col">
+        <p>
+          입력음량
+        <div><input type="range" class="form-range" min="0" max="100" step="0.5" id="customRange3"></div>
+        </p>
+      </div>
+
+      <div class="col">
+        <p>
+          출력음량
+        <div><input type="range" class="form-range" id="customRange3"></div>
+        </p>
+      </div>
+
+    </div>
+    </p>
+
+    <!--마이크 테스트하기-->
+    <p>
+    <div class="row">
+      <div class="col">
+        <p>
+          마이크 테스트하기
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+            aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #409169;">
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+    </p>
+
+    <br>
+
+    <!--영상설정-->
+    <h5 style="font-weight: bold;">영상설정</h5>
+
+    <!--영상테스트-->
+    <p>
+    <div class="row">
+      <div class="col">
+        <p>
+        <div>
+          <button type="button" class="btn btn-drdr" onclick="{getVideo()}">영상 테스트</button>
+          <video id="myVideo" width="400" height="300" style="width: 100%; height: 50%; background-color: #409169;">
+        </div>
+        </p>
+      </div>
+    </div>
+    </p>
+
+    <!--카메라 선택-->
+    <p>
+    <div class="row">
+      <div class="col">
+        <p>
+          카메라
+        <div class="dropdown">
+          <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
+            Default
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
+            <li><a class="dropdown-item" href="#">Default</a></li>
+            <li><a class="dropdown-item" href="#">외부 카메라</a></li>
+            <li><a class="dropdown-item" href="#">웹 카메라</a></li>
+          </ul>
+        </div>
+        </p>
+      </div>
+    </div>
+    <br>
+    <br>
+    </p>
+
+    <!--이름 수정 모달창-->
+    <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="border: none;">
+            <h5 class="modal-title" id="usernameModal" style="font-weight: bold;">이름 변경하기</h5>
+            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="modal-name" class="col-form-label">이름:</label>
+              <input type="text" class="form-control" id="modal-name">
             </div>
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="modal-name" class="col-form-label">이름:</label>
-                <input type="text" class="form-control" id="modal-name">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-              <button type="button" class="btn btn-modal">적용</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-modal">적용</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--상태메시지 수정 모달창-->
-      <div class="modal fade" id="msgModal" tabindex="-1" aria-labelledby="msgModal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" style="border: none;">
-              <h5 class="modal-title" id="msgModal" style="font-weight: bold;">상태메시지 변경하기</h5>
-              <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+    <!--상태메시지 수정 모달창-->
+    <div class="modal fade" id="msgModal" tabindex="-1" aria-labelledby="msgModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="border: none;">
+            <h5 class="modal-title" id="msgModal" style="font-weight: bold;">상태메시지 변경하기</h5>
+            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="modal-msg" class="col-form-label">상태메시지:</label>
+              <input type="text" class="form-control" id="modal-msg">
             </div>
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="modal-msg" class="col-form-label">상태메시지:</label>
-                <input type="text" class="form-control" id="modal-msg">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-              <button type="button" class="btn btn-modal">적용</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-modal">적용</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--계정삭제 모달창-->
-      <div class="modal fade" id="accountdeleteModal" tabindex="-1" aria-labelledby="accountdeleteModal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" style="border: none;">
-              <h5 class="modal-title" id="accountdeleteModal" style="font-weight: bold;">계정 삭제</h5>
-              <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+    <!--계정삭제 모달창-->
+    <div class="modal fade" id="accountdeleteModal" tabindex="-1" aria-labelledby="accountdeleteModal"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="border: none;">
+            <h5 class="modal-title" id="accountdeleteModal" style="font-weight: bold;">계정 삭제</h5>
+            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="modal-delete" class="col-form-label">계정을 삭제하실 건가요? <br> 계정을 삭제하려면 비밀번호를 입력해주세요.</label>
+              <input type="password" class="form-control" id="modal-delete">
             </div>
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="modal-delete" class="col-form-label">계정을 삭제하실 건가요? <br> 계정을 삭제하려면 비밀번호를 입력해주세요.</label>
-                <input type="password" class="form-control" id="modal-delete">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-              <button type="button" class="btn btn-modal">삭제</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-modal">삭제</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--비밀번호 변경 모달창-->
-      <div class="modal fade" id="pwchangeModal" tabindex="-1" aria-labelledby="pwchangeModal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" style="border: none;">
-              <h5 class="modal-title" id="pwchangeModal" style="font-weight: bold;">비밀번호 변경</h5>
-              <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
-            </div>
-            <div class="modal-body">
-              <p>
-                <label for="modal-pw" class="col-form-label">현재 비밀번호</label>
-                <input type="password" class="form-control" id="modal-pw">
-              </p>
-              <p>
-                <label for="modal-newpw" class="col-form-label">새 비밀번호</label>
-                <input type="password" class="form-control" id="modal-newpw">
-              </p>
-              <p>
-                <label for="modal-newpwconfirm" class="col-form-label">새 비밀번호 확인</label>
-                <input type="password" class="form-control" id="modal-newpwconfirm">
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-              <button type="button" class="btn btn-modal">적용</button>
-            </div>
+    <!--비밀번호 변경 모달창-->
+    <div class="modal fade" id="pwchangeModal" tabindex="-1" aria-labelledby="pwchangeModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="border: none;">
+            <h5 class="modal-title" id="pwchangeModal" style="font-weight: bold;">비밀번호 변경</h5>
+            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+          </div>
+          <div class="modal-body">
+            <p>
+              <label for="modal-pw" class="col-form-label">현재 비밀번호</label>
+              <input type="password" class="form-control" id="modal-pw">
+            </p>
+            <p>
+              <label for="modal-newpw" class="col-form-label">새 비밀번호</label>
+              <input type="password" class="form-control" id="modal-newpw">
+            </p>
+            <p>
+              <label for="modal-newpwconfirm" class="col-form-label">새 비밀번호 확인</label>
+              <input type="password" class="form-control" id="modal-newpwconfirm">
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-modal">적용</button>
           </div>
         </div>
       </div>
-
-
-
+    </div>
   </main>
   <!--js-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
