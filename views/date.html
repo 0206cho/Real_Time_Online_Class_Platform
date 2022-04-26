@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset='utf-8' />
+
+   <!-- Required meta tags -->
+   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+   
   <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
   <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> -->
   <!-- jquery CDN -->
@@ -12,150 +17,461 @@
   <!-- fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
 
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="..\public\css\sidebars.css" rel="stylesheet">
+<link href="..\public\css\notice.css" rel="stylesheet">
 
 
+  <style>
+   
 
-<style>
-  /* body 스타일 */
-
-  /* html,
-  body {
-      width: 100%;
-      height: 100%;
-      font-size: 14px;
+    /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
+    .fc-header-toolbar {
+      padding-left: 1em;
+      padding-right: 1em;
     }
 
 
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    } */
-
-    /* .notice-mt {
-      width: 100%;
-      padding: 2%;
-    } */
-
-
-
-  /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
-  .fc-header-toolbar {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-
-  .notice-mt {
-      width: 100%;
-    }
-
-</style>
+  </style>
 </head>
 
 <body>
 
-    <main>
- 
-      <!--작업 공간-->
-  
-      <div class="notice-mt">
-  
-        <div class="container">
-          <h2>일정</h2>
+
+  <!--모달-->
+    <!--회원 추가 모달-->
+    <div id="addMember" style="height: 270px; width: 600px;">
+      <h5 class="modal-title" style="font-weight: bold;">회원 추가 하기</h5>
+      <div class="modal-body">
+          <div class="mb-3">
+              <label for="server-name" class="col-form-label">회원 아이디:</label>
+              <input type="text" class="form-control" id="memberID">
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn add_member_btn">추가하기</button>
+          <button type="button" class="btn add_member_close_btn">닫기</button>
+
+      </div>
+
+      
+  </div>
+  <!--회원 추가 모달-->
+
+  <!--공지 추가 모달-->
+  <div id="addNotice" style="height: 500px; width: 600px;">
+      <h5 class="modal-title" style="font-weight: bold;">공지 추가 하기</h5>
+      <div class="modal-body">
+          <div class="mb-3">
+              <label for="server-name" class="col-form-label" >제목 입력:</label>
+                  <input type="text" class="form-control" id="noticeID" />
+
+                  <label for="server-name" class="col-form-label"  >글 입력:</label>
+                  <input type="text" class="form-control" id="notice" style="height: 190px; white-space: pre-line;"/></p>
+
+
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn add_notice_btn">등록하기</button>
+          <button type="button" class="btn add_notice_close_btn">취소</button>
+
+      </div>
+  </div>
+  <!--공지 추가 모달-->
+
+  <!--일정 추가 모달-->
+  <div id="addDate" style="height: 490px; width: 600px;">
+      <h5 class="modal-title" style="font-weight: bold;">일정 추가 하기</h5>
+      <!-- <br> -->
+      <div class="modal-body">
+          
+          <div class="mb-3">
+              <!-- <br> -->
+            <div class="modal_date" style="margin: 10px;">
+              <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">시작일</label>
+                  <!-- <input type="text" class="form-control" id="noticeID" /> -->
+                  <input type="date" id="start" name="trip-start" >
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;"  >종료일</label>
+                  <!-- <input type="text" class="form-control" id="noticeID" /> -->
+                  <input type="date" id="start" name="trip-start">
+              </div>
+             <!-- <br> -->
+                  <label for="server-name" class="col-form-label" >글 입력:</label>
+                  <input type="text" class="form-control" id="notice" style="height: 190px;"/></p>
+
+
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn add_date_btn">등록하기</button>
+          <button type="button" class="btn add_date_close_btn">취소</button>
+
+      </div>
+  </div>
+  <!--일정 추가 모달-->
+
+
+  <main>
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 220px; background-color: #C9E0D3" >
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> -->
+        <!-- <svg class="bi me-2" width="20" height="32" style="padding: 0px 0px 0px 72px;"> -->
+          <!-- <use xlink:href="#bootstrap"></use> -->
+        <!-- </svg> -->
+        <!-- <span class="s_title" style="font-weight: bold; color: #409169;">캡스톤</span> -->
+        <div class="s_title" style="color: black;">캡스톤</div>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+          <div class="row">
+
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./notice.html"'> -->
+          <button type="button" class="sbb_notice" data-toggle="button" onclick='location.href="./notice.html"'>
+            #공지
+          </button>
+
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./date.html"'> -->
+          <button type="button" class="sbb_date" data-toggle="button" onclick='location.href="./date.html"'>
+            #일정
+          </button>
+
+          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./meeting.html"'> -->
+          <button type="button" class="sbb_meeting" data-toggle="button" onclick='location.href="#"'>  
+            -MEETING
+          </button>
+
+
         </div>
 
-<!-- <body style="padding:30px;"> -->
-  <!-- calendar 태그 -->
-  <div id='calendar-container'>
-    <div id='calendar'></div>
+        
+
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>관리자</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" >
+
+
+          <!-- <li><a class="dropdown-item" href="#" >회원추가</a></li> -->
+          <!-- <li><a id="popup_open_btn">회원추가</a></li> -->
+
+
+          <li><button class="dropdown-item" id="addMember_btn">회원추가</button></li>
+          <li><button class="dropdown-item" id="addNotice_btn">공지추가</button></li>
+          <li><button class="dropdown-item" id="addDate_btn">일정추가</button></li>
+          <!-- <li><a class="dropdown-item" href="#">일정추가</a></li> -->
+          <li><a class="dropdown-item" href="#">채팅추가</a></li>
+          <li><button class="dropdown-item" onclick='location.href="./member.html"'>회원관리</button></li>
+          <li>
+              <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Home</a></li>
+          <li><a class="dropdown-item" href="#">Setting</a></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
   </div>
-  <script>
-  (function(){
-    $(function(){
-      // calendar element 취득
-      var calendarEl = $('#calendar')[0];
-      // full-calendar 생성하기
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        // height: '700px', // calendar 높이 설정
-        height: '630px', // calendar 높이 설정
-        expandRows: true, // 화면에 맞게 높이 재설정
-        slotMinTime: '08:00', // Day 캘린더에서 시작 시간
-        slotMaxTime: '22:00', // Day 캘린더에서 종료 시간
-        // 해더에 표시할 툴바
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-        },
-        initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-        navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-        editable: true, // 수정 가능?
-        selectable: true, // 달력 일자 드래그 설정가능
-        nowIndicator: true, // 현재 시간 마크
-        dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
-        locale: 'ko', // 한국어 설정
-        eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
-          console.log(obj);
-        },
-        eventChange: function(obj) { // 이벤트가 수정되면 발생하는 이벤트
-          console.log(obj);
-        },
-        eventRemove: function(obj){ // 이벤트가 삭제되면 발생하는 이벤트
-          console.log(obj);
-        },
-        select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
-          var title = prompt('Event Title:');
-          if (title) {
-            calendar.addEvent({
-              title: title,
-              start: arg.start,
-              end: arg.end,
-              allDay: arg.allDay
-            })
-          }
-          calendar.unselect()
-        },
-        // 이벤트 
-        events: [
-          {
-            title: '캡스톤 수업',
-            start: '2022-04-13',
-          },
-          {
-            title: '중간 시험',
-            start: '2022-04-18',
-            end: '2022-04-23'
-          },
-          {
-            groupId: 999,
-            title: '회의',
-            start: '2022-04-11T16:00:00'
-          },
-          {
-            title: 'Click for Google',
-            url: 'http://google.com/', // 클릭시 해당 url로 이동
-            start: '2022-04-15'
-          }
-        ]
-      });
-      // 캘린더 랜더링
-      calendar.render();
-    });
-  })();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+
 </div>
+
+    <!--작업 공간-->
+
+    <div class="notice-mt">
+
+      <div class="container">
+        <h2>일정</h2>
+
+
+      </div>
+      <div class="container mt-4">
+
+        <!-- <body style="padding:15px;"> -->
+        <!-- calendar 태그 -->
+        <div id='calendar-container'>
+          <div id='calendar' ></div>
+        </div>
+        <script>
+          (function () {
+            $(function () {
+              // calendar element 취득
+              var calendarEl = $('#calendar')[0];
+              // full-calendar 생성하기
+              var calendar = new FullCalendar.Calendar(calendarEl, {
+                // height: '700px', // calendar 높이 설정
+                height: '560px', // calendar 높이 설정
+                expandRows: true, // 화면에 맞게 높이 재설정
+                slotMinTime: '08:00', // Day 캘린더에서 시작 시간
+                slotMaxTime: '22:00', // Day 캘린더에서 종료 시간
+                eventColor: '#c3d9cd',
+                // 해더에 표시할 툴바
+                headerToolbar: {
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'dayGridMonth,timeGridWeek'
+                },
+                initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
+                // navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+                editable: false, // 수정 가능?
+                // selectable: true, // 달력 일자 드래그 설정가능
+                nowIndicator: true, // 현재 시간 마크
+                dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+                locale: 'ko', // 한국어 설정
+                eventAdd: function (obj) { // 이벤트가 추가되면 발생하는 이벤트
+                  console.log(obj);
+                },
+                eventChange: function (obj) { // 이벤트가 수정되면 발생하는 이벤트
+                  console.log(obj);
+                },
+                eventRemove: function (obj) { // 이벤트가 삭제되면 발생하는 이벤트
+                  console.log(obj);
+                },
+                // select: function (arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+                //   var title = prompt('Event Title:');
+                //   if (title) {
+                //     calendar.addEvent({
+                //       title: title,
+                //       start: arg.start,
+                //       end: arg.end,
+                //       allDay: arg.allDay
+                //     })
+                //   }
+                //   calendar.unselect()
+                // },
+                // 이벤트 
+                events: [
+                  {
+                    title: '캡스톤 수업',
+                    start: '2022-04-13',
+                  },
+                  {
+                    title: '중간 시험',
+                    start: '2022-04-18',
+                    end: '2022-04-23'
+                  },
+                  {
+                    groupId: 999,
+                    title: '회의',
+                    start: '2022-04-11T16:00:00'
+                  },
+                  {
+                    title: 'Click for Google',
+                    url: 'http://google.com/', // 클릭시 해당 url로 이동
+                    start: '2022-04-15'
+                  }
+                ]
+              });
+              // 캘린더 랜더링
+              calendar.render();
+            });
+          })();
+        </script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+          crossorigin="anonymous"></script> -->
+      </div>
+    </div>
+  
+  </main>
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous">
+  </script>
+
+
+<!--모달 창 띄우기-->
+    <!--회원 추가 모달-->
+    <script>
+      function modal1(id) {
+          var zIndex = 9999;
+          var modal = document.getElementById(id);
+
+          // 모달 div 뒤에 희끄무레한 레이어
+          var bg = document.createElement('div');
+          bg.setStyle({
+              position: 'fixed',
+              zIndex: zIndex,
+              left: '0px',
+              top: '0px',
+              width: '100%',
+              height: '100%',
+              overflow: 'auto',
+              // 레이어 색갈은 여기서 바꾸면 됨
+              backgroundColor: 'rgba(0,0,0,0.4)'
+          });
+          document.body.append(bg);
+
+          // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+          modal.querySelector('.add_member_close_btn').addEventListener('click', function () {
+              bg.remove();
+              modal.style.display = 'none';
+          });
+
+          modal.setStyle({
+              position: 'fixed',
+              display: 'block',
+              // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+              // 시꺼먼 레이어 보다 한칸 위에 보이기
+              zIndex: zIndex + 1,
+
+              // div center 정렬
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              msTransform: 'translate(-50%, -50%)',
+              webkitTransform: 'translate(-50%, -50%)'
+          });
+      }
+
+      // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+      Element.prototype.setStyle = function (styles) {
+          for (var k in styles) this.style[k] = styles[k];
+          return this;
+      };
+
+      document.getElementById('addMember_btn').addEventListener('click', function () {
+          // 모달창 띄우기
+          modal1('addMember');
+      });
+
+
+  </script>
+  <!--회원 추가 모달-->
+
+
+  <!--공지 추가 모달-->
+  <script>
+      function modal2(id) {
+          var zIndex = 9999;
+          var modal = document.getElementById(id);
+
+          // 모달 div 뒤에 희끄무레한 레이어
+          var bg = document.createElement('div');
+          bg.setStyle({
+              position: 'fixed',
+              zIndex: zIndex,
+              left: '0px',
+              top: '0px',
+              width: '100%',
+              height: '100%',
+              overflow: 'auto',
+              // 레이어 색갈은 여기서 바꾸면 됨
+              backgroundColor: 'rgba(0,0,0,0.4)'
+          });
+          document.body.append(bg);
+
+          // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+          modal.querySelector('.add_notice_close_btn').addEventListener('click', function () {
+              bg.remove();
+              modal.style.display = 'none';
+          });
+
+          modal.setStyle({
+              position: 'fixed',
+              display: 'block',
+              // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+              // 시꺼먼 레이어 보다 한칸 위에 보이기
+              zIndex: zIndex + 1,
+
+              // div center 정렬
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              msTransform: 'translate(-50%, -50%)',
+              webkitTransform: 'translate(-50%, -50%)'
+          });
+      }
+
+      // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+      Element.prototype.setStyle = function (styles) {
+          for (var k in styles) this.style[k] = styles[k];
+          return this;
+      };
+
+      document.getElementById('addNotice_btn').addEventListener('click', function () {
+          // 모달창 띄우기
+          modal2('addNotice');
+      });
+  </script>
+  <!--공지 추가 모달-->
+
+
+  <!--일정 추가 모달-->
+  <script>
+      function modal3(id) {
+          var zIndex = 9999;
+          var modal = document.getElementById(id);
+
+          // 모달 div 뒤에 희끄무레한 레이어
+          var bg = document.createElement('div');
+          bg.setStyle({
+              position: 'fixed',
+              zIndex: zIndex,
+              left: '0px',
+              top: '0px',
+              width: '100%',
+              height: '100%',
+              overflow: 'auto',
+              // 레이어 색갈은 여기서 바꾸면 됨
+              backgroundColor: 'rgba(0,0,0,0.4)'
+          });
+          document.body.append(bg);
+
+          // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+          modal.querySelector('.add_date_close_btn').addEventListener('click', function () {
+              bg.remove();
+              modal.style.display = 'none';
+          });
+
+          modal.setStyle({
+              position: 'fixed',
+              display: 'block',
+              // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+              // 시꺼먼 레이어 보다 한칸 위에 보이기
+              zIndex: zIndex + 1,
+
+              // div center 정렬
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              msTransform: 'translate(-50%, -50%)',
+              webkitTransform: 'translate(-50%, -50%)'
+          });
+      }
+
+      // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+      Element.prototype.setStyle = function (styles) {
+          for (var k in styles) this.style[k] = styles[k];
+          return this;
+      };
+
+      document.getElementById('addDate_btn').addEventListener('click', function () {
+          // 모달창 띄우기
+          modal3('addDate');
+      });
+  </script>
+  <!--일정 추가 모달-->
+
+
 </body>
+
 </html>
+
 
 
