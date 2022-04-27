@@ -105,16 +105,18 @@ a:hover{
 	border-color: #606060;
 }
 
-/*회원삭제 버튼*/
+/*회원 삭제 버튼*/
 .delete_member_btn{
     background-color: #C3E1D2;
 	color: black;
 	border-color: #666;
 }
 
-/*회원삭제 닫기 버튼*/
+/*회원 삭제 닫기 버튼*/
 .delete_member_close_btn{
     background-color: #E0E0E0;
 	color: black;
 	border-color: #606060;
 }
+
+
