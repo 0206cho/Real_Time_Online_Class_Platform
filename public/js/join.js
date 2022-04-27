@@ -1,3 +1,13 @@
+function check(form){
+	if(form.email.value == "test@test.com" && form.password.value == "1234aa!!")
+	{
+		window.open('home.html')
+	}
+	else{
+		alert("삐빅 오류");
+	}
+}
+
 $(function () {
 	$('#login-form-link').click(function (e) {
 		$("#login-form").delay(100).fadeIn(100);
