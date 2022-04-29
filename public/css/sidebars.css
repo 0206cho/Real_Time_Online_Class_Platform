@@ -124,7 +124,7 @@ html,
       /* color: #409169; */
       color: black;
       border-radius: 10px;
-      margin: 0px 0px 10px 8px;
+      margin: 0px 0px 20px 8px;
       text-align: left;
       width: 195px;
     }
@@ -139,7 +139,7 @@ html,
       /* color: #409169; */
       color: black;
       border-radius: 10px;
-      margin: 0px 0px 10px 8px;
+      margin: 0px 0px 20px 8px;
       text-align: left;
       width: 195px;
 
@@ -155,7 +155,7 @@ html,
       /* color: #409169; */
       color: black;
       border-radius: 10px;
-      margin: 0px 0px 10px 8px;
+      margin: 0px 0px 20px 8px;
       text-align: left;
       width: 195px;
 
@@ -171,12 +171,30 @@ html,
       /* color: #409169; */
       color: black;
       border-radius: 10px;
-      margin: 0px 0px 10px 8px;
+      margin: 0px 0px 20px 8px;
       text-align: left;
       width: 195px;
 
     }
     .sbb_meeting:hover {
+      background-color: #c3d9cd;
+    }
+
+    .sbb_meeting1 {
+      padding-left: 30px;
+      background-color: transparent;
+      border: none;
+      font-size: 19px;
+      /* color: #409169; */
+      color: black;
+      border-radius: 10px;
+      margin: 0px 0px 20px 8px;
+      text-align: left;
+      width: 195px;
+
+    }
+
+    .sbb_meeting1:hover {
       background-color: #c3d9cd;
     }
 
