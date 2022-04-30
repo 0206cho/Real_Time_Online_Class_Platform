@@ -69,22 +69,23 @@
           
           <div class="mb-3">
               <!-- <br> -->
-            <div class="modal_date" style="margin: 10px;">
-              <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">시작일</label>
-                  <!-- <input type="text" class="form-control" id="noticeID" /> -->
-                  <input type="date" id="start" name="trip-start" >
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;"  >종료일</label>
-                  <!-- <input type="text" class="form-control" id="noticeID" /> -->
-                  <input type="date" id="start" name="trip-start">
-              </div>
-             <!-- <br> -->
-                  <label for="server-name" class="col-form-label" >글 입력:</label>
-                  <input type="text" class="form-control" id="notice" style="height: 190px;"/></p>
+              <div class="modal_date" >
+                <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">시작일</label>
+                <!-- <input type="text" class="form-control" id="noticeID" /> -->
+                <input type="date" id="start" name="trip-start" style="padding: 0px 31px 0px 31px;">
+                <input type="time" style="padding: 0px 31px 0px 31px;">
+                <br>
+                <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">종료일</label>
+                <!-- <input type="text" class="form-control" id="noticeID" /> -->
+                <input type="date" id="start" name="trip-start" style="padding: 0px 31px 0px 31px;">
+                <input type="time" style="padding: 0px 31px 0px 31px;">
 
-
-          </div>
-      </div>
+            </div>
+            <!-- <br> -->
+            <label for="server-name" class="col-form-label">글 입력:</label>
+            <input type="text" class="form-control" id="notice" style="height: 190px;" /></p>
+        </div>
+    </div>
       <div class="modal-footer">
           <button type="button" class="btn add_date_btn">등록하기</button>
           <button type="button" class="btn add_date_close_btn">취소</button>
@@ -92,6 +93,28 @@
       </div>
   </div>
   <!--일정 추가 모달-->
+
+   <!--채팅 추가 모달-->
+   <div id="addMsg" style="height: 260px; width: 600px;">
+    <h5 class="modal-title" style="font-weight: bold;">채팅 추가 하기</h5>
+    <div class="modal-body">
+        <div class="mb-3">
+            <label for="server-name" class="col-form-label" >채팅 추가:</label>
+                <input type="text" class="form-control" id="noticeID" />
+
+                <!-- <label for="server-name" class="col-form-label"  >글 입력:</label>
+                <input type="text" class="form-control" id="notice" style="height: 190px; white-space: pre-line;"/></p> -->
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn add_msg_btn">추가하기</button>
+        <button type="button" class="btn add_msg_close_btn">닫기</button>
+
+    </div>
+</div>
+  <!--채팅 추가 모달-->
 
 
   <main>
@@ -110,26 +133,34 @@
           <div class="row">
 
           <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./notice.html"'> -->
-          <button type="button" class="sbb_notice" data-toggle="button" onclick='location.href="./notice.html"'>
-            #공지
-          </button>
+            <button type="button" class="d-flex align-items-center sbb_notice" data-toggle="button"
+            onclick='location.href="./notice.html"'>
+            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAVZJREFUSEvtlutRQjEQRg8d2AHYgVYAVEAJYgdYgViBUAHYgVaAVAAdYAlaAczHJDOXcPO6YbzM6P7isbsn2Wc6tCSdlrikgG+AEdBLPOQX8AF8h/RjYEFXwF0i1KptgWEIHgNPgNdMqFV/BJY+2xh4Cjwb45iuZezNhxdA9rUSc3YVYO/pnStZvYvdODfVReCBKZBuJvUHkK2qu1GOZSQHaimJWuTT4ytV72geK65/8K+Gujq9UsFPwKxkVo+BRcXBLaAlUCdaIrvKH41HphbDJtWR0XMPeu9rqVBVv5t1KJ/B0zvXr8LfAH0/kxBY/do3J1aec0T5VcTWZg40AucAXd1GYO3ShxIqMAdqoxWbXAqXXiGu6Hf7QFDr+Gayb7wmjcy6S2fN5dziCkX574GVdzvBNLGCT9lLhlq+7BMn9Ul0wo9VdSjPttqzbyunJeCiFm8NfACKfksfZwgXvQAAAABJRU5ErkJggg=="/> -->
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAATBJREFUSEvtlu8NAUEQxX860AElUAEqEB3QARWgAlEBOtABKqAEOlCCvGQvuVxub2bvIiK5+bIfdnfe/H0zHX4knR/h4gXuAlOgbxj6Bk6AzkrxAj+BnqUs3D+AofXWAzwA7paiwr2AZUBUPMBj4JIIPAGufwusgpoH63XGcv0CjuGdTtVFo1DnPyt8o4i2G6C0uMST4xa4DXVWA18rLrWViCTG12ofMZbJ07LUW9VLYA1oWFSJQDfA3uopC1jeHVL6MwCq3xdVJGIBy3p5Wke2wfvSvy1wMSwaCspxHZkB59hHK9T6pwIrtpCWg11QuioZ+qruxotAmdH55cAc+mUKPB63wIqAGCzbMJR/F03mQ1c31NIhcsmfSZXfBDjj7WRvU4ZEkjeex0089uiPvvkAJ7s6H1sK7WwAAAAASUVORK5CYII="/>
+            공지
+        </button>
 
-          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./date.html"'> -->
-          <button type="button" class="sbb_date" data-toggle="button" onclick='location.href="./date.html"'>
-            #일정
-          </button>
+        <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./date.html"'> -->
+        <button type="button" class="d-flex align-items-center sbb_date" data-toggle="button" onclick='location.href="./date.html"'>
+            <img style="margin-right: 4px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARRJREFUSEvtltENgjAQhj820A10At1A3cAN1MnUDdxAnUCdQEdwBPMbIEBauIYm5YF7aVKO+67Xv+1lJLIsERcLeAbs8gTPwMeTrNXv/7sFvAauOWwD3Dxgq9/wwEvgCGiMYU/gAGgsrVnqCfAGNMa0LzBtA1f3KSZYsWr6aK64Cn4ByrSPqXILlzDbwG0KtibjVfogwVJhjFIXp8O8x9ZyWv1GcK1SrnN8BzQv0z29Aqxz1eDBpbZCXH69wHoGT3mEPaDnzzrXC2xVbZdfcKm7Alq/B4OT7XEysFVILr9RXGWj2HwW9ZI8rDIN9JtXW2NXe6vLouijA2N73dWP6/IpzddXbyN3mZdmSpaGPtaqa3GSgX/2Ymcfz/seqwAAAABJRU5ErkJggg==" />
+            일정
+        </button>
 
-          <!-- <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick='parent.right.location.href="./meeting.html"'> -->
-          <button type="button" class="sbb_meeting" data-toggle="button" onclick='location.href="#"'>  
-            -MEETING
-          </button>
+        <button type="button" class="d-flex align-items-center sbb_meeting" data-toggle="button" onclick='location.href="./chatList.html"'>  
+            <img style="margin-right: 4px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARxJREFUSEvtllERwjAMhr8pAAk4AAeAApAADnAAKMACKAAUgARwgARQAJe7dbeNsvYuDXtZ3na35Guav0kyWrKsJS4x4D4wAwaKQz6AM/B0MUJggV6AkQLqXG/A1MFD4BWwSwB1IZbAXj5CYC1znoN6eaAtsPkHWBgCP4bAJkIC3k1gMyGFwGZCCoGl6Gutmkr+hZA6cP05dVet1ZlPXN6WaX3Vd2DiGxKW4AVw+jUWLcFfZStPp9bAli2zMWMZEldgqJUzUBGSL159ERC4zE+3X4kKxx5HCSxi8ZnsVxUhxYDr//jqfgBEpSoLrT51cNEAVNSIncuBX/njl00xicVkLDUvOk4SakTGsk8ny7J86FDGqRJsfMdmEF/gD/BhUx/Ghhq2AAAAAElFTkSuQmCC"/>
+            채팅
+            </button>
 
+        <button type="button" class="d-flex align-items-center sbb_meeting1" data-toggle="button"
+            onclick='location.href="./meeting.html"'>
+            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARNJREFUSEvFl10NwkAQhL86QAooQAIWQAHgAByAA3AADsABOAAH4IBMcpc0pL3ef+elT823072d2zaMpGYkLi7wBFgDZ+CVu0AX+AIsgA+wA4454S7wDZi3YCpkZQpJriEELJjcC64ikhQKtrATsE1xHwtWATpwcq+WBCsFbGEH4z4IngMs4MO419NLucAWprHb+5Bzg8VUz9V7Z+iUANuxc4ZOKbD92r2hUxpsD97sv+81wE9gWht8BZZdCVfK8RfYAIrWTpUA343LquOki0MROqhcjnWA1MuqkamIVFgEKcXx27isei1q/5JLbSRRCnWsMVEvq64+vWEQY9lnvR0Mg9xgLfQ2faou9DFGvN8Z7d/pB+SpRh9wM0oeAAAAAElFTkSuQmCC"/> -->
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAANtJREFUSEvtlcENwjAQBCeVQAmUAJ1AJUAnUAkpATqBCkArBZRHnI3tgB/4JL/s82j3zueGQtEU4lLBP3O+Wh1r9Qq4xibpfK7Vd2CdAs8FPzu1O+AUo3wusJgH4DgVPidYTKmWehtzgwVUs20A1T8YDrwEFiP5bWBPcCkPdrwDq25769vwASmW8kH4N8GPsafmwLJaKxSXwMYN2OZY7Vx+v+P+OUE1VLKaKxZ87pS6vOyR2Ves4aFmnBSuxu6SYiOz2CdR7Ft0pUgemckXu8Tc5nL3V8UfB/7P6hdHGSQf/0lrUQAAAABJRU5ErkJggg=="/>
+            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAXpJREFUSEvFl9ExBEEURc9GQAZkgAjIgBCIABEgAyJABMiADFYGZEAG6lT1q2pTuzPdMz2792e/9Hm333t32oItabElLn3gXeASeAa+WhfYB34FToEf4BZ4aAnvA78DxxnMQi5SIZNrqAEL071wi5ikEvBn6rHXHnoCrqe4LwF/ACfAGSBwJ9EdON3bkmrVgD18P8Hz3t8n91XwWnAcfpUmPdwvk3t/izQW7OGHyf1BRnLt7krIU8BxvrCbDGbP7X1v6LQAh3tXbC8VMBg6rcDyjFjdG7OhtaHTEhwwV09gPnhH3b7PBX5JNyDPAHIQ/6kl2Kt2yFy10BtwvirhWoF1pEsDRv2mAky6lWoB7q6TEavL2dZJl4+d/vnhMEIHNdaxfbSf9jUGSJezRaY91KUrEzIive4q1Tj2syg0XH6nXs72WfT6HBTBId9fujQaR6nEcX6wa2IvN/L0CfDaMBhjueR5OxgGrcEOkWtj+mz0QT/GSPHfbO1/pz+W1GofV4i41QAAAABJRU5ErkJggg=="/> -->
+            MEETING1
+        </button>
+    </div>
 
-        </div>
-
-        
-
-      </ul>
+</ul>
       <hr>
       <div class="dropdown">
         <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
@@ -148,13 +179,13 @@
           <li><button class="dropdown-item" id="addNotice_btn">공지추가</button></li>
           <li><button class="dropdown-item" id="addDate_btn">일정추가</button></li>
           <!-- <li><a class="dropdown-item" href="#">일정추가</a></li> -->
-          <li><a class="dropdown-item" href="#">채팅추가</a></li>
+          <li><button class="dropdown-item" id="addMsg_btn">채팅추가</button></li>
           <li><button class="dropdown-item" onclick='location.href="./member.html"'>회원관리</button></li>
           <li>
               <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="#">Home</a></li>
-          <li><a class="dropdown-item" href="#">Setting</a></li>
+          <li><a class="dropdown-item" href="../previous/home.html">Home</a></li>
+          <li><a class="dropdown-item" href="../previous/systems.html">Setting</a></li>
           <li><a class="dropdown-item" href="#">Sign out</a></li>
       </ul>
   </div>
@@ -384,6 +415,63 @@
       });
   </script>
   <!--일정 추가 모달-->
+
+  <!--채팅 추가 모달-->
+  <script>
+    function modal4(id) {
+        var zIndex = 9999;
+        var modal = document.getElementById(id);
+
+        // 모달 div 뒤에 희끄무레한 레이어
+        var bg = document.createElement('div');
+        bg.setStyle({
+            position: 'fixed',
+            zIndex: zIndex,
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+            // 레이어 색갈은 여기서 바꾸면 됨
+            backgroundColor: 'rgba(0,0,0,0.4)'
+        });
+        document.body.append(bg);
+
+        // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+        modal.querySelector('.add_msg_close_btn').addEventListener('click', function () {
+            bg.remove();
+            modal.style.display = 'none';
+        });
+
+        modal.setStyle({
+            position: 'fixed',
+            display: 'block',
+            // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+            // 시꺼먼 레이어 보다 한칸 위에 보이기
+            zIndex: zIndex + 1,
+
+            // div center 정렬
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)'
+        });
+    }
+
+    // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+    Element.prototype.setStyle = function (styles) {
+        for (var k in styles) this.style[k] = styles[k];
+        return this;
+    };
+
+    document.getElementById('addMsg_btn').addEventListener('click', function () {
+        // 모달창 띄우기
+        modal4('addMsg');
+    });
+</script>
+<!--채팅 추가 모달-->
 
 
 </body>
