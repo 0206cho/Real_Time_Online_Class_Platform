@@ -1,4 +1,4 @@
-function check(form){
+/*function check(form){
 	if(form.email.value == "test@test.com" && form.password.value == "1234aa!!")
 	{
 		window.open('home.html')
@@ -7,6 +7,78 @@ function check(form){
 		alert("삐빅 오류");
 	}
 }
+*/
+
+// 회원가입
+$(function(){
+	$('#register-submit').on("click",function () {
+		var formregister = $("#register-form").serialize();
+
+		console.log(formregister);
+		var form_data = {
+			"name": $('#rr_name').val(),
+			"email": $('#r_email').val(),
+			"pwd": $('#r_password').val(),
+			// pwd_con: $('#r_confirm-password').val(),
+			"tel": $('#r_phone').val()
+		};
+		$.ajax({
+			type: "post",
+			url: "http://49.50.174.207:5000/auth/signup",
+			data: form_data,
+			dataType: 'json',
+			success: function (data) {
+				alert("success");
+				console.log(data);
+			},
+			error: function (request, status, error) {
+				console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		});
+	});
+});
+// let index = {
+// 	init: function () {
+// 		$("#register-submit").on("click", () => { // function(){} 대신 ()=>{} 를 쓴 이유 : this를 바인딩하기 위해서
+// 			this.save();
+// 		});
+// 	},
+
+// 	save: function () {
+// 		// alert('user의 save함수 호출됨');
+// 		let data = {
+
+// 			name: $('#r_name').val(),
+// 			email: $('#r_email').val(),
+// 			pwd: $('#r_password').val(),
+// 			// pwd_con: $('#r_confirm-password').val(),
+// 			tel: $('#r_phone').val()
+// 		};
+// 		// console.log(data);
+
+// 		// ajax 호출시 default가 비동기 호출 -> 순서 상관없음
+// 		// ajax 통신을 이용해서 3개의 데이터를 json으로 변경하여 insert 요청
+// 		// ajax가 통신을 성공하고 서버가 json을 리턴해주면 자동으로 자바 오브젝트로 변환
+// 		$.ajax({
+// 			// 회원가입 수행 요청
+// 			type: "POST",
+// 			url: "http://49.50.174.207:5000/auth/signup",
+// 			data: JSON.stringify(data), // http body 데이터
+// 			contentType: "application/json; charset=utf-8", // body 데이터가 어떤 타입인지 (MIME)
+// 			dataType: "json" // 요청을 서버로 해서 응답이 왔을 때 기본적으로 모든 것이 String(문자열), 만약 생긴게 json이라면 javascript 오브젝트로 변경
+// 		}).done(function (resp) {
+// 			// 결과가 정상이면 done 실행
+// 			alert("회원가입이 완료되었습니다.");
+// 			//console.log(resp);
+// 			location.href = "/views/join.html";
+// 		}).fail(function (error) {
+// 			// 실패하면 fail 실행
+// 			alert("회원가입이 실패하였습니다.");
+// 			alert(JSON.stringify(error));
+// 		});
+// 	}
+// }
+// index.init();
 
 $(function () {
 	$('#login-form-link').click(function (e) {
@@ -27,7 +99,7 @@ $(function () {
 });
 
 // 로그인 - 이메일 유효성 검사
-$("#email").focusout(function () {
+/*$("#email").focusout(function () {
 	var val = $(this).val(),
 		regex = /^\S+@\S+$/i;
 
@@ -60,7 +132,7 @@ $("#password").focusout(function () {
 		$(".msg_password").text("");
 	}
 });
-
+*/
 // 회원가입 - 이름 유효성 검사
 $("#r_name").focusout(function () {
 	var val = $(this).val()

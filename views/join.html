@@ -38,15 +38,17 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<!--로그인-->
-								<form id="login-form" method="post" role="form"
+								<form id="login-form" method="post" action="http://49.50.174.207:5000/auth/login" role="form"
 									style="display: block;">
 									<!--이메일-->
 									<div class="form-group">
+										<div style="color:red;"><%= msg%></div>
 										<input type="email" name="email" id="email" tabindex="1" class="form-control"
 											placeholder="이메일" value="">
 										<div class="msg_email">
 											<span class="msg_email" style='color:black'></span>
 										</div>
+										
 									</div>
 									<!--비밀번호-->
 									<div class="form-group">
@@ -108,11 +110,11 @@
 
 
 								<!--회원가입-->
-								<form id="register-form" action="https://phpoll.com/register/process" method="post"
+								<form id="register-form" action="http://49.50.174.207:5000/auth/signup" method="post"
 									role="form" style="display: none;">
 									<!--이름-->
 									<div class="form-group">
-										<input type="text" name="r_name" id="r_name" tabindex="1" class="form-control"
+										<input type="text" name="name" id="r_name" tabindex="1" class="form-control"
 											placeholder="이름" value="">
 										<div class="msg_r_name">
 											<span class="msg_r_name" style='color:black'></span>
@@ -122,7 +124,7 @@
 									<!--이메일-->
 									<div class="form-group">
 										<div class="in-line">
-											<input type="email" name="r_email" id="r_email" tabindex="1"
+											<input type="email" name="email" id="r_email" tabindex="1"
 												class="form-control" placeholder="이메일" value="">
 											<!--이메일 중복확인-->
 											<input type="button" id="email_check" name="check" value="중복확인"
@@ -139,7 +141,7 @@
 									</div>
 									<!--비밀번호-->
 									<div class="form-group">
-										<input type="password" name="r_password" id="r_password" tabindex="2"
+										<input type="password" name="pwd" id="r_password" tabindex="2"
 											class="form-control" placeholder="비밀번호">
 										<div class="msg_r_password">
 											<span class="msg_r_password" style='color:black'></span>
@@ -155,7 +157,7 @@
 									</div>
 									<!--전화번호-->
 									<div class="form-group">
-										<input type="text" name="r_phone" id="r_phone" tabindex="2" class="form-control"
+										<input type="text" name="tel" id="r_phone" tabindex="2" class="form-control"
 											placeholder="전화번호">
 										<div class="msg_r_phone">
 											<span class="msg_r_phone" style='color:black'></span>
