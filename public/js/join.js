@@ -1,84 +1,165 @@
-/*function check(form){
-	if(form.email.value == "test@test.com" && form.password.value == "1234aa!!")
-	{
-		window.open('home.html')
-	}
-	else{
-		alert("삐빅 오류");
-	}
-}
-*/
+// 로그인
+$(function () {
+	$('#login-submit').click(() => {
+		var email = $('#email').val();
+		var password = $('#password').val();
 
-// 회원가입
-$(function(){
-	$('#register-submit').on("click",function () {
-		var formregister = $("#register-form").serialize();
-
-		console.log(formregister);
-		var form_data = {
-			"name": $('#rr_name').val(),
-			"email": $('#r_email').val(),
-			"pwd": $('#r_password').val(),
-			// pwd_con: $('#r_confirm-password').val(),
-			"tel": $('#r_phone').val()
-		};
 		$.ajax({
-			type: "post",
-			url: "http://49.50.174.207:5000/auth/signup",
-			data: form_data,
-			dataType: 'json',
-			success: function (data) {
-				alert("success");
-				console.log(data);
+			url: 'http://49.50.174.207:5000/login',
+			type: 'post',
+			data: {
+				'email': email,
+				'pwd': password,
 			},
-			error: function (request, status, error) {
-				console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			success: function (res) {
+				console.log(res)
+				let result = res.result;
+				let msg = res.msg;
+
+				if (result == 1) {
+					alert(msg)
+					location.href = './home.html';
+
+				} else {
+					alert(msg)
+					$(".msg_login").text(msg);
+					$(".msg_login").css('color', 'red');
+				}
+			},
+			error: function (error) {
+				console.log(error)
+			},
+			complete: function (data) {
+
 			}
 		});
 	});
 });
-// let index = {
-// 	init: function () {
-// 		$("#register-submit").on("click", () => { // function(){} 대신 ()=>{} 를 쓴 이유 : this를 바인딩하기 위해서
-// 			this.save();
-// 		});
-// 	},
 
-// 	save: function () {
-// 		// alert('user의 save함수 호출됨');
-// 		let data = {
+// 회원가입
+$(function () {
+	$('#register-submit').click(() => {
+		var email_check_result = $('#email_check_result').val() // 이메일 중복 확인
+		var pwd_check_result = $('#r_password').val(); //Password 같은지 여부
+		var pwd_confirm_check_result = $('#r_confirm-password').val();
+		var name_check_result = $('#r_name').val();   //이름
+		var phone_check_result = $('#r_phone').val();   //전화번호
+		var password_pattern = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,20}$/; //비밀번호 유효성
+		var phone_pattern = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/; // 전화번호 유효성
 
-// 			name: $('#r_name').val(),
-// 			email: $('#r_email').val(),
-// 			pwd: $('#r_password').val(),
-// 			// pwd_con: $('#r_confirm-password').val(),
-// 			tel: $('#r_phone').val()
-// 		};
-// 		// console.log(data);
+		//이메일 중복체크 검사했는지
+		if (email_check_result != "1") { // 이메일 중복 확인 X
+			alert("이메일 중복체크를 해주시기 바랍니다.");
+			return false;
+		}
+		// 이름 유효성 검사
+		if (!name_check_result) {
+			$("#r_name").focusout(); // 이름 유효성 검사
+			return false;
+		}
+		// 비밀번호 일치 확인
+		if (pwd_check_result != pwd_confirm_check_result || !(password_pattern.test(pwd_check_result))) {
+			$("#r_password").focusout(); // 비밀번호 유효성 검사
+			$("#r_confirm-password").focusout(); // 비밀번호확인 유효성 검사
+			return false;
+		}
+		// 전화번호 유효성 검사
+		if (!phone_check_result || !(phone_pattern.test(phone_check_result))) {
+			$("#r_phone").focusout(); // 이름 유효성 검사
+			return false;
+		}
+		alert("유효성 성공");
 
-// 		// ajax 호출시 default가 비동기 호출 -> 순서 상관없음
-// 		// ajax 통신을 이용해서 3개의 데이터를 json으로 변경하여 insert 요청
-// 		// ajax가 통신을 성공하고 서버가 json을 리턴해주면 자동으로 자바 오브젝트로 변환
-// 		$.ajax({
-// 			// 회원가입 수행 요청
-// 			type: "POST",
-// 			url: "http://49.50.174.207:5000/auth/signup",
-// 			data: JSON.stringify(data), // http body 데이터
-// 			contentType: "application/json; charset=utf-8", // body 데이터가 어떤 타입인지 (MIME)
-// 			dataType: "json" // 요청을 서버로 해서 응답이 왔을 때 기본적으로 모든 것이 String(문자열), 만약 생긴게 json이라면 javascript 오브젝트로 변경
-// 		}).done(function (resp) {
-// 			// 결과가 정상이면 done 실행
-// 			alert("회원가입이 완료되었습니다.");
-// 			//console.log(resp);
-// 			location.href = "/views/join.html";
-// 		}).fail(function (error) {
-// 			// 실패하면 fail 실행
-// 			alert("회원가입이 실패하였습니다.");
-// 			alert(JSON.stringify(error));
-// 		});
-// 	}
-// }
-// index.init();
+		var form_data = {
+			"name": $('#r_name').val(),
+			"email": $('#r_email').val(),
+			"pwd": $('#r_password').val(),
+			"tel": $('#r_phone').val()
+		};
+		$.ajax({
+			type: "post",
+			url: "http://49.50.174.207:5000/signup",
+			data: form_data,
+			dataType: 'json',
+			success: function (res) {
+				let result = res.result;
+				let msg = res.msg;
+				alert("success");
+
+				if (result == 1) {
+					alert(msg)
+					location.href = './join.html';
+
+				} else {
+					alert(msg)
+					location.href = './join.html';
+				}
+
+				location.href = './join.html';
+			},
+			error: function (request, status, error) {
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+		});
+		return;
+	});
+});
+
+// 이메일 중복 확인
+$(function () {
+	$('#email_check').click(() => {
+		var email = $('#r_email').val();
+		console.log("ddd", email)
+		$.ajax({
+			type: "post",
+			url: "http://49.50.174.207:5000/emailCheck",
+			data: { 'email': email },
+
+			success: function (res) {
+				let result = res.result;
+				let msg = res.msg;
+				var val = $(r_email).val(),
+					regex = /^\S+@\S+$/i;
+				console.log(msg)
+				console.log(res)
+				console.log(result)
+				console.log(val)
+
+				if (val == "" | val == null) {
+					$(".msg_r_email").text("이메일을 입력해주시길 바랍니다.");
+					$(".msg_r_email").css('color', 'red');
+				}
+				else if (!regex.test(val)) {
+					$(".msg_r_email").text("양식에 맞춰서 입력해주시길 바랍니다. ex) test@test.com");
+					$(".msg_r_email").css('color', 'red');
+				}
+				else if (result == 1) {
+					$(".msg_r_email").text(msg);
+					$(".msg_r_email").css('color', 'green');
+					$('.r_email').attr("email_check_result", "success");
+					console.log(msg)
+					document.getElementById("email_check_result").value = "1"; //중복확인을 했다는 flag
+				}
+				else if (result == -1) {
+					$(".msg_r_email").text(msg);
+					$(".msg_r_email").css('color', 'red');
+					$('.r_email').attr("email_check_result", "fail");
+					document.getElementById("email_check_result").value = "0"; //중복확인을 하지 않았다는 flag
+				}
+			},
+
+			error: function (error) {
+				console.log(error)
+			}
+		});
+		console.log(msg);
+	});
+});
+
+//emailCheck flag를 초기화 해주는 함수
+function init_emailCheck() {
+	document.getElementById("email_check_result").value = "0";
+}
 
 $(function () {
 	$('#login-form-link').click(function (e) {
@@ -102,7 +183,7 @@ $(function () {
 /*$("#email").focusout(function () {
 	var val = $(this).val(),
 		regex = /^\S+@\S+$/i;
-
+ 
 	if (val == "" | val == null) {
 		$(".msg_email").text("이메일을 입력해주시길 바랍니다.");
 		$(".msg_email").css('color', 'red');
@@ -115,7 +196,7 @@ $(function () {
 		$(".msg_email").text("");
 	}
 });
-
+ 
 // 로그인 - 비밀번호 유효성 검사
 $("#password").focusout(function () {
 	var val = $(this).val(),
@@ -140,6 +221,7 @@ $("#r_name").focusout(function () {
 	if (val == "" | val == null) {
 		$(".msg_r_name").text("이름을 입력해주시길 바랍니다.");
 		$(".msg_r_name").css('color', 'red');
+		return false;
 	}
 	else {
 		$(".msg_r_name").text("");
@@ -154,10 +236,12 @@ $("#r_email").focusout(function () {
 	if (val == "" | val == null) {
 		$(".msg_r_email").text("이메일을 입력해주시길 바랍니다.");
 		$(".msg_r_email").css('color', 'red');
+		return false;
 	}
 	else if (!regex.test(val)) {
 		$(".msg_r_email").text("양식에 맞춰서 입력해주시길 바랍니다. ex) test@test.com");
 		$(".msg_r_email").css('color', 'red');
+		return false;
 	}
 	else {
 		$(".msg_r_email").text("");
@@ -171,10 +255,12 @@ $("#r_password").focusout(function () {
 	if (val == "" | val == null) {
 		$(".msg_r_password").text("비밀번호를 입력해주시길 바랍니다.");
 		$(".msg_r_password").css('color', 'red');
+		return false;
 	}
 	else if (!regex.test(val)) {
 		$(".msg_r_password").text("비밀번호는 8~16자 영문 소문자, 숫자, 특수문자를 사용하세요.");
 		$(".msg_r_password").css('color', 'red');
+		return false;
 	}
 	else {
 		$(".msg_r_password").text("");
@@ -190,10 +276,12 @@ $("#r_confirm-password").focusout(function () {
 	if (val == "" | val == null) {
 		$(".msg_r_confirm-password").text("비밀번호를 확인해주시길 바랍니다.");
 		$(".msg_r_confirm-password").css('color', 'red');
+		return false;
 	}
 	else if (val != orgin) {
 		$(".msg_r_confirm-password").text("비밀번호가 일치하지 않습니다.");
 		$(".msg_r_confirm-password").css('color', 'red');
+		return false;
 	}
 	else {
 		$(".msg_r_confirm-password").text("비밀번호가 일치합니다.");
@@ -208,10 +296,12 @@ $("#r_phone").focusout(function () {
 	if (val == "" | val == null) {
 		$(".msg_r_phone").text("전화번호를 입력해주시길 바랍니다.");
 		$(".msg_r_phone").css('color', 'red');
+		return false;
 	}
 	else if (!regex.test(val)) {
 		$(".msg_r_phone").text("양식에 맞춰서 입력해주시길 바랍니다.ex) 010-1234-5678");
 		$(".msg_r_phone").css('color', 'red');
+		return false;
 	}
 	else {
 		$(".msg_r_phone").text("");
