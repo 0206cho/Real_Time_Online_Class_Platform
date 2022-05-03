@@ -60,3 +60,9 @@ a.nav-link:active {
 	color: black;
 	border-color: #606060;
 }
+/*모달 적용 버튼*/
+.btn-modal {
+	background-color: #C3E1D2;
+	color: black;
+	border-color: #666;
+}

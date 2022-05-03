@@ -18,11 +18,24 @@
   <!------ Include the above in your HEAD tag ---------->
 </head>
 
-<body>
+<body style="background:#C3E1D2">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-login">
+        <div id="drdr" style="text-align : center; color: #409169; font-weight: bold; font-size: 6ch;">ㄷ ㄹ ㄷ ㄹ</div>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        <style>
+          #drdr {
+            font-family: 'Jua', sans-serif;
+          }
+        </style>
+        <br>
+        <div class="panel panel-login" style="padding-top: 2rem; padding-left: 2rem; padding-right: 2rem;">
+          <!-- <img src="../public/imgs/logo.png"  style="text-align : center;  width: 100%;"class="figure-img img-fluid rounded"
+           alt="민솔이와 학교 유령들" > -->
+
           <div class="panel-heading">
             <div class="row">
               <div class="col-xs-6">
@@ -126,17 +139,12 @@
                   <!--이메일-->
                   <div class="form-group">
                     <div class="in-line">
-                      <input onkeyup="init_emailCheck();" type="email" name="email" id="r_email" tabindex="1" class="form-control" placeholder="이메일"
-                        value="">
+                      <input onkeyup="init_emailCheck();" type="email" name="email" id="r_email" tabindex="1"
+                        class="form-control" placeholder="이메일" value="">
                       <!--이메일 중복확인-->
                       <button id="email_check" name="email_check">중복확인</button>
                       <input type="hidden" name="email_check_result" id="email_check_result" value="0">
                     </div>
-                    <!-- <script>
-											function showEvent() {
-												alert("사용가능한 이메일입니다.");
-											}
-										</script> -->
                     <div class="msg_r_email" id="msg_r_email">
                       <span class="msg_r_email" style='color:black'></span>
                     </div>
