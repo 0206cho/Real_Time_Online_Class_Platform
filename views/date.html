@@ -33,6 +33,37 @@
       padding-right: 1em;
     }
 
+    .fc-button{
+        background-color: white !important;
+        border-color: #C9E0D3  !important;
+        border-width : 2px	!important;
+        color: #000 !important;
+	font-weight: bold 			!important;
+
+    }
+    
+    .fc-today-button {
+        color: #409169 !important;
+    }
+
+    /* .fc-prev-button:hover {
+        background-color: #c3d9cd !important;
+    }
+
+    .fc-next-button:hover {
+        background-color: #c3d9cd !important;
+    } */
+
+    /*month/week/day*/
+  .fc-button-active{
+	/* border-color: #ffc107 		!important; */
+	background-color: #C9E0D3	!important;
+	border-color: #C9E0D3 	!important;
+	border-width : 3px	!important;
+	color: #000		!important;
+	font-weight: bold 			!important;
+  }
+
 
   </style>
 </head>
@@ -43,10 +74,10 @@
   <!--모달-->
     <!--회원 추가 모달-->
     <div id="addMember" style="height: 270px; width: 600px;">
-      <h5 class="modal-title" style="font-weight: bold;">회원 추가 하기</h5>
+      <h5 class="modal-title" style="font-weight: bold;">학생 추가 하기</h5>
       <div class="modal-body">
           <div class="mb-3">
-              <label for="server-name" class="col-form-label">회원 아이디:</label>
+              <label for="server-name" class="col-form-label">학생 아이디:</label>
               <input type="text" class="form-control" id="memberID">
           </div>
       </div>
@@ -138,6 +169,33 @@
   <!--채팅 추가 모달-->
 
 
+
+
+  <!--이벤트 모달-->
+  <div id="modal_event" style="height: 255px; width: 450px;">
+    <h5 class="modal-title" style="font-weight: bold;">캡스톤 수업</h5>
+    <div class="modal-body">
+        <div class="mb-3">
+            <label for="server-name" class="col-form-label" >시작 시간 : 19:00 ~ 종료시간 : 20:35</label>
+            <br><label for="server-name" class="col-form-label" >진행 상황 : 진행 중</label>
+            <!-- <br>
+            <label for="server-name" class="col-form-label" >종료 시간 : 20:35</label> -->
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn event_btn">참여하기</button>
+        <button type="button" class="btn event_close_btn">닫기</button>
+
+    </div>
+</div>
+  <!--이벤트 모달-->
+
+
+
+
+
+
+
   <main>
 
     <div class="d-flex flex-column flex-shrink-0 p-3 " style="width: 220px; background-color: #C9E0D3" >
@@ -172,13 +230,10 @@
             채팅
             </button>
 
-        <button type="button" class="d-flex align-items-center sbb_meeting1" data-toggle="button"
+        <!-- <button type="button" class="d-flex align-items-center sbb_meeting1" data-toggle="button"
             onclick='location.href="./meeting.html"'>
-            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARNJREFUSEvFl10NwkAQhL86QAooQAIWQAHgAByAA3AADsABOAAH4IBMcpc0pL3ef+elT823072d2zaMpGYkLi7wBFgDZ+CVu0AX+AIsgA+wA4454S7wDZi3YCpkZQpJriEELJjcC64ikhQKtrATsE1xHwtWATpwcq+WBCsFbGEH4z4IngMs4MO419NLucAWprHb+5Bzg8VUz9V7Z+iUANuxc4ZOKbD92r2hUxpsD97sv+81wE9gWht8BZZdCVfK8RfYAIrWTpUA343LquOki0MROqhcjnWA1MuqkamIVFgEKcXx27isei1q/5JLbSRRCnWsMVEvq64+vWEQY9lnvR0Mg9xgLfQ2faou9DFGvN8Z7d/pB+SpRh9wM0oeAAAAAElFTkSuQmCC"/> -->
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAANtJREFUSEvtlcENwjAQBCeVQAmUAJ1AJUAnUAkpATqBCkArBZRHnI3tgB/4JL/s82j3zueGQtEU4lLBP3O+Wh1r9Qq4xibpfK7Vd2CdAs8FPzu1O+AUo3wusJgH4DgVPidYTKmWehtzgwVUs20A1T8YDrwEFiP5bWBPcCkPdrwDq25769vwASmW8kH4N8GPsafmwLJaKxSXwMYN2OZY7Vx+v+P+OUE1VLKaKxZ87pS6vOyR2Ves4aFmnBSuxu6SYiOz2CdR7Ft0pUgemckXu8Tc5nL3V8UfB/7P6hdHGSQf/0lrUQAAAABJRU5ErkJggg=="/>
-            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAXpJREFUSEvFl9ExBEEURc9GQAZkgAjIgBCIABEgAyJABMiADFYGZEAG6lT1q2pTuzPdMz2792e/9Hm333t32oItabElLn3gXeASeAa+WhfYB34FToEf4BZ4aAnvA78DxxnMQi5SIZNrqAEL071wi5ikEvBn6rHXHnoCrqe4LwF/ACfAGSBwJ9EdON3bkmrVgD18P8Hz3t8n91XwWnAcfpUmPdwvk3t/izQW7OGHyf1BRnLt7krIU8BxvrCbDGbP7X1v6LQAh3tXbC8VMBg6rcDyjFjdG7OhtaHTEhwwV09gPnhH3b7PBX5JNyDPAHIQ/6kl2Kt2yFy10BtwvirhWoF1pEsDRv2mAky6lWoB7q6TEavL2dZJl4+d/vnhMEIHNdaxfbSf9jUGSJezRaY91KUrEzIive4q1Tj2syg0XH6nXs72WfT6HBTBId9fujQaR6nEcX6wa2IvN/L0CfDaMBhjueR5OxgGrcEOkWtj+mz0QT/GSPHfbO1/pz+W1GofV4i41QAAAABJRU5ErkJggg=="/> -->
-            MEETING1
-        </button>
+            -MEETING1
+        </button> -->
     </div>
 
 </ul>
@@ -196,19 +251,19 @@
           <!-- <li><a id="popup_open_btn">회원추가</a></li> -->
 
 
-          <li><button class="dropdown-item" id="addMember_btn">회원추가</button></li>
+          <li><button class="dropdown-item" id="addMember_btn">학생추가</button></li>
           <li><button class="dropdown-item" id="addNotice_btn">공지추가</button></li>
           <li><button class="dropdown-item" id="addDate_btn">일정추가</button></li>
           <!-- <li><a class="dropdown-item" href="#">일정추가</a></li> -->
           <li><button class="dropdown-item" id="addMsg_btn">채팅추가</button></li>
-          <li><button class="dropdown-item" onclick='location.href="./member.html"'>회원관리</button></li>
+          <li><button class="dropdown-item" onclick='location.href="./member.html"'>학생관리</button></li>
           <li>
               <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="../previous/home.html">Home</a></li>
-          <li><a class="dropdown-item" href="../previous/systems.html">Setting</a></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
+            </li>
+            <li><a class="dropdown-item" href="./home.html">홈으로</a></li>
+            <li><a class="dropdown-item" href="./systems.html">설정</a></li>
+            <li><a class="dropdown-item" href="#">로그아웃</a></li>
+        </ul>
   </div>
 
 </div>
@@ -249,7 +304,7 @@
                   right: 'dayGridMonth,timeGridWeek'
                 },
                 initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-                navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+                // navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
                 editable: false, // 수정 가능?
                 // selectable: true, // 달력 일자 드래그 설정가능
                 nowIndicator: true, // 현재 시간 마크
@@ -264,18 +319,70 @@
                 eventRemove: function (obj) { // 이벤트가 삭제되면 발생하는 이벤트
                   console.log(obj);
                 },
-                // select: function (arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
-                //   var title = prompt('Event Title:');
-                //   if (title) {
-                //     calendar.addEvent({
-                //       title: title,
-                //       start: arg.start,
-                //       end: arg.end,
-                //       allDay: arg.allDay
-                //     })
-                //   }
-                //   calendar.unselect()
-                // },
+    //             eventClick: function(obj) {
+	// 	insertModalOpen(obj);	//이벤트 클릭 시 모달 호출
+    //   },
+
+    eventClick: function(obj) {
+    // alert('Event: ' + info.event.title);
+    // prompt('Event: ' + info.event.title);
+    // modal10();
+
+    // eventClick: function modal10() {
+
+    function modal10(id) {
+        var zIndex = 9999;
+        var modal = document.getElementById(id);
+
+        // 모달 div 뒤에 희끄무레한 레이어
+        var bg = document.createElement('div');
+        bg.setStyle({
+            position: 'fixed',
+            zIndex: zIndex,
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%',
+            overflow: 'auto',
+            // 레이어 색갈은 여기서 바꾸면 됨
+            backgroundColor: 'rgba(0,0,0,0.4)'
+        });
+        document.body.append(bg);
+
+        // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+        modal.querySelector('.event_close_btn').addEventListener('click', function () {
+            bg.remove();
+            modal.style.display = 'none';
+        });
+
+        modal.setStyle({
+            position: 'fixed',
+            display: 'block',
+            // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+            // 시꺼먼 레이어 보다 한칸 위에 보이기
+            zIndex: zIndex + 1,
+
+            // div center 정렬
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            msTransform: 'translate(-50%, -50%)',
+            webkitTransform: 'translate(-50%, -50%)'
+        });
+    }
+
+    // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+    Element.prototype.setStyle = function (styles) {
+        for (var k in styles) this.style[k] = styles[k];
+        return this;
+    };
+
+        // 모달창 띄우기
+        modal10('modal_event');
+
+  },
+       
                 // 이벤트 
                 events: [
                   {
@@ -296,6 +403,10 @@
                     title: 'Click for Google',
                     url: 'http://google.com/', // 클릭시 해당 url로 이동
                     start: '2022-04-15'
+                  },
+                  {
+                    title: '캡스톤 수업',
+                    start: '2022-05-04',
                   }
                 ]
               });
@@ -555,6 +666,7 @@
     });
 </script>
 <!--채팅 추가 모달-->
+
 
 </body>
 

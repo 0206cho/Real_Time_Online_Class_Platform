@@ -38,6 +38,14 @@
     border-radius: 3px;
 }
 
+#modal_event{
+    display: none;
+    padding: 20px 60px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 3px;
+}
+
 
 html,
 body {
@@ -136,6 +144,20 @@ a:hover{
 
 /*채팅 추가 닫기 버튼*/
 .add_msg_close_btn{
+    background-color: #E0E0E0;
+	color: black;
+	border-color: #606060;
+}
+
+/*이벤트 버튼*/
+.event_btn{
+    background-color: #C3E1D2;
+	color: black;
+	border-color: #666;
+}
+
+/*이벤트 닫기 버튼*/
+.event_close_btn{
     background-color: #E0E0E0;
 	color: black;
 	border-color: #606060;

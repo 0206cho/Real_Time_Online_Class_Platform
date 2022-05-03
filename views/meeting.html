@@ -22,10 +22,10 @@
   <!--모달-->
     <!--회원 추가 모달-->
     <div id="addMember" style="height: 270px; width: 600px;">
-      <h5 class="modal-title" style="font-weight: bold;">회원 추가 하기</h5>
+      <h5 class="modal-title" style="font-weight: bold;">학생 추가 하기</h5>
       <div class="modal-body">
           <div class="mb-3">
-              <label for="server-name" class="col-form-label">회원 아이디:</label>
+              <label for="server-name" class="col-form-label">학생 아이디:</label>
               <input type="text" class="form-control" id="memberID">
           </div>
       </div>
@@ -152,13 +152,7 @@
             채팅
             </button>
 
-        <button type="button" class="d-flex align-items-center sbb_meeting1" data-toggle="button"
-            onclick='location.href="./meeting.html"'>
-            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARNJREFUSEvFl10NwkAQhL86QAooQAIWQAHgAByAA3AADsABOAAH4IBMcpc0pL3ef+elT823072d2zaMpGYkLi7wBFgDZ+CVu0AX+AIsgA+wA4454S7wDZi3YCpkZQpJriEELJjcC64ikhQKtrATsE1xHwtWATpwcq+WBCsFbGEH4z4IngMs4MO419NLucAWprHb+5Bzg8VUz9V7Z+iUANuxc4ZOKbD92r2hUxpsD97sv+81wE9gWht8BZZdCVfK8RfYAIrWTpUA343LquOki0MROqhcjnWA1MuqkamIVFgEKcXx27isei1q/5JLbSRRCnWsMVEvq64+vWEQY9lnvR0Mg9xgLfQ2faou9DFGvN8Z7d/pB+SpRh9wM0oeAAAAAElFTkSuQmCC"/> -->
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAANtJREFUSEvtlcENwjAQBCeVQAmUAJ1AJUAnUAkpATqBCkArBZRHnI3tgB/4JL/s82j3zueGQtEU4lLBP3O+Wh1r9Qq4xibpfK7Vd2CdAs8FPzu1O+AUo3wusJgH4DgVPidYTKmWehtzgwVUs20A1T8YDrwEFiP5bWBPcCkPdrwDq25769vwASmW8kH4N8GPsafmwLJaKxSXwMYN2OZY7Vx+v+P+OUE1VLKaKxZ87pS6vOyR2Ves4aFmnBSuxu6SYiOz2CdR7Ft0pUgemckXu8Tc5nL3V8UfB/7P6hdHGSQf/0lrUQAAAABJRU5ErkJggg=="/>
-            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAXpJREFUSEvFl9ExBEEURc9GQAZkgAjIgBCIABEgAyJABMiADFYGZEAG6lT1q2pTuzPdMz2792e/9Hm333t32oItabElLn3gXeASeAa+WhfYB34FToEf4BZ4aAnvA78DxxnMQi5SIZNrqAEL071wi5ikEvBn6rHXHnoCrqe4LwF/ACfAGSBwJ9EdON3bkmrVgD18P8Hz3t8n91XwWnAcfpUmPdwvk3t/izQW7OGHyf1BRnLt7krIU8BxvrCbDGbP7X1v6LQAh3tXbC8VMBg6rcDyjFjdG7OhtaHTEhwwV09gPnhH3b7PBX5JNyDPAHIQ/6kl2Kt2yFy10BtwvirhWoF1pEsDRv2mAky6lWoB7q6TEavL2dZJl4+d/vnhMEIHNdaxfbSf9jUGSJezRaY91KUrEzIive4q1Tj2syg0XH6nXs72WfT6HBTBId9fujQaR6nEcX6wa2IvN/L0CfDaMBhjueR5OxgGrcEOkWtj+mz0QT/GSPHfbO1/pz+W1GofV4i41QAAAABJRU5ErkJggg=="/> -->
-            MEETING1
-        </button>
+ 
     </div>
 
 </ul>
@@ -176,19 +170,19 @@
           <!-- <li><a id="popup_open_btn">회원추가</a></li> -->
 
 
-          <li><button class="dropdown-item" id="addMember_btn">회원추가</button></li>
+          <li><button class="dropdown-item" id="addMember_btn">학생추가</button></li>
           <li><button class="dropdown-item" id="addNotice_btn">공지추가</button></li>
           <li><button class="dropdown-item" id="addDate_btn">일정추가</button></li>
           <!-- <li><a class="dropdown-item" href="#">일정추가</a></li> -->
           <li><button class="dropdown-item" id="addMsg_btn">채팅추가</button></li>
-          <li><button class="dropdown-item" onclick='location.href="./member.html"'>회원관리</button></li>
+          <li><button class="dropdown-item" onclick='location.href="./member.html"'>학생관리</button></li>
           <li>
               <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="../previous/home.html">Home</a></li>
-          <li><a class="dropdown-item" href="../previous/systems.html">Setting</a></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
+            </li>
+            <li><a class="dropdown-item" href="./home.html">홈으로</a></li>
+            <li><a class="dropdown-item" href="./systems.html">설정</a></li>
+            <li><a class="dropdown-item" href="#">로그아웃</a></li>
+        </ul>
   </div>
 
 </div>
