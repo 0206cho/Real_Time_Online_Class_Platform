@@ -4,8 +4,11 @@ $(function () {
 		var email = $('#email').val();
 		var password = $('#password').val();
 
+		console.log(email)
+		console.log(password)
+
 		$.ajax({
-			url: 'http://49.50.174.207:5000/login',
+			url: 'https://49.50.174.207:5000/login',
 			type: 'post',
 			data: {
 				'email': email,
@@ -68,7 +71,6 @@ $(function () {
 			$("#r_phone").focusout(); // 이름 유효성 검사
 			return false;
 		}
-		alert("유효성 성공");
 
 		var form_data = {
 			"name": $('#r_name').val(),
@@ -78,13 +80,13 @@ $(function () {
 		};
 		$.ajax({
 			type: "post",
-			url: "http://49.50.174.207:5000/signup",
+			url: "https://49.50.174.207:5000/signup",
 			data: form_data,
 			dataType: 'json',
 			success: function (res) {
 				let result = res.result;
 				let msg = res.msg;
-				alert("success");
+				// alert("success");
 
 				if (result == 1) {
 					alert(msg)
@@ -112,7 +114,7 @@ $(function () {
 		console.log("ddd", email)
 		$.ajax({
 			type: "post",
-			url: "http://49.50.174.207:5000/emailCheck",
+			url: "https://49.50.174.207:5000/emailCheck",
 			data: { 'email': email },
 
 			success: function (res) {
