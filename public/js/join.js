@@ -1,6 +1,7 @@
 // 로그인
 $(function () {
 	$('#login-submit').click(() => {
+
 		var email = $('#email').val();
 		var password = $('#password').val();
 
@@ -18,16 +19,19 @@ $(function () {
 				console.log(res)
 				let result = res.result;
 				let msg = res.msg;
+				// let token = res.accessToken;
+				if (result = 1) {
+					// $.cookie('token', token);
+					// $.cookie('token', token, { path: './home.html' }); // 쿠키 설정
 
-				if (result == 1) {
+					localStorage.setItem("access_token", res['accessToken']) // 서버스토리지
 					alert(msg)
 					location.href = './home.html';
-
 				} else {
 					alert(msg)
-					$(".msg_login").text(msg);
-					$(".msg_login").css('color', 'red');
 				}
+				$(".msg_login").text(msg);
+				$(".msg_login").css('color', 'red');
 			},
 			error: function (error) {
 				console.log(error)
