@@ -51,7 +51,7 @@ $(() => {
           "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/server/calendar?srv_id=33&c_id=" + c_id,//  url
+        url: "https://49.50.174.207:5000/server/calendar?srv_id=40&c_id=" + c_id,//  url
         dataType: "json",
         success: (data) => {
           // console.log(data.list)
@@ -178,7 +178,7 @@ $(() => {
           },
           type: "GET",
           // url: "https://49.50.174.207:5000/server/calendar",//  url
-          url: "https://49.50.174.207:5000/server/calendar?srv_id=33",//  url
+          url: "https://49.50.174.207:5000/server/calendar?srv_id=40",//  url
           dataType: "json",
           // contentType: "application/x-www-form-urlencoded",
           success: (data) => {
