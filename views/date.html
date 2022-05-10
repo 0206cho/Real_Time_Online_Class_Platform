@@ -22,6 +22,11 @@
   <link href="..\public\css\sidebars.css" rel="stylesheet">
   <link href="..\public\css\notice.css" rel="stylesheet">
 
+  <!-- <script type="text/javascript" src="../public/js/date.js"></script> -->
+  <script type="text/javascript" src="../public/js/date.js"></script>
+  <script type="text/javascript" src="../public/js/server.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+
 
   <style>
     /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
@@ -143,7 +148,8 @@
   <!--채팅 추가 모달-->
 
   <!--이벤트 모달-->
-  <div id="modal_event" style="height: 255px; width: 450px;">
+  <div id="modal_event" style="height: 290px; width: 505px;">
+    <div id="mdal_top">
     <h5 class="modal-title" style="font-weight: bold;">캡스톤 수업</h5>
     <div class="modal-body">
       <div class="mb-3">
@@ -151,8 +157,11 @@
         <br><label for="server-name" class="col-form-label">진행 상황 : 진행 중</label>
       </div>
     </div>
+  </div>
     <div class="modal-footer">
+      <div id="modal_video">
       <button type="button" class="btn event_btn" onclick='location.href="https://49.50.174.207:5000/join/aa"'>참여하기</button>
+    </div>
       <button type="button" class="btn event_close_btn">닫기</button>
 
     </div>
@@ -171,21 +180,21 @@
         <div class="row">
 
           <button type="button" class="d-flex align-items-center sbb_notice" data-toggle="button"
-            onclick='location.href="./notice.html"'>
+            onclick='location.src="./notice.html"'>
             <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAATBJREFUSEvtlu8NAUEQxX860AElUAEqEB3QARWgAlEBOtABKqAEOlCCvGQvuVxub2bvIiK5+bIfdnfe/H0zHX4knR/h4gXuAlOgbxj6Bk6AzkrxAj+BnqUs3D+AofXWAzwA7paiwr2AZUBUPMBj4JIIPAGufwusgpoH63XGcv0CjuGdTtVFo1DnPyt8o4i2G6C0uMST4xa4DXVWA18rLrWViCTG12ofMZbJ07LUW9VLYA1oWFSJQDfA3uopC1jeHVL6MwCq3xdVJGIBy3p5Wke2wfvSvy1wMSwaCspxHZkB59hHK9T6pwIrtpCWg11QuioZ+qruxotAmdH55cAc+mUKPB63wIqAGCzbMJR/F03mQ1c31NIhcsmfSZXfBDjj7WRvU4ZEkjeex0089uiPvvkAJ7s6H1sK7WwAAAAASUVORK5CYII=" />
             공지
           </button>
 
           <button type="button" class="d-flex align-items-center sbb_date" data-toggle="button"
-            onclick='location.href="./date.html"'>
+            onclick='location.src="./date.html"'>
             <img style="margin-right: 4px;"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARRJREFUSEvtltENgjAQhj820A10At1A3cAN1MnUDdxAnUCdQEdwBPMbIEBauIYm5YF7aVKO+67Xv+1lJLIsERcLeAbs8gTPwMeTrNXv/7sFvAauOWwD3Dxgq9/wwEvgCGiMYU/gAGgsrVnqCfAGNMa0LzBtA1f3KSZYsWr6aK64Cn4ByrSPqXILlzDbwG0KtibjVfogwVJhjFIXp8O8x9ZyWv1GcK1SrnN8BzQv0z29Aqxz1eDBpbZCXH69wHoGT3mEPaDnzzrXC2xVbZdfcKm7Alq/B4OT7XEysFVILr9RXGWj2HwW9ZI8rDIN9JtXW2NXe6vLouijA2N73dWP6/IpzddXbyN3mZdmSpaGPtaqa3GSgX/2Ymcfz/seqwAAAABJRU5ErkJggg==" />
             일정
           </button>
 
           <button type="button" class="d-flex align-items-center sbb_meeting" data-toggle="button"
-            onclick='location.href="./chatList.html"'>
+            onclick='location.src="./chatList.html"'>
             <img style="margin-right: 4px;"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARxJREFUSEvtllERwjAMhr8pAAk4AAeAApAADnAAKMACKAAUgARwgARQAJe7dbeNsvYuDXtZ3na35Guav0kyWrKsJS4x4D4wAwaKQz6AM/B0MUJggV6AkQLqXG/A1MFD4BWwSwB1IZbAXj5CYC1znoN6eaAtsPkHWBgCP4bAJkIC3k1gMyGFwGZCCoGl6Gutmkr+hZA6cP05dVet1ZlPXN6WaX3Vd2DiGxKW4AVw+jUWLcFfZStPp9bAli2zMWMZEldgqJUzUBGSL159ERC4zE+3X4kKxx5HCSxi8ZnsVxUhxYDr//jqfgBEpSoLrT51cNEAVNSIncuBX/njl00xicVkLDUvOk4SakTGsk8ny7J86FDGqRJsfMdmEF/gD/BhUx/Ghhq2AAAAAElFTkSuQmCC" />
             채팅
@@ -236,125 +245,142 @@
           <div id='calendar'></div>
         </div>
         <script>
+
+// $(document).ready(function() {
+// 		fn_get_events();
+// 	});
+
+
+
+
+
           (function () {
             $(function () {
-              // calendar element 취득
-              var calendarEl = $('#calendar')[0];
-              // full-calendar 생성하기
-              var calendar = new FullCalendar.Calendar(calendarEl, {
-                // height: '700px', // calendar 높이 설정
-                height: '560px', // calendar 높이 설정
-                expandRows: true, // 화면에 맞게 높이 재설정
-                slotMinTime: '08:00', // Day 캘린더에서 시작 시간
-                slotMaxTime: '22:00', // Day 캘린더에서 종료 시간
-                eventColor: '#c3d9cd',
-                // 해더에 표시할 툴바
-                headerToolbar: {
-                  left: 'prev,next today',
-                  center: 'title',
-                  right: 'dayGridMonth,timeGridWeek'
-                },
-                initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-                // navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-                editable: false, // 수정 가능?
-                // selectable: true, // 달력 일자 드래그 설정가능
-                nowIndicator: true, // 현재 시간 마크
-                dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
-                locale: 'ko', // 한국어 설정
-                eventAdd: function (obj) { // 이벤트가 추가되면 발생하는 이벤트
-                  console.log(obj);
-                },
-                eventChange: function (obj) { // 이벤트가 수정되면 발생하는 이벤트
-                  console.log(obj);
-                },
-                eventRemove: function (obj) { // 이벤트가 삭제되면 발생하는 이벤트
-                  console.log(obj);
-                },
 
-                eventClick: function (obj) {
+              // // calendar element 취득
+              // var calendarEl = $('#calendar')[0];
+              // // full-calendar 생성하기
+              // var calendar = new FullCalendar.Calendar(calendarEl, {
+              //   // height: '700px', // calendar 높이 설정
+              //   height: '560px', // calendar 높이 설정
+              //   expandRows: true, // 화면에 맞게 높이 재설정
+              //   slotMinTime: '08:00', // Day 캘린더에서 시작 시간
+              //   slotMaxTime: '22:00', // Day 캘린더에서 종료 시간
+              //   eventColor: '#c3d9cd',
+              //   // 해더에 표시할 툴바
+              //   headerToolbar: {
+              //     left: 'prev,next today',
+              //     center: 'title',
+              //     right: 'dayGridMonth,timeGridWeek'
+              //   },
+              //   initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
+              //   // navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+              //   editable: false, // 수정 가능?
+              //   // selectable: true, // 달력 일자 드래그 설정가능
+              //   nowIndicator: true, // 현재 시간 마크
+              //   dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+              //   locale: 'ko', // 한국어 설정
+              //   eventAdd: function (obj) { // 이벤트가 추가되면 발생하는 이벤트
+              //     console.log(obj);
+              //   },
+              //   eventChange: function (obj) { // 이벤트가 수정되면 발생하는 이벤트
+              //     console.log(obj);
+              //   },
+              //   eventRemove: function (obj) { // 이벤트가 삭제되면 발생하는 이벤트
+              //     console.log(obj);
+              //   },
 
-                  function modal10(id) {
-                    var zIndex = 9999;
-                    var modal = document.getElementById(id);
+              //   eventClick: function (obj) {
 
-                    // 모달 div 뒤에 희끄무레한 레이어
-                    var bg = document.createElement('div');
-                    bg.setStyle({
-                      position: 'fixed',
-                      zIndex: zIndex,
-                      left: '0px',
-                      top: '0px',
-                      width: '100%',
-                      height: '100%',
-                      overflow: 'auto',
-                      // 레이어 색갈은 여기서 바꾸면 됨
-                      backgroundColor: 'rgba(0,0,0,0.4)'
-                    });
-                    document.body.append(bg);
+              //     function modal10(id) {
+              //       var zIndex = 9999;
+              //       var modal = document.getElementById(id);
 
-                    // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
-                    modal.querySelector('.event_close_btn').addEventListener('click', function () {
-                      bg.remove();
-                      modal.style.display = 'none';
-                    });
+              //       // 모달 div 뒤에 희끄무레한 레이어
+              //       var bg = document.createElement('div');
+              //       bg.setStyle({
+              //         position: 'fixed',
+              //         zIndex: zIndex,
+              //         left: '0px',
+              //         top: '0px',
+              //         width: '100%',
+              //         height: '100%',
+              //         overflow: 'auto',
+              //         // 레이어 색갈은 여기서 바꾸면 됨
+              //         backgroundColor: 'rgba(0,0,0,0.4)'
+              //       });
+              //       document.body.append(bg);
 
-                    modal.setStyle({
-                      position: 'fixed',
-                      display: 'block',
-                      // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+              //       // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+              //       modal.querySelector('.event_close_btn').addEventListener('click', function () {
+              //         bg.remove();
+              //         modal.style.display = 'none';
+              //       });
 
-                      // 시꺼먼 레이어 보다 한칸 위에 보이기
-                      zIndex: zIndex + 1,
+              //       modal.setStyle({
+              //         position: 'fixed',
+              //         display: 'block',
+              //         // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 
-                      // div center 정렬
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      msTransform: 'translate(-50%, -50%)',
-                      webkitTransform: 'translate(-50%, -50%)'
-                    });
-                  }
+              //         // 시꺼먼 레이어 보다 한칸 위에 보이기
+              //         zIndex: zIndex + 1,
 
-                  // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
-                  Element.prototype.setStyle = function (styles) {
-                    for (var k in styles) this.style[k] = styles[k];
-                    return this;
-                  };
+              //         // div center 정렬
+              //         top: '50%',
+              //         left: '50%',
+              //         transform: 'translate(-50%, -50%)',
+              //         msTransform: 'translate(-50%, -50%)',
+              //         webkitTransform: 'translate(-50%, -50%)'
+              //       });
+              //     }
 
-                  // 모달창 띄우기
-                  modal10('modal_event');
+              //     // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+              //     Element.prototype.setStyle = function (styles) {
+              //       for (var k in styles) this.style[k] = styles[k];
+              //       return this;
 
-                },
+              //     };
 
-                // 이벤트 
-                events: [
-                  {
-                    title: '캡스톤 수업',
-                    start: '2022-04-13',
-                  },
-                  {
-                    title: '중간 시험',
-                    start: '2022-04-18',
-                    end: '2022-04-23'
-                  },
-                  {
-                    groupId: 999,
-                    title: '회의',
-                    start: '2022-04-11T16:00:00'
-                  },
-                  {
-                    title: 'Click for Google',
-                    url: 'http://google.com/', // 클릭시 해당 url로 이동
-                    start: '2022-04-15'
-                  },
-                  {
-                    title: '캡스톤 수업',
-                    start: '2022-05-04',
-                  }
-                ]
-              });
-              // 캘린더 랜더링
-              calendar.render();
+              //     // 모달창 띄우기
+              //     modal10('modal_event');
+
+              //   },
+
+              //   // 이벤트 
+              //   events: 
+              //   [ 
+              //     {
+              //       title: '캡스톤 수업',
+              //       start: '2022-04-13',
+              //     },
+              //     {
+              //       title: '중간 시험',
+              //       start: '2022-04-18',
+              //       end: '2022-04-23'
+              //     },
+              //     {
+              //       groupId: 999,
+              //       title: '회의',
+              //       start: '2022-04-11T16:00:00'
+              //     },
+              //     {
+              //       title: 'Click for Google',
+              //       url: 'http://google.com/', // 클릭시 해당 url로 이동
+              //       start: '2022-04-15'
+              //     },
+              //     {
+              //       title: '캡스톤 수업',
+              //       start: '2022-05-04',
+              //     },
+
+              //   ]
+
+
+              // });
+              // // console.log(events)
+              // // 캘린더 랜더링
+              // calendar.render();
+              
             });
           })();
         </script>
