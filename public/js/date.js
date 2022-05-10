@@ -4,10 +4,10 @@ $(() => {
   let token = localStorage.getItem('access_token')
   console.log(token);
 
-  var aa = {
-    'title': '캡스톤 수업',
-    start: '2022-04-13',
-  };
+  // var aa = {
+  //   'title': '캡스톤 수업',
+  //   start: '2022-04-13',
+  // };
 
   // calendar element 취득
   var calendarEl = $('#calendar')[0];
@@ -167,7 +167,6 @@ $(() => {
     // 이벤트 
     events:
       [
-        aa,
 
         $.ajax({
           // headers: {
