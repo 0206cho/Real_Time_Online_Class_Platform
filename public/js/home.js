@@ -1,96 +1,53 @@
 // 페이지 들어오자마자
-$(function () {
+$(function start() {
     let token = localStorage.getItem('access_token')
     console.log(token);
 
     $.ajax({
-        headers:{
-            "authorization":'bearer '+ token,
+        headers: {
+            "authorization": 'bearer ' + token,
         },
         type: 'GET',
         url: 'https://49.50.174.207:5000/home',
-        
+
         success: (data) => {
-            console.log('성공')
             console.log(data)
-            let result = data.result;
-			let msg = data.msg;
-            srv_name = data.list[0].srv_name;
-            $("#srv_name").text(srv_name);
-            calendar_start = data.list[0].calendar_start;
-            $("#calendar_start").text(calendar_start);
-            console.log('바껴')
+
+            var c_modal = "<div class='row'>  ";
+
+            for (var i = 0; i <= data.list.length; i++) { //시작시간 설정 안되어있는 경우 null -> 예약없음
+                if(data.list[i].calendar_start == null){
+                    data.list[i].calendar_start = "예약없음"
+                }
+
+                c_modal = c_modal +
+                    '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 1rem;">'
+                    + '<div class="card" width="100%" height="225">'
+                    + '<div class="card-body">'
+                    + '<h5 class="card-title" id="srv_name" style="font-weight: bold;">'+data.list[i].srv_name+'</h5>'
+                    + '다음 미팅<div>'
+                    + '<svg class="bi me-1 mr-2" width="1em" height="1em">'
+                    + '<use xlink:href="#calendar-event" />'
+                    + '</svg>'
+                    + '<label id="calendar_start">'+data.list[i].calendar_start+'</label></div>'
+                    + '<a href="../views/notice.html" class="btn btn-enter">접속하기</a>'
+                    + '</div></div></div>'
+                $("#serverlist").html(c_modal)
+            }
+            c_modal += "</div>"
+
+            $("#serverlist").html(c_modal)
+
         },
-        error: (error) =>{
+        error: (error) => {
             console.log('실패')
             console.log(error)
         },
     });
-    
-
-//     let token = localStorage.getItem('access_token') || '';
-
-// fetch('https://49.50.174.207:5000/home', {
-//   headers: {
-//       'Authorization': token,
-//   }
-// })
-// .then(response => response.json())
-// .then(response => {
-//    console.log(response.data);
-// })
-    // alert("페이지 로딩")
-    // token_receive = request.cookies.get('token')
-    // console.log(token_receive)
-    // $.ajax({
-    //     url: 'https://49.50.174.207:5000/home',
-    //     type: 'get',
-    //     data: {
-    //     // 	'email': email,
-    //     // 	'pwd': password,
-    //     },
-    //     success: function (res) {
-    //         console.log(res)
-    //         let result = res.result;
-    //         let msg = res.msg;
-
-    //         // if (result == 1) {
-    //         //     alert(msg)
-
-    //         // } else {
-    //         //     alert(msg)
-    //         // }
-    //     },
-    //     error: function (error) {
-    //         console.log(error)
-    //     },
-    //     complete: function (data) {
-
-    //     }
-    // });
-
-    // $.ajax({
-    //     token_receive : data.cookies.get('mytoken'),
-    //     headers:{            
-    //         "authorization" : 'bearer', token_receive
-    //     },
-    //     url: 'https://49.50.174.207:5000/home',
-    //     type: 'get',
-    //     success: (data) => {
-    //         alert('성공')
-    //         console.log(data)
-    //         alert(data)
-    //     },
-    //     error: (error) => {
-    //         console.log(error)
-    //         alert(error)
-    //     },
-    // });
 
 
 
 });
-
 
 // 로그아웃
 $(function () {
