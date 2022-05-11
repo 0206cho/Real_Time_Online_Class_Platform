@@ -20,7 +20,7 @@ $(function () {
 				let result = res.result;
 				let msg = res.msg;
 				// let token = res.accessToken;
-				if (result = 1) {
+				if (result == "1") {
 					// $.cookie('token', token);
 					// $.cookie('token', token, { path: './home.html' }); // 쿠키 설정
 
