@@ -33,7 +33,7 @@ $(function start() {
                     + '<use xlink:href="#calendar-event" />'
                     + '</svg>'
                     + '<label id="calendar_start">' + data.list[i].calendar_start + '</label></div>'
-                    + '<button type ="button" id="server-enter" class="btn btn-enter" onclick="func('+ server_id +')">접속하기</button>'
+                    + '<button type ="button" id="server-enter" class="btn btn-enter" onclick="func(' + server_id + ')">접속하기</button>'
                     + '</div></div></div>'
                 $("#serverlist").html(c_modal)
 
@@ -65,13 +65,13 @@ function func(server_id) {
         dataType: "json",
         success: (data) => {
             console.log(data)
-            let result = data.result;            
+            let result = data.result;
 
             if (result == "1") {
                 console.log("sffs", server_id)
                 localStorage.setItem("srv_id", server_id) // 서버스토리지에 서버아이디 저장
                 location.href = './date.html';
-            } 
+            }
         }
     })
 }
@@ -92,21 +92,34 @@ $(function () {
 // 서버추가 버튼
 $(function () {
     $('#sever_add').click(() => {
-        alert('dd')
-        console.log("ss")
+        let token = localStorage.getItem('access_token')
+        console.log(token);
+        alert('서버추가')
         var server_name = $('#server_name').val();
+        console.log(server_name)
 
         $.ajax({
-            url: 'https://49.50.174.207:5000/server/add',
-            type: 'post',
-            data: {
-                'srv_name': server_name,
+            headers: {
+                "authorization": 'bearer ' + token,
             },
-            success: function (res) {
-                let result = res.result;
-                let msg = res.msg;
-
-                alert(msg)
+            data:{
+                'srv_name' : server_name
+            },
+            url: 'https://49.50.174.207:5000/server/add?srv_name=' + server_name,
+            type: "POST",
+            dataType: "json",
+            success: (data) => {
+                console.log(data)
+                let result = data.result;
+    
+                if (result == "1") {
+                    console.log("추가된 서버명", server_name)
+                    $('#exampleModal').modal('hide'); // 모달창 닫기
+                    window.location.reload(); // 새로고침
+                }
+                else{
+                    alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
+                }
             },
             error: function (error) {
                 console.log(error)
