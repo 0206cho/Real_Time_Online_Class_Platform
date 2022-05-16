@@ -14,6 +14,14 @@
     <link href="..\public\css\sidebars.css" rel="stylesheet">
     <link href="..\public\css\notice.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../public/js/server.js"></script>
+    <script type="text/javascript" src="../public/js/notice.js"></script>
+
+
+
+    
+
 </head>
 
 <body>
@@ -56,27 +64,22 @@
     </div>
     <!--공지 추가 모달-->
 
-    <!--일정 추가 모달-->
-    <div id="addDate" style="height: 490px; width: 600px;">
+    <!-- 일정 추가 모달-->
+    <!-- <div id="addDate" style="height: 490px; width: 600px;">
         <h5 class="modal-title" style="font-weight: bold;">일정 추가 하기</h5>
-        <!-- <br> -->
         <div class="modal-body">
 
             <div class="mb-3">
-                <!-- <br> -->
                 <div class="modal_date">
                     <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">시작일</label>
-                    <!-- <input type="text" class="form-control" id="noticeID" /> -->
                     <input type="date" id="start" name="trip-start" style="padding: 0px 31px 0px 31px;">
                     <input type="time" style="padding: 0px 31px 0px 31px;">
                     <br>
                     <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">종료일</label>
-                    <!-- <input type="text" class="form-control" id="noticeID" /> -->
                     <input type="date" id="start" name="trip-start" style="padding: 0px 31px 0px 31px;">
                     <input type="time" style="padding: 0px 31px 0px 31px;">
 
                 </div>
-                <!-- <br> -->
                 <label for="server-name" class="col-form-label">글 입력:</label>
                 <input type="text" class="form-control" id="notice" style="height: 190px;" /></p>
             </div>
@@ -86,8 +89,39 @@
             <button type="button" class="btn add_date_close_btn">취소</button>
 
         </div>
-    </div>
-    <!--일정 추가 모달-->
+    </div> -->
+
+
+    <div id="addDate" style="height: 490px; width: 600px;">
+        <h5 class="modal-title" style="font-weight: bold;">일정 추가 하기</h5>
+        <!-- <br> -->
+        <div class="modal-body">
+          <div class="mb-3">
+            <!-- <br> -->
+            <div class="modal_date">
+              <label for="server-name" class="col-form-label " style="margin: 0px 10px 0px 0px;">시작일</label>
+              <!-- <input type="text" class="form-control" id="noticeID" /> -->
+              <input type="date" id="start" class="cal_start_date" name="trip-start " style="padding: 0px 31px 0px 31px;">
+              <input type="time" class="cal_start_time" style="padding: 0px 31px 0px 31px;">
+              <br>
+              <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">종료일</label>
+              <!-- <input type="text" class="form-control" id="noticeID" /> -->
+              <input type="date" class="cal_end_date" id="end" name="trip-start " style="padding: 0px 31px 0px 31px;">
+              <input type="time" class="cal_end_time" style="padding: 0px 31px 0px 31px;">
+            </div>
+            <label for="server-name" class="col-form-label">글 입력:</label>
+            <input type="text" class="form-control cal_content" id="notice" style="height: 190px;" /></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn add_date_btn" onclick="addCalendar();">등록하기</button>
+          <button type="button" class="btn add_date_close_btn">취소</button>
+        </div>
+      </div>
+
+
+
+    <!--일정 추가 모달 -->
 
     <!--채팅 추가 모달-->
     <div id="addMsg" style="height: 260px; width: 600px;">

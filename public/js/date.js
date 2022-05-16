@@ -3,12 +3,16 @@ $(() => {
   // $(".sbb_date").click(function () {
   let token = localStorage.getItem('access_token')
   console.log(token);
+  let srv_id = localStorage.getItem('srv_id')
+  console.log(srv_id);
 
+  var fail_msg = "접근 권한이 없습니다."
   // var aa = {
   //   'title': '캡스톤 수업',
   //   start: '2022-04-13',
   // };
 
+  
   // calendar element 취득
   var calendarEl = $('#calendar')[0];
   // full-calendar 생성하기
@@ -28,19 +32,35 @@ $(() => {
     initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
     // navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
     editable: false, // 수정 가능?
-    // selectable: true, // 달력 일자 드래그 설정가능
+    selectable: true, // 달력 일자 드래그 설정가능
     nowIndicator: true, // 현재 시간 마크
     dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
     locale: 'ko', // 한국어 설정
     eventAdd: function (obj) { // 이벤트가 추가되면 발생하는 이벤트
-      console.log(obj);
+      // console.log(obj);
     },
     eventChange: function (obj) { // 이벤트가 수정되면 발생하는 이벤트
-      console.log(obj);
+      // console.log(obj);
     },
     eventRemove: function (obj) { // 이벤트가 삭제되면 발생하는 이벤트
-      console.log(obj);
+      // console.log(obj);
     },
+
+    // select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+    //   var title = prompt('Event Title:');
+    //   if (title) {
+    //   calendar.addEvent({
+    //   title: title,
+    //   start: arg.start,
+    //   end: arg.end,
+    //   allDay: arg.allDay
+    //   })
+    //   }
+    // },
+
+    
+      
+      
 
     eventClick: function (obj) {
       console.log(obj.event._def.publicId)
@@ -51,10 +71,14 @@ $(() => {
           "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/server/calendar?srv_id=40&c_id=" + c_id,//  url
+        // url: "https://49.50.174.207:5000/server/calendar?srv_id=40&c_id=" + c_id,//  url
+        url: "https://49.50.174.207:5000/server/calendar?srv_id="+srv_id+" &c_id=" + c_id,//  url
+        // srv_id="+srv_id+"&c_id="+c_id
         dataType: "json",
+
+        
         success: (data) => {
-          // console.log(data.list)
+          console.log(data.list)
           // console.log(data.list.c_start)
           // console.log(data.list.c_end)
 
@@ -63,7 +87,7 @@ $(() => {
           var cal_start = data.list.c_start
           var cal_end = data.list.c_end
 
-          var now = new Date();
+          var now = new Date(); 
           var year = now.getFullYear(); // 연도
           var month = now.getMonth() + 1;	// 월
           var date = now.getDate();	// 일
@@ -77,17 +101,19 @@ $(() => {
           if (time < cal_start) {
             console.log("진행 전");
             state = "진행 전"
-            video_btn = +'<button type="button" class="btn event_btn" onclick=\'location.href="https://49.50.174.207:5000/join/' + list.video_id + '"\' style="display:none;">전</>'
+            // video_btn = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room=1"' + list.video_id + '"\' style="display:none;">전</>'
 
           } else if (time >= cal_start && time <= cal_end) {
             console.log("진행 중");
             state = "진행 중"
-            video_btn = +'<button type="button" class="btn event_btn" onclick=\'location.href="https://49.50.174.207:5000/join/' + list.video_id + '"\'>참여하기</>'
+            // video_btn = +'<button type="button" class="btn event_btn" onclick=\'location.href="https://49.50.174.207:5000/join/' + list.video_id + '"\'">참여하기</>'
+            // video_btn = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room=1"' + list.video_id + '"\'">참여하기</>'
+            // video_btn = +'<button type="button" class="btn event_btn" onclick=\'location.href="/video?room='+ list.video_id +'&name=test&audio=1&video=1&notify=1"\'>참여하기</>'
 
           } else if (time > cal_end) {
             console.log("진행 완료");
             state = "진행 완료"
-            video_btn = +'<button type="button" class="btn event_btn" onclick=\'location.href="https://49.50.174.207:5000/join/' + list.video_id + '"\' style="display:none;">후</>'
+            // video_btn = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room=1"' + list.video_id + '"\' style="display:none;">후</>'
 
           }
 
@@ -98,17 +124,44 @@ $(() => {
             + '<label for="server-name" class="col-form-label">진행 시간 : <br>' + list.c_start + ' ~ ' + list.c_end + ' </label>'
             + '<br><label for="server-name" class="col-form-label">진행 상황 : ' + state + ' </label>'
             + ' </div>'
-            + ' </div>'
+            + ' </div>' 
 
-          var video = '<button type="button" class="btn event_btn" onclick=\'location.href="https://49.50.174.207:5000/join/' + list.video_id + '"\'' + video_btn + '</button>';
+          // var video = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room=1"\'' + video_btn + '</button>';
+          var video = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room='+data.list.video_id+'"\'>참여하기</button>';
+
+          $("#modal_video").html(video)
+
+          const modal_video = document.getElementById('modal_video');
+          
+          if(state != "진행 중") {
+            // $("#modal_video").hide();
+            modal_video.style.display = 'none';
+          } else {
+            // $("#modal_video").show();
+            modal_video.style.display = 'block';
+
+          }
+          
 
           $("#mdal_top").html(c_modal)
-          $("#modal_video").html(video)
+          // if(state == "진행 중") {
+          //   $("#modal_video").html(video)
+          //   console.log("1111111")
+          //   // $("#modal_video").html(video_btn)
+          // }
+
+          // $("#modal_video").html(video_btn)
+
+          // $("#modal_video").html(video)
 
         }
       })
 
+
+      
+
       function modal10(id) {
+
         var zIndex = 9999;
         var modal = document.getElementById(id);
 
@@ -148,7 +201,9 @@ $(() => {
           msTransform: 'translate(-50%, -50%)',
           webkitTransform: 'translate(-50%, -50%)'
         });
+        
       }
+    
 
       // 모달창 띄우기
       modal10('modal_event');
@@ -164,6 +219,10 @@ $(() => {
 
     },
 
+
+
+    
+
     // 이벤트 
     events:
       [
@@ -177,12 +236,20 @@ $(() => {
           },
           type: "GET",
           // url: "https://49.50.174.207:5000/server/calendar",//  url
-          url: "https://49.50.174.207:5000/server/calendar?srv_id=40",//  url
+          url: "https://49.50.174.207:5000/server/calendar?srv_id="+srv_id,//  url
           dataType: "json",
           // contentType: "application/x-www-form-urlencoded",
+
+          
+          
           success: (data) => {
-            // console.log(data)
+            console.log(data)
             list = data.list
+
+            if(data.result == 1) {
+              // console.log("ok")
+
+
             for (i = 0; i < list.length; i++) {
               calendar.addEvent({
 
@@ -193,12 +260,35 @@ $(() => {
 
               })
             }
+
+
+
+
+
+          }else {
+            console.log("fail")
+            alert(fail_msg);
+          }
+          
+
+
           }
         })
       ]
+    
 
   });
   // 캘린더 랜더링
   calendar.render();
+
+
+
   
 })
+
+
+
+
+
+
+

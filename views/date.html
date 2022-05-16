@@ -109,22 +109,22 @@
       <div class="mb-3">
         <!-- <br> -->
         <div class="modal_date">
-          <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">시작일</label>
+          <label for="server-name" class="col-form-label " style="margin: 0px 10px 0px 0px;">시작일</label>
           <!-- <input type="text" class="form-control" id="noticeID" /> -->
-          <input type="date" id="start" name="trip-start" style="padding: 0px 31px 0px 31px;">
-          <input type="time" style="padding: 0px 31px 0px 31px;">
+          <input type="date" id="start" class="cal_start_date" name="trip-start " style="padding: 0px 31px 0px 31px;">
+          <input type="time" class="cal_start_time" style="padding: 0px 31px 0px 31px;">
           <br>
           <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">종료일</label>
           <!-- <input type="text" class="form-control" id="noticeID" /> -->
-          <input type="date" id="start" name="trip-start" style="padding: 0px 31px 0px 31px;">
-          <input type="time" style="padding: 0px 31px 0px 31px;">
+          <input type="date" class="cal_end_date" id="end" name="trip-start " style="padding: 0px 31px 0px 31px;">
+          <input type="time" class="cal_end_time" style="padding: 0px 31px 0px 31px;">
         </div>
         <label for="server-name" class="col-form-label">글 입력:</label>
-        <input type="text" class="form-control" id="notice" style="height: 190px;" /></p>
+        <input type="text" class="form-control cal_content" id="notice" style="height: 190px;" /></p>
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn add_date_btn">등록하기</button>
+      <button type="button" class="btn add_date_btn" onclick="addCalendar();">등록하기</button>
       <button type="button" class="btn add_date_close_btn">취소</button>
     </div>
   </div>
@@ -151,7 +151,7 @@
   <div id="modal_event" style="height: 290px; width: 505px;">
     <div id="mdal_top">
     <h5 class="modal-title" style="font-weight: bold;">캡스톤 수업</h5>
-    <div class="modal-body">
+    <div class="modal-body" >
       <div class="mb-3">
         <label for="server-name" class="col-form-label">시작 시간 : 19:00 ~ 종료시간 : 20:35</label>
         <br><label for="server-name" class="col-form-label">진행 상황 : 진행 중</label>
@@ -160,7 +160,8 @@
   </div>
     <div class="modal-footer">
       <div id="modal_video">
-      <button type="button" class="btn event_btn" onclick='location.href="https://49.50.174.207:5000/join/aa"'>참여하기</button>
+      <!-- <button type="button" class="btn event_btn" onclick='location.href="http://127.0.0.1:5500/views/client.html"'>참여하기</button> -->
+      <button type="button" class="btn event_btn" onclick='location.href="./client.html"'>참여하기</button>
     </div>
       <button type="button" class="btn event_close_btn">닫기</button>
 
@@ -545,6 +546,11 @@
         bg.remove();
         modal.style.display = 'none';
       });
+
+      // modal.querySelector('.add_date_btn').addEventListener('click', function () {
+      //   bg.remove();
+      //   modal.style.display = 'none';
+      // });
 
       modal.setStyle({
         position: 'fixed',
