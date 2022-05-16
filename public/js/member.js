@@ -1,0 +1,120 @@
+let token = localStorage.getItem('access_token')
+    console.log(token);
+    let srv_id = localStorage.getItem('srv_id')
+    console.log(srv_id);
+
+    
+$(function start() {
+    
+
+    var fail_msg = "접근 권한이 없습니다." 
+
+   
+
+
+    $.ajax({
+        headers: {
+            "authorization": 'bearer ' + token,
+        },
+        type: "GET",
+        url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,
+
+        
+
+        success: (data) => {
+            console.log(data.list)
+            list = data.list
+            // console.log(data.list.n_id)
+            
+
+
+            for (i = 0; i < data.list.length; i++) {
+                var user_id = data.list[i].user_id
+                var user_name = data.list[i].user_name
+                var user_email = data.list[i].user_email
+                var user_tel = data.list[i].user_tel
+                var srvuser_lastaccess = data.list[i].srvuser_lastaccess
+
+                // console.log(user_id)
+                // console.log(user_name)
+                // console.log(user_email)
+                // console.log(user_tel)
+                // console.log(srvuser_lastaccess)
+
+
+
+
+                var m_notice = m_notice +
+
+                    '<tr>'
+                        +'<td style="padding-left: 10px; text-decoration:none;">'
+                                +'<input class="form-check-input" type="checkbox" value="'+user_id+'" id="flexCheckDefault" onclick="getCheckboxValue(event)">'
+
+                        +'</td>'
+                        +'<td>'+user_name+'</td>'
+                        +'<td>'+user_email+'</td>'
+                        +'<td>'+user_tel+'</td>'
+                        +'<td>'+srvuser_lastaccess+'</td>'
+                    '</tr>'
+
+                $("#bbbbb").html(m_notice)
+            }
+        }
+
+
+        })
+    })
+
+    let checkUserId = '';
+
+    function getCheckboxValue(event)  {
+        
+        if(event.target.checked)  {
+            checkUserId = event.target.value;
+        //   console.log(result)
+        }else {
+            checkUserId = '';
+        }
+        
+      }
+
+      $(function () {
+        $('#deleteMember_btn').click(() => {
+            // console.log(result)
+
+            $.ajax({
+
+                headers: {
+                    "authorization": 'bearer ' + token,
+                },
+                type: "POST",
+                url: "https://49.50.174.207:5000/server/member/delete" ,
+
+                data:{
+                    "srv_id": srv_id,
+                    "user_id": checkUserId,      
+                },
+
+                success: (data) => {
+                    console.log(data)
+                    // let result = data.result;
+                    // if (result == "1") {
+                    //     $('.addDate').modal('hide');
+                        window.location.reload(); // 새로고침
+
+                    // } else {
+                    //     alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
+                    // }
+
+                },
+        
+
+            })
+            
+
+
+        })
+    })
+
+
+// })

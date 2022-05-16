@@ -17,10 +17,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../public/js/server.js"></script>
     <script type="text/javascript" src="../public/js/notice.js"></script>
+    <script type="text/javascript" src="../public/js/notice_select.js"></script>
 
-
-
-    
 
 </head>
 
@@ -57,7 +55,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn add_notice_btn">등록하기</button>
+            <button type="button" class="btn add_notice_btn" onclick="addNotice()">등록하기</button>
             <button type="button" class="btn add_notice_close_btn">취소</button>
 
         </div>
@@ -239,13 +237,13 @@
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody id="aaaaa">
+                            <!-- <tr>
                                 <td style="padding-left: 10px; text-decoration:none;">1,001</td>
                                 <td><a href="notice_selec.html">공지입니다.</a></td>
                                 <td>data</td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <td style="padding-left: 10px;">1,001</td>
                                 <td>random</td>
                                 <td>data</td>
@@ -294,7 +292,7 @@
                                 <td style="padding-left: 10px;">1,001</td>
                                 <td>random</td>
                                 <td>data</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -547,6 +545,8 @@
         });
     </script>
     <!--채팅 추가 모달-->
+
+    
 
 </body>
 
