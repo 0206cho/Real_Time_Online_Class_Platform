@@ -51,13 +51,13 @@ $(() => {
 
 
         success: (data) => {
-          // console.log(data.list)
+          // console.log(data.list[0].c_end)
           // console.log(data.list.c_start)
           // console.log(data.list.c_end)
 
           var list = data.list
-          var cal_start = data.list.c_start
-          var cal_end = data.list.c_end
+          var cal_start = data.list[0].c_start
+          var cal_end = data.list[0].c_end
 
           var now = new Date();
           var year = now.getFullYear(); // 연도
@@ -68,7 +68,7 @@ $(() => {
           var time = year + "-" + 0 + month + "-" + date + " " + hours + ":" + minutes
           // console.log(time) 
 
-          var video_btn = "";
+          // var video_btn = "";
           var state = "";
           if (time < cal_start) {
             console.log("진행 전");
@@ -85,10 +85,10 @@ $(() => {
           }
 
           var c_modal =
-            '<h5 class="modal-title" style="font-weight: bold;">' + list.c_memo + '</h5>'
+            '<h5 class="modal-title" style="font-weight: bold;">' + list[0].c_memo + '</h5>'
             + '<div class="modal-body">'
             + '<div class="mb-3">'
-            + '<label for="server-name" class="col-form-label">진행 시간 : <br>' + list.c_start + ' ~ ' + list.c_end + ' </label>'
+            + '<label for="server-name" class="col-form-label">진행 시간 : <br>' + cal_start + ' ~ ' + cal_end + ' </label>'
             + '<br><label for="server-name" class="col-form-label">진행 상황 : ' + state + ' </label>'
             + ' </div>'
             + ' </div>'
