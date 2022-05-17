@@ -16,6 +16,10 @@ $(function start() {
 
             var c_modal = "<div class='row'>  ";
 
+            if(data.list.length == 0){
+                $(".msg").text("서버가 존재하지 않습니다.");
+            }
+
             for (var i = 0; i <= data.list.length; i++) { //시작시간 설정 안되어있는 경우 null -> 예약없음
                 if (data.list[i].calendar_start == null) {
                     data.list[i].calendar_start = "예약없음"
