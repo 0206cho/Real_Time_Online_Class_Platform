@@ -64,86 +64,87 @@
 
 
   <!--모달-->
-  <!--회원 추가 모달-->
-  <div id="addMember" style="height: 270px; width: 600px;">
-    <h5 class="modal-title" style="font-weight: bold;">학생 추가 하기</h5>
-    <div class="modal-body">
-      <div class="mb-3">
-        <label for="server-name" class="col-form-label">학생 아이디:</label>
-        <input type="text" class="form-control" id="memberID">
+    <!--회원 추가 모달-->
+    <div id="addMember" style="height: 270px; width: 600px;">
+      <h5 class="modal-title" style="font-weight: bold;">수강생 추가 하기</h5>
+      <div class="modal-body">
+          <div class="mb-3">
+              <label for="server-name" class="col-form-label">수강생 아이디:</label>
+              <input type="text" class="form-control member_add" id="memberID">
+          </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn add_member_btn">추가하기</button>
-      <button type="button" class="btn add_member_close_btn">닫기</button>
-    </div>
-
+      <div class="modal-footer">
+          <button type="button" class="btn add_member_btn" onclick="addMember()">추가하기</button>
+          <button type="button" class="btn add_member_close_btn">닫기</button>
+      </div>
   </div>
   <!--회원 추가 모달-->
+
 
   <!--공지 추가 모달-->
   <div id="addNotice" style="height: 500px; width: 600px;">
-    <h5 class="modal-title" style="font-weight: bold;">공지 추가 하기</h5>
-    <div class="modal-body">
-        <div class="mb-3">
-            <label for="server-name" class="col-form-label">제목 입력:</label>
-            <input type="text" class="form-control" id="noticeID" />
+      <h5 class="modal-title" style="font-weight: bold;">공지 추가 하기</h5>
+      <div class="modal-body">
+          <div class="mb-3">
+              <label for="server-name" class="col-form-label">제목 입력:</label>
+              <input type="text" class="form-control nt_title" id="noticeID" />
 
-            <label for="server-name" class="col-form-label">글 입력:</label>
-            <input type="text" class="form-control" id="notice" style="height: 190px; white-space: pre-line;" /></p>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn add_notice_btn" onclick="addNotice()">등록하기</button>
-        <button type="button" class="btn add_notice_close_btn">취소</button>
+              <label for="server-name" class="col-form-label">글 입력:</label>
+              <input type="text" class="form-control nt_content" id="notice" style="height: 190px; white-space: pre-line;" /></p>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn add_notice_btn" onclick="addNotice()">등록하기</button>
+          <button type="button" class="btn add_notice_close_btn">취소</button>
 
-    </div>
-</div>
+      </div>
+  </div>
   <!--공지 추가 모달-->
 
-  <!--일정 추가 모달-->
+
+  <!-- 일정 추가 모달-->
   <div id="addDate" style="height: 490px; width: 600px;">
-    <h5 class="modal-title" style="font-weight: bold;">일정 추가 하기</h5>
-    <!-- <br> -->
-    <div class="modal-body">
-      <div class="mb-3">
-        <!-- <br> -->
-        <div class="modal_date">
-          <label for="server-name" class="col-form-label " style="margin: 0px 10px 0px 0px;">시작일</label>
-          <!-- <input type="text" class="form-control" id="noticeID" /> -->
-          <input type="date" id="start" class="cal_start_date" name="trip-start " style="padding: 0px 31px 0px 31px;">
-          <input type="time" class="cal_start_time" style="padding: 0px 31px 0px 31px;">
-          <br>
-          <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">종료일</label>
-          <!-- <input type="text" class="form-control" id="noticeID" /> -->
-          <input type="date" class="cal_end_date" id="end" name="trip-start " style="padding: 0px 31px 0px 31px;">
-          <input type="time" class="cal_end_time" style="padding: 0px 31px 0px 31px;">
-        </div>
-        <label for="server-name" class="col-form-label">글 입력:</label>
-        <input type="text" class="form-control cal_content" id="notice" style="height: 190px;" /></p>
+      <h5 class="modal-title" style="font-weight: bold;">일정 추가 하기</h5>
+      <div class="modal-body">
+          <div class="mb-3">
+              <div class="modal_date">
+                  <label for="server-name" class="col-form-label " style="margin: 0px 10px 0px 0px;">시작일</label>
+                  <input type="date" id="start" class="cal_start_date" name="trip-start "
+                      style="padding: 0px 31px 0px 31px;">
+                  <input type="time" class="cal_start_time" style="padding: 0px 31px 0px 31px;">
+                  <br>
+                  <label for="server-name" class="col-form-label" style="margin: 0px 10px 0px 0px;">종료일</label>
+                  <input type="date" class="cal_end_date" id="end" name="trip-start "
+                      style="padding: 0px 31px 0px 31px;">
+                  <input type="time" class="cal_end_time" style="padding: 0px 31px 0px 31px;">
+              </div>
+              <label for="server-name" class="col-form-label">글 입력:</label>
+              <input type="text" class="form-control cal_content" id="notice" style="height: 190px;" /></p>
+          </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn add_date_btn" onclick="addCalendar();">등록하기</button>
-      <button type="button" class="btn add_date_close_btn">취소</button>
-    </div>
+      <div class="modal-footer">
+          <button type="button" class="btn add_date_btn" onclick="addCalendar();">등록하기</button>
+          <button type="button" class="btn add_date_close_btn">취소</button>
+      </div>
   </div>
-  <!--일정 추가 모달-->
+  <!--일정 추가 모달 -->
+
 
   <!--채팅 추가 모달-->
   <div id="addMsg" style="height: 260px; width: 600px;">
-    <h5 class="modal-title" style="font-weight: bold;">채팅 추가 하기</h5>
-    <div class="modal-body">
-      <div class="mb-3">
-        <label for="server-name" class="col-form-label">채팅 추가:</label>
-        <input type="text" class="form-control" id="noticeID" />
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn add_msg_btn">추가하기</button>
-      <button type="button" class="btn add_msg_close_btn">닫기</button>
+      <h5 class="modal-title" style="font-weight: bold;">채팅 추가 하기</h5>
+      <div class="modal-body">
+          <div class="mb-3">
+              <label for="server-name" class="col-form-label">채팅 추가:</label>
+              <input type="text" class="form-control" id="noticeID" />
 
-    </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn add_msg_btn">추가하기</button>
+          <button type="button" class="btn add_msg_close_btn">닫기</button>
+
+      </div>
   </div>
   <!--채팅 추가 모달-->
 
@@ -181,25 +182,32 @@
         <div class="row">
 
           <button type="button" class="d-flex align-items-center sbb_notice" data-toggle="button"
-            onclick='location.href="./notice.html"'>
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAATBJREFUSEvtlu8NAUEQxX860AElUAEqEB3QARWgAlEBOtABKqAEOlCCvGQvuVxub2bvIiK5+bIfdnfe/H0zHX4knR/h4gXuAlOgbxj6Bk6AzkrxAj+BnqUs3D+AofXWAzwA7paiwr2AZUBUPMBj4JIIPAGufwusgpoH63XGcv0CjuGdTtVFo1DnPyt8o4i2G6C0uMST4xa4DXVWA18rLrWViCTG12ofMZbJ07LUW9VLYA1oWFSJQDfA3uopC1jeHVL6MwCq3xdVJGIBy3p5Wke2wfvSvy1wMSwaCspxHZkB59hHK9T6pwIrtpCWg11QuioZ+qruxotAmdH55cAc+mUKPB63wIqAGCzbMJR/F03mQ1c31NIhcsmfSZXfBDjj7WRvU4ZEkjeex0089uiPvvkAJ7s6H1sK7WwAAAAASUVORK5CYII=" />
-            공지
-          </button>
+                        onclick='location.href="./notice.html"'>
 
-          <button type="button" class="d-flex align-items-center sbb_date" data-toggle="button"
-            onclick='location.href="./date.html"'>
-            <img style="margin-right: 4px;"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARRJREFUSEvtltENgjAQhj820A10At1A3cAN1MnUDdxAnUCdQEdwBPMbIEBauIYm5YF7aVKO+67Xv+1lJLIsERcLeAbs8gTPwMeTrNXv/7sFvAauOWwD3Dxgq9/wwEvgCGiMYU/gAGgsrVnqCfAGNMa0LzBtA1f3KSZYsWr6aK64Cn4ByrSPqXILlzDbwG0KtibjVfogwVJhjFIXp8O8x9ZyWv1GcK1SrnN8BzQv0z29Aqxz1eDBpbZCXH69wHoGT3mEPaDnzzrXC2xVbZdfcKm7Alq/B4OT7XEysFVILr9RXGWj2HwW9ZI8rDIN9JtXW2NXe6vLouijA2N73dWP6/IpzddXbyN3mZdmSpaGPtaqa3GSgX/2Ymcfz/seqwAAAABJRU5ErkJggg==" />
-            일정
-          </button>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px"  width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7zm-2 0v-7a6 6 0 1 0-12 0v7h12zm-9 4h6v2H9v-2z"/>
+                        </svg>
+                        공지
+                    </button>
 
-          <button type="button" class="d-flex align-items-center sbb_meeting" data-toggle="button"
-            onclick='location.href="./chatList.html"'>
-            <img style="margin-right: 4px;"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARxJREFUSEvtllERwjAMhr8pAAk4AAeAApAADnAAKMACKAAUgARwgARQAJe7dbeNsvYuDXtZ3na35Guav0kyWrKsJS4x4D4wAwaKQz6AM/B0MUJggV6AkQLqXG/A1MFD4BWwSwB1IZbAXj5CYC1znoN6eaAtsPkHWBgCP4bAJkIC3k1gMyGFwGZCCoGl6Gutmkr+hZA6cP05dVet1ZlPXN6WaX3Vd2DiGxKW4AVw+jUWLcFfZStPp9bAli2zMWMZEldgqJUzUBGSL159ERC4zE+3X4kKxx5HCSxi8ZnsVxUhxYDr//jqfgBEpSoLrT51cNEAVNSIncuBX/njl00xicVkLDUvOk4SakTGsk8ny7J86FDGqRJsfMdmEF/gD/BhUx/Ghhq2AAAAAElFTkSuQmCC" />
-            채팅
-          </button>
+                    <button type="button" class="d-flex align-items-center sbb_date" data-toggle="button"
+                        onclick='location.href="./date.html"'>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M9 1v2h6V1h2v2h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2zm11 9H4v9h16v-9zm-4.964 1.136l1.414 1.414-4.95 4.95-3.536-3.536L9.38 12.55l2.121 2.122 3.536-3.536zM7 5H4v3h16V5h-3v1h-2V5H9v1H7V5z"/>
+                        </svg>
+                        일정
+                    </button>
+
+                    <button type="button" class="d-flex align-items-center sbb_meeting" data-toggle="button"
+                        onclick='location.href="./chatList.html"'>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M10 3h4a8 8 0 1 1 0 16v3.5c-5-2-12-5-12-11.5a8 8 0 0 1 8-8zm2 14h2a6 6 0 1 0 0-12h-4a6 6 0 0 0-6 6c0 3.61 2.462 5.966 8 8.48V17z"/>
+                        </svg>
+                        채팅
+                    </button>
 
         </div>
 
@@ -213,13 +221,13 @@
         </a>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
 
-          <li><button class="dropdown-item" id="addMember_btn">학생추가</button></li>
+          <li><button class="dropdown-item" id="addMember_btn">수강생추가</button></li>
           <li><button class="dropdown-item" id="addNotice_btn">공지추가</button></li>
           <li><button class="dropdown-item" id="addDate_btn">일정추가</button></li>
           <li><button class="dropdown-item" id="addMsg_btn">채팅추가</button></li>
-          <li><button class="dropdown-item" onclick='location.href="./member.html"'>학생관리</button></li>
+          <li><button class="dropdown-item" id="member_manage" onclick='location.href="./member.html"'>수강생관리</button></li>
           <li>
-            <hr class="dropdown-divider">
+            <hr class="dropdown-divider" id="button_hr">
           </li>
           <li><a class="dropdown-item" href="./home.html">홈으로</a></li>
           <li><a class="dropdown-item" href="./systems.html">설정</a></li>
@@ -247,140 +255,8 @@
         </div>
         <script>
 
-// $(document).ready(function() {
-// 		fn_get_events();
-// 	});
-
-
-
-
-
           (function () {
             $(function () {
-
-              // // calendar element 취득
-              // var calendarEl = $('#calendar')[0];
-              // // full-calendar 생성하기
-              // var calendar = new FullCalendar.Calendar(calendarEl, {
-              //   // height: '700px', // calendar 높이 설정
-              //   height: '560px', // calendar 높이 설정
-              //   expandRows: true, // 화면에 맞게 높이 재설정
-              //   slotMinTime: '08:00', // Day 캘린더에서 시작 시간
-              //   slotMaxTime: '22:00', // Day 캘린더에서 종료 시간
-              //   eventColor: '#c3d9cd',
-              //   // 해더에 표시할 툴바
-              //   headerToolbar: {
-              //     left: 'prev,next today',
-              //     center: 'title',
-              //     right: 'dayGridMonth,timeGridWeek'
-              //   },
-              //   initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-              //   // navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-              //   editable: false, // 수정 가능?
-              //   // selectable: true, // 달력 일자 드래그 설정가능
-              //   nowIndicator: true, // 현재 시간 마크
-              //   dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
-              //   locale: 'ko', // 한국어 설정
-              //   eventAdd: function (obj) { // 이벤트가 추가되면 발생하는 이벤트
-              //     console.log(obj);
-              //   },
-              //   eventChange: function (obj) { // 이벤트가 수정되면 발생하는 이벤트
-              //     console.log(obj);
-              //   },
-              //   eventRemove: function (obj) { // 이벤트가 삭제되면 발생하는 이벤트
-              //     console.log(obj);
-              //   },
-
-              //   eventClick: function (obj) {
-
-              //     function modal10(id) {
-              //       var zIndex = 9999;
-              //       var modal = document.getElementById(id);
-
-              //       // 모달 div 뒤에 희끄무레한 레이어
-              //       var bg = document.createElement('div');
-              //       bg.setStyle({
-              //         position: 'fixed',
-              //         zIndex: zIndex,
-              //         left: '0px',
-              //         top: '0px',
-              //         width: '100%',
-              //         height: '100%',
-              //         overflow: 'auto',
-              //         // 레이어 색갈은 여기서 바꾸면 됨
-              //         backgroundColor: 'rgba(0,0,0,0.4)'
-              //       });
-              //       document.body.append(bg);
-
-              //       // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
-              //       modal.querySelector('.event_close_btn').addEventListener('click', function () {
-              //         bg.remove();
-              //         modal.style.display = 'none';
-              //       });
-
-              //       modal.setStyle({
-              //         position: 'fixed',
-              //         display: 'block',
-              //         // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-
-              //         // 시꺼먼 레이어 보다 한칸 위에 보이기
-              //         zIndex: zIndex + 1,
-
-              //         // div center 정렬
-              //         top: '50%',
-              //         left: '50%',
-              //         transform: 'translate(-50%, -50%)',
-              //         msTransform: 'translate(-50%, -50%)',
-              //         webkitTransform: 'translate(-50%, -50%)'
-              //       });
-              //     }
-
-              //     // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
-              //     Element.prototype.setStyle = function (styles) {
-              //       for (var k in styles) this.style[k] = styles[k];
-              //       return this;
-
-              //     };
-
-              //     // 모달창 띄우기
-              //     modal10('modal_event');
-
-              //   },
-
-              //   // 이벤트 
-              //   events: 
-              //   [ 
-              //     {
-              //       title: '캡스톤 수업',
-              //       start: '2022-04-13',
-              //     },
-              //     {
-              //       title: '중간 시험',
-              //       start: '2022-04-18',
-              //       end: '2022-04-23'
-              //     },
-              //     {
-              //       groupId: 999,
-              //       title: '회의',
-              //       start: '2022-04-11T16:00:00'
-              //     },
-              //     {
-              //       title: 'Click for Google',
-              //       url: 'http://google.com/', // 클릭시 해당 url로 이동
-              //       start: '2022-04-15'
-              //     },
-              //     {
-              //       title: '캡스톤 수업',
-              //       start: '2022-05-04',
-              //     },
-
-              //   ]
-
-
-              // });
-              // // console.log(events)
-              // // 캘린더 랜더링
-              // calendar.render();
               
             });
           })();
@@ -432,7 +308,6 @@
       modal.setStyle({
         position: 'fixed',
         display: 'block',
-        // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 
         // 시꺼먼 레이어 보다 한칸 위에 보이기
         zIndex: zIndex + 1,
@@ -492,7 +367,6 @@
       modal.setStyle({
         position: 'fixed',
         display: 'block',
-        // boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 
         // 시꺼먼 레이어 보다 한칸 위에 보이기
         zIndex: zIndex + 1,
@@ -546,11 +420,6 @@
         bg.remove();
         modal.style.display = 'none';
       });
-
-      // modal.querySelector('.add_date_btn').addEventListener('click', function () {
-      //   bg.remove();
-      //   modal.style.display = 'none';
-      // });
 
       modal.setStyle({
         position: 'fixed',

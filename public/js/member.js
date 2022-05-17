@@ -1,17 +1,11 @@
 let token = localStorage.getItem('access_token')
-    console.log(token);
+    // console.log(token);
     let srv_id = localStorage.getItem('srv_id')
-    console.log(srv_id);
+    // console.log(srv_id);
 
     
 $(function start() {
     
-
-    var fail_msg = "접근 권한이 없습니다." 
-
-   
-
-
     $.ajax({
         headers: {
             "authorization": 'bearer ' + token,
@@ -19,14 +13,9 @@ $(function start() {
         type: "GET",
         url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,
 
-        
-
         success: (data) => {
-            console.log(data.list)
+            // console.log(data.list)
             list = data.list
-            // console.log(data.list.n_id)
-            
-
 
             for (i = 0; i < data.list.length; i++) {
                 var user_id = data.list[i].user_id
@@ -34,14 +23,6 @@ $(function start() {
                 var user_email = data.list[i].user_email
                 var user_tel = data.list[i].user_tel
                 var srvuser_lastaccess = data.list[i].srvuser_lastaccess
-
-                // console.log(user_id)
-                // console.log(user_name)
-                // console.log(user_email)
-                // console.log(user_tel)
-                // console.log(srvuser_lastaccess)
-
-
 
 
                 var m_notice = m_notice +
@@ -71,7 +52,7 @@ $(function start() {
         
         if(event.target.checked)  {
             checkUserId = event.target.value;
-        //   console.log(result)
+          console.log(checkUserId)
         }else {
             checkUserId = '';
         }
@@ -80,7 +61,7 @@ $(function start() {
 
       $(function () {
         $('#deleteMember_btn').click(() => {
-            // console.log(result)
+            // console.log(checkUserId)
 
             $.ajax({
 
@@ -97,14 +78,14 @@ $(function start() {
 
                 success: (data) => {
                     console.log(data)
-                    // let result = data.result;
-                    // if (result == "1") {
-                    //     $('.addDate').modal('hide');
+                    let result = data.result;
+                    if (result == "-1") {
+
                         window.location.reload(); // 새로고침
 
-                    // } else {
-                    //     alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
-                    // }
+                    } else {
+                        alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
+                    }
 
                 },
         
