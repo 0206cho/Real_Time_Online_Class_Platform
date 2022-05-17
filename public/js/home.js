@@ -94,8 +94,7 @@ $(function () {
     $('#sever_add').click(() => {
         let token = localStorage.getItem('access_token')
         console.log(token);
-        alert('서버추가')
-        var server_name = $('#server_name').val();
+        var server_name = $('#server_name').val(); // 서버명
         console.log(server_name)
 
         $.ajax({
@@ -113,6 +112,7 @@ $(function () {
                 let result = data.result;
     
                 if (result == "1") {
+                    alert("'" + server_name  + "' 서버가 추가되었습니다.")
                     console.log("추가된 서버명", server_name)
                     $('#exampleModal').modal('hide'); // 모달창 닫기
                     window.location.reload(); // 새로고침

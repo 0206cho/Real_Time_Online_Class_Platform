@@ -81,8 +81,8 @@
         <p>
         <div class="row">
           <h5 style="font-weight: bold;">이름</h5>
-          <div class="col-md-8">
-            유저이름
+          <div class="col-md-8" >
+            <span id="user_name" style='color:black'></span>
           </div>
           <div class="col-md-4">
             <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
@@ -94,14 +94,14 @@
 
         <p>
         <div class="row">
-          <h5 style="font-weight: bold;">상태메시지</h5>
+          <h5 style="font-weight: bold;">이메일</h5>
           <div class="col-md-8">
-            상태메시지
+            <span id="user_email" style='color:black'></span>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
-              data-bs-target="#msgModal">수정</button>
-          </div>
+              data-bs-target="#emailModal">확인</button>
+          </div> -->
         </div>
         </p>
 
@@ -128,11 +128,11 @@
     <p>
     <div class="row">
       <div class="col-md-8">
-        <h5 style="font-weight: bold;">계정 삭제</h5>
+        <h5 style="font-weight: bold;">계정 탈퇴</h5>
       </div>
       <div class="col-md-4">
         <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
-          data-bs-target="#accountdeleteModal">계정 삭제</button>
+          data-bs-target="#accountdeleteModal">계정 탈퇴</button>
       </div>
     </div>
     </p>
@@ -283,7 +283,7 @@
     <Br>
 
     <!--이름 수정 모달창-->
-    <!-- <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModal" aria-hidden="true">
+    <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
@@ -293,112 +293,64 @@
           <div class="modal-body">
             <div class="mb-3">
               <label for="modal-name" class="col-form-label">이름:</label>
-              <input type="text" class="form-control" id="modal-name">
+              <input type="text" class="form-control" id="usernameModal_input" value="">
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="border: none;">
-            <h5 class="modal-title" id="usernameModal" style="font-weight: bold;">추후 지원될 예정입니다.</h5>
-            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
+            <button type="button" class="btn btn-modal" id="name_btn">적용</button>
           </div>
         </div>
       </div>
     </div>
 
-
-    <!--상태메시지 수정 모달창-->
-    <!-- <div class="modal fade" id="msgModal" tabindex="-1" aria-labelledby="msgModal" aria-hidden="true">
+    <!-- 이메일확인 모달창-->
+    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <h5 class="modal-title" id="msgModal" style="font-weight: bold;">상태메시지 변경하기</h5>
+            <h5 class="modal-title" id="emailModal" style="font-weight: bold;">이메일 확인하기</h5>
             <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
           </div>
           <div class="modal-body">
             <div class="mb-3">
-              <label for="modal-msg" class="col-form-label">상태메시지:</label>
-              <input type="text" class="form-control" id="modal-msg">
+              <label for="modal-msg" class="col-form-label">이메일:</label>
+              <input type="text" class="form-control" id="emailModal_input" value="" disabled>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="modal fade" id="msgModal" tabindex="-1" aria-labelledby="msgModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="border: none;">
-            <h5 class="modal-title" id="msgModal" style="font-weight: bold;">추후 지원될 예정입니다.</h5>
-            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
           </div>
         </div>
       </div>
     </div>
-
 
     <!--계정삭제 모달창-->
-    <!-- <div class="modal fade" id="accountdeleteModal" tabindex="-1" aria-labelledby="accountdeleteModal"
-      aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="border: none;">
-            <h5 class="modal-title" id="accountdeleteModal" style="font-weight: bold;">계정 삭제</h5>
-            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="modal-delete" class="col-form-label">계정을 삭제하실 건가요? <br> 계정을 삭제하려면 비밀번호를 입력해주세요.</label>
-              <input type="password" class="form-control" id="modal-delete">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">삭제</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="modal fade" id="accountdeleteModal" tabindex="-1" aria-labelledby="accountdeleteModal"
       aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
-            <h5 class="modal-title" id="accountdeleteModal" style="font-weight: bold;">추후 지원될 예정입니다.</h5>
+            <h5 class="modal-title" id="accountdeleteModal" style="font-weight: bold;">계정 탈퇴</h5>
             <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="modal-delete" class="col-form-label">계정을 탈퇴하실 건가요? <br> 계정을 삭제하려면 비밀번호를 입력해주세요.</label>
+              <input type="password" class="form-control" id="delModal_input">
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
+            <button type="button" class="btn btn-modal" id="delete_btn">탈퇴</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!--비밀번호 변경 모달창 추후지원예정입니다.-->
-    <!-- <div class="modal fade" id="pwchangeModal" tabindex="-1" aria-labelledby="pwchangeModal" aria-hidden="true">
+
+    <!--비밀번호 변경 -->
+    <div class="modal fade" id="pwchangeModal" tabindex="-1" aria-labelledby="pwchangeModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="border: none;">
@@ -408,55 +360,56 @@
           <div class="modal-body">
             <p>
               <label for="modal-pw" class="col-form-label">현재 비밀번호</label>
-              <input type="password" class="form-control" id="modal-pw">
+              <input type="password" class="form-control" id="modal_pw">
             </p>
             <p>
               <label for="modal-newpw" class="col-form-label">새 비밀번호</label>
-              <input type="password" class="form-control" id="modal-newpw">
+              <input type="password" class="form-control" id="modal_newpw">
+              <span class="msg_r_password" style='color:black'></span>
             </p>
             <p>
               <label for="modal-newpwconfirm" class="col-form-label">새 비밀번호 확인</label>
-              <input type="password" class="form-control" id="modal-newpwconfirm">
+              <input type="password" class="form-control" id="modal_newpwconfirm">
+              <span class="msg_r_confirm-password" style='color:black'></span>
             </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="modal fade" id="pwchangeModal" tabindex="-1" aria-labelledby="pwchangeModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="border: none;">
-            <h5 class="modal-title" id="pwchangeModal" style="font-weight: bold;">추후 지원될 예정입니다.</h5>
-            <div data-bs-dismiss="modal" aria-label="Close" style="font-size:20pt;">&times;</div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-modal">적용</button>
+            <button type="button" class="btn btn-modal" id="pwdchange_btn">적용</button>
           </div>
         </div>
       </div>
     </div>
 
+
   </main>
   <!--js-->
+  <!--   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
   <!--토글 js-->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script> -->
+  <!-- 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script src="../public/js/systems.js"></script> -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="../public/js/systems.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-
-  <script src="../public/js/systems.js"></script>
 
 
 </body>
