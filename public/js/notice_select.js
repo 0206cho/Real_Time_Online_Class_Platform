@@ -23,10 +23,10 @@ $(function start() {
             // console.log(data.list.user_name)
 
             // var n_id = data.list.n_id
-            var user_name = data.list.user_name
-            var notice_name = data.list.notice_name
-            var notice_memo = data.list.notice_memo
-            var notice_write = data.list.notice_write
+            var user_name = data.list[0].user_name
+            var notice_name = data.list[0].notice_name
+            var notice_memo = data.list[0].notice_memo
+            var notice_write = data.list[0].notice_write
 
             // console.log(n_id)
             // console.log(user_name)

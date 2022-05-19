@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <style>
+        tbody tr:nth-child(2n+1) {
+            background-color: #eaf3ee;
+        }
+    </style>
+
 
 </head>
 
@@ -55,7 +61,8 @@
                 <input type="text" class="form-control nt_title" id="noticeID" />
 
                 <label for="server-name" class="col-form-label">글 입력:</label>
-                <input type="text" class="form-control nt_content" id="notice" style="height: 190px; white-space: pre-line;" /></p>
+                <input type="text" class="form-control nt_content" id="notice"
+                    style="height: 190px; white-space: pre-line;" /></p>
             </div>
         </div>
         <div class="modal-footer">
@@ -128,9 +135,10 @@
                     <button type="button" class="d-flex align-items-center sbb_notice" data-toggle="button"
                         onclick='location.href="./notice.html"'>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px"  width="24" height="24">
-                            <path fill="none" d="M0 0h24v24H0z"/>
-                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7zm-2 0v-7a6 6 0 1 0-12 0v7h12zm-9 4h6v2H9v-2z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0v7zm-2 0v-7a6 6 0 1 0-12 0v7h12zm-9 4h6v2H9v-2z" />
                         </svg>
                         공지
                     </button>
@@ -138,17 +146,18 @@
                     <button type="button" class="d-flex align-items-center sbb_date" data-toggle="button"
                         onclick='location.href="./date.html"'>
                         <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px" width="24" height="24">
-                            <path fill="none" d="M0 0h24v24H0z"/>
-                            <path d="M9 1v2h6V1h2v2h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2zm11 9H4v9h16v-9zm-4.964 1.136l1.414 1.414-4.95 4.95-3.536-3.536L9.38 12.55l2.121 2.122 3.536-3.536zM7 5H4v3h16V5h-3v1h-2V5H9v1H7V5z"/>
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M9 1v2h6V1h2v2h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2zm11 9H4v9h16v-9zm-4.964 1.136l1.414 1.414-4.95 4.95-3.536-3.536L9.38 12.55l2.121 2.122 3.536-3.536zM7 5H4v3h16V5h-3v1h-2V5H9v1H7V5z" />
                         </svg>
                         일정
                     </button>
 
-                    <button type="button" class="d-flex align-items-center sbb_meeting" data-toggle="button"
-                        onclick='location.href="./chatList.html"'>
+                    <button type="button" id="server_chat" class="d-flex align-items-center sbb_meeting" data-toggle="button">
                         <svg xmlns="http://www.w3.org/2000/svg" style="margin: 0px 8px 0px 2px" width="24" height="24">
-                            <path fill="none" d="M0 0h24v24H0z"/>
-                            <path d="M10 3h4a8 8 0 1 1 0 16v3.5c-5-2-12-5-12-11.5a8 8 0 0 1 8-8zm2 14h2a6 6 0 1 0 0-12h-4a6 6 0 0 0-6 6c0 3.61 2.462 5.966 8 8.48V17z"/>
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M10 3h4a8 8 0 1 1 0 16v3.5c-5-2-12-5-12-11.5a8 8 0 0 1 8-8zm2 14h2a6 6 0 1 0 0-12h-4a6 6 0 0 0-6 6c0 3.61 2.462 5.966 8 8.48V17z" />
                         </svg>
                         채팅
                     </button>
@@ -170,13 +179,14 @@
                         <li><button class="dropdown-item" id="addNotice_btn">공지추가</button></li>
                         <li><button class="dropdown-item" id="addDate_btn">일정추가</button></li>
                         <li><button class="dropdown-item" id="addMsg_btn">채팅추가</button></li>
-                        <li><button class="dropdown-item" id="member_manage" onclick='location.href="./member.html"'>수강생관리</button></li>
+                        <li><button class="dropdown-item" id="member_manage"
+                                onclick='location.href="./member.html"'>수강생관리</button></li>
                         <li>
-                          <hr class="dropdown-divider" id="button_hr">
-                    </li>
-                    <li><a class="dropdown-item" href="./home.html">홈으로</a></li>
-                    <li><a class="dropdown-item" href="./systems.html">설정</a></li>
-                    <li><a class="dropdown-item" href="#">로그아웃</a></li>
+                            <hr class="dropdown-divider" id="button_hr">
+                        </li>
+                        <li><a class="dropdown-item" href="./home.html">홈으로</a></li>
+                        <li><a class="dropdown-item" href="./systems.html">설정</a></li>
+                        <li><a class="dropdown-item" id="srv_logout">로그아웃</a></li>
                 </ul>
             </div>
 
@@ -191,7 +201,7 @@
 
             <div class="container mt-4">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+                    <table class="table table-sm">
 
                         <colgroup>
                             <col style="width:10%">

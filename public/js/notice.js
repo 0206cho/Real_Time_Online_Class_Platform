@@ -13,7 +13,7 @@ $(function start() {
         url: "https://49.50.174.207:5000/server/notice?srv_id=" + srv_id,
 
         success: (data) => {
-            console.log(data.list)
+            console.log(data)
             list = data.list
             // console.log(data.list.n_id)
 

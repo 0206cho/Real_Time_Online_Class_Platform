@@ -1,101 +1,103 @@
 let token = localStorage.getItem('access_token')
-    // console.log(token);
-    let srv_id = localStorage.getItem('srv_id')
-    // console.log(srv_id);
-
-    
-$(function start() {
-    
-    $.ajax({
-        headers: {
-            "authorization": 'bearer ' + token,
-        },
-        type: "GET",
-        url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,
-
-        success: (data) => {
-            // console.log(data.list)
-            list = data.list
-
-            for (i = 0; i < data.list.length; i++) {
-                var user_id = data.list[i].user_id
-                var user_name = data.list[i].user_name
-                var user_email = data.list[i].user_email
-                var user_tel = data.list[i].user_tel
-                var srvuser_lastaccess = data.list[i].srvuser_lastaccess
+// console.log(token);
+let srv_id = localStorage.getItem('srv_id')
+// console.log(srv_id);
 
 
-                var m_notice = m_notice +
+$(function () {
+    $('#member_manage').click(() => {
 
-                    '<tr>'
-                        +'<td style="padding-left: 10px; text-decoration:none;">'
-                                +'<input class="form-check-input" type="checkbox" value="'+user_id+'" id="flexCheckDefault" onclick="getCheckboxValue(event)">'
+        $.ajax({
+            headers: {
+                "authorization": 'bearer ' + token,
+            },
+            type: "GET",
+            url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,
 
-                        +'</td>'
-                        +'<td>'+user_name+'</td>'
-                        +'<td>'+user_email+'</td>'
-                        +'<td>'+user_tel+'</td>'
-                        +'<td>'+srvuser_lastaccess+'</td>'
+            success: (data) => {
+                // console.log(data.list)
+                list = data.list
+
+                for (i = 0; i < data.list.length; i++) {
+                    var user_id = data.list[i].user_id
+                    var user_name = data.list[i].user_name
+                    var user_email = data.list[i].user_email
+                    var user_tel = data.list[i].user_tel
+                    var srvuser_lastaccess = data.list[i].srvuser_lastaccess
+
+
+                    var m_notice = m_notice +
+
+                        '<tr>'
+                        + '<td style="padding-left: 10px; text-decoration:none;">'
+                        + '<input class="form-check-input" type="checkbox" value="' + user_id + '" id="flexCheckDefault" onclick="getCheckboxValue(event)">'
+
+                        + '</td>'
+                        + '<td>' + user_name + '</td>'
+                        + '<td>' + user_email + '</td>'
+                        + '<td>' + user_tel + '</td>'
+                        + '<td>' + srvuser_lastaccess + '</td>'
                     '</tr>'
 
-                $("#bbbbb").html(m_notice)
+                    $("#bbbbb").html(m_notice)
+                }
             }
-        }
 
 
         })
     })
+})
 
-    let checkUserId = '';
+let checkUserId = '';
 
-    function getCheckboxValue(event)  {
-        
-        if(event.target.checked)  {
-            checkUserId = event.target.value;
-          console.log(checkUserId)
-        }else {
-            checkUserId = '';
-        }
-        
-      }
+function getCheckboxValue(event) {
 
-      $(function () {
-        $('#deleteMember_btn').click(() => {
-            // console.log(checkUserId)
+    if (event.target.checked) {
+        checkUserId = event.target.value;
+        console.log(checkUserId)
+    } else {
+        checkUserId = '';
+    }
 
-            $.ajax({
+}
 
-                headers: {
-                    "authorization": 'bearer ' + token,
-                },
-                type: "POST",
-                url: "https://49.50.174.207:5000/server/member/delete" ,
+$(function () {
+    $('#deleteMember_btn').click(() => {
+        // console.log(checkUserId)
 
-                data:{
-                    "srv_id": srv_id,
-                    "user_id": checkUserId,      
-                },
+        $.ajax({
 
-                success: (data) => {
-                    console.log(data)
-                    let result = data.result;
-                    if (result == "-1") {
+            headers: {
+                "authorization": 'bearer ' + token,
+            },
+            type: "POST",
+            url: "https://49.50.174.207:5000/server/member/delete",
 
-                        window.location.reload(); // 새로고침
+            data: {
+                "srv_id": srv_id,
+                "user_id": checkUserId,
+            },
 
-                    } else {
-                        alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
-                    }
+            success: (data) => {
+                console.log(data)
+                let result = data.result;
+                if (result == "-1") {
 
-                },
-        
+                    window.location.reload(); // 새로고침
 
-            })
-            
+                } else {
+                    alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
+                }
+
+            },
 
 
         })
+
+
+
     })
+})
 
 
 // })

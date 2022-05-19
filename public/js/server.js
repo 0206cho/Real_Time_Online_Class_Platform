@@ -287,3 +287,31 @@ function addMember() {
 
     })
 }
+
+//채팅
+$(function () {
+    $('#server_chat').click(() => {
+        $.ajax({
+            success: function (result) {
+                alert("추후 지원 될 예정입니다.")
+                // localStorage.clear();
+                // location.href = "#";
+            }
+        })
+    });
+});
+
+
+
+//로그아웃
+$(function () {
+    $('#srv_logout').click(() => {
+        $.ajax({
+            success: function (result) {
+                alert("로그아웃")
+                localStorage.clear();
+                location.href = "./join.html";
+            }
+        })
+    });
+});
