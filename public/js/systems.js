@@ -43,7 +43,7 @@ $(function () {
       data: {
         'name': alertname
       },
-      type: 'POST',
+      type: 'put',
       url: 'https://49.50.174.207:5000/setting/name',
 
       success: (data) => {
@@ -80,7 +80,7 @@ $(function () {
       data: {
         'pwd': password
       },
-      type: 'POST',
+      type: 'put',
       url: 'https://49.50.174.207:5000/signout',
 
       success: (data) => {
@@ -131,8 +131,8 @@ $(function () {
         'pwd': password,
         'changePwd' : new_password
       },
-      type: 'POST',
-      url: 'https://49.50.174.207:5000/setting/changePassword',
+      type: 'put',
+      url: 'https://49.50.174.207:5000/setting/pwd',
 
       success: (data) => {
         console.log(data)

@@ -108,7 +108,7 @@ $(function () {
             data:{
                 'srv_name' : server_name
             },
-            url: 'https://49.50.174.207:5000/server/add?srv_name=' + server_name,
+            url: 'https://49.50.174.207:5000/server?srv_name=' + server_name,
             type: "POST",
             dataType: "json",
             success: (data) => {

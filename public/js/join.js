@@ -117,7 +117,7 @@ $(function () {
 		var email = $('#r_email').val();
 		console.log("ddd", email)
 		$.ajax({
-			type: "post",
+			type: "GET",
 			url: "https://49.50.174.207:5000/emailCheck",
 			data: { 'email': email },
 
