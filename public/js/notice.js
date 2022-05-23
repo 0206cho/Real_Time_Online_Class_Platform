@@ -1,9 +1,9 @@
 
 $(function start() {
     let token = localStorage.getItem('access_token')
-    // console.log(token);
+    console.log(token);
     let srv_id = localStorage.getItem('srv_id')
-    // console.log(srv_id);
+    console.log(srv_id);
 
     $.ajax({
         headers: {
@@ -19,9 +19,9 @@ $(function start() {
 
             // var n_id = data.list.n_id
             for (i = 0; i < data.list.length; i++) {
-                var n_name = data.list[i].n_name
-                var n_write = data.list[i].n_write
-                var n_id = data.list[i].n_id
+                // var n_name = data.list[i].n_name
+                // var n_write = data.list[i].n_write
+                // var n_id = data.list[i].n_id
                 // console.log(n_id)
                 // console.log(n_name)
                 // console.log(n_write)

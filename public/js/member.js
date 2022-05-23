@@ -1,11 +1,11 @@
 let token = localStorage.getItem('access_token')
-// console.log(token);
+console.log(token);
 let srv_id = localStorage.getItem('srv_id')
-// console.log(srv_id);
+console.log(srv_id);
 
 
 $(function () {
-    $('#member_manage').click(() => {
+    // $('#member_manage').click(() => {
 
         $.ajax({
             headers: {
@@ -13,9 +13,10 @@ $(function () {
             },
             type: "GET",
             url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,
+            // dataType: "text",
 
             success: (data) => {
-                // console.log(data.list)
+                console.log(data)
                 list = data.list
 
                 for (i = 0; i < data.list.length; i++) {
@@ -37,15 +38,18 @@ $(function () {
                         + '<td>' + user_email + '</td>'
                         + '<td>' + user_tel + '</td>'
                         + '<td>' + srvuser_lastaccess + '</td>'
-                    '</tr>'
+                    +'</tr>'
 
                     $("#bbbbb").html(m_notice)
                 }
-            }
+            },
+            error: function () {
+                console.log("error")
+            },
 
 
         })
-    })
+    // })
 })
 
 let checkUserId = '';
@@ -70,8 +74,8 @@ $(function () {
             headers: {
                 "authorization": 'bearer ' + token,
             },
-            type: "POST",
-            url: "https://49.50.174.207:5000/server/member/delete",
+            type: "PUT",
+            url: "https://49.50.174.207:5000/server/member",
 
             data: {
                 "srv_id": srv_id,

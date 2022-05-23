@@ -1,13 +1,9 @@
 //서버명
 $(function start() {
     let token = localStorage.getItem('access_token')
-    console.log(token);
-    // console.log("AAAA");
-
+    // console.log(token);
     let srv_id = localStorage.getItem('srv_id')
-    console.log(srv_id);
-
-    // var srv_name = $(".s_title").val();
+    // console.log(srv_id);
 
     $.ajax({
         headers: {
@@ -24,11 +20,11 @@ $(function start() {
             var admin_yn = data.admin_yn
             var srv_name = data.list[0].srv_name
             var user_name = data.list[0].user_name
-            
-            var s_title = '<div>'+srv_name+'</div>'
+
+            var s_title = '<div>' + srv_name + '</div>'
             $(".s_title").text(srv_name)
 
-            var drdr_user_name = '<strong>'+user_name+'</strong>'
+            var drdr_user_name = '<strong>' + user_name + '</strong>'
             $("strong").text(user_name)
 
 
@@ -39,14 +35,14 @@ $(function start() {
             const member_manage = document.getElementById('member_manage'); //수강생 관리
             const button_hr = document.getElementById('button_hr');
 
-            if(admin_yn=="n") {
+            if (admin_yn == "n") {
                 addMember_btn.style.display = 'none';
                 addNotice_btn.style.display = 'none';
                 addDate_btn.style.display = 'none';
                 addMsg_btn.style.display = 'none';
                 member_manage.style.display = 'none';
                 button_hr.style.display = 'none';
-            }else {
+            } else {
                 addMember_btn.style.display = 'show';
                 addNotice_btn.style.display = 'show';
                 addDate_btn.style.display = 'show';
@@ -55,19 +51,12 @@ $(function start() {
                 button_hr.style.display = 'show';
             }
 
-
-            
-
-
         }
 
     })
 
 
 })
-
-
-
 
 
 //일정 추가
@@ -78,6 +67,7 @@ function addCalendar() {
     var start_time = $(".cal_start_time").val();
     var end_time = $(".cal_end_time").val();
 
+
     if (start_date == "") {
         alert("시작 일을 입력하세요")
     } else if (start_time == "") {
@@ -86,75 +76,70 @@ function addCalendar() {
         alert("종료 일을 입력하세요")
     } else if (end_time == "") {
         alert("종료 시간을 입력하세요")
+    } else if (new Date(end_date + ' ' + end_time) <= new Date(start_date + ' ' + start_time)) { // date 타입으로 변경 후 확인
+        alert("종료일을 시작일 이후로 지정해주세요.");
     } else if (content == null || content == "") {
         alert("글을 입력하세요")
-    } else if (new Date(end_date) - new Date(start_date) < 0) { // date 타입으로 변경 후 확인
-        alert("종료일을 시작일 이후로 지정해주세요.");
-    }
-    else {
-        // console.log("입력 완료")
-    }
+    } else {
 
-    $(function () {
-        $('.add_date_btn').click(() => {
-            let token = localStorage.getItem('access_token')
-            console.log(token);
-            let srv_id = localStorage.getItem('srv_id')
-            console.log(srv_id)
-            alert('일정 추가')
+        let token = localStorage.getItem('access_token')
+        console.log(token);
+        let srv_id = localStorage.getItem('srv_id')
+        console.log(srv_id)
+        alert('일정 추가')
 
-            console.log(start_date)
-            console.log(start_time)
-            console.log(end_date)
-            console.log(end_time)
-            console.log(content)
+        console.log(start_date)
+        console.log(start_time)
+        console.log(end_date)
+        console.log(end_time)
+        console.log(content)
 
-            var c_start = start_date + "T" + start_time + ":00"
-            console.log(c_start)
-            var c_end = end_date + "T" + end_time + ":00"
-            console.log(c_end)
+        var c_start = start_date + "T" + start_time + ":00"
+        console.log(c_start)
+        var c_end = end_date + "T" + end_time + ":00"
+        console.log(c_end)
 
 
-            $.ajax({
-                headers: {
-                    "authorization": 'bearer ' + token
-                },
-                type: "POST",
-                url: "https://49.50.174.207:5000/server/calendar/add?srv_id=" + srv_id,//  url
-                dataType: "json",
+        $.ajax({
+            headers: {
+                "authorization": 'bearer ' + token
+            },
+            type: "POST",
+            url: "https://49.50.174.207:5000/server/calendar",//  url
+            dataType: "json",
 
-                data: {
+            data: {
 
-                    "srv_id": srv_id,
-                    "c_start": c_start,
-                    "c_end": c_end,
-                    "c_memo": content
-                },
+                "srv_id": srv_id,
+                "c_start": c_start,
+                "c_end": c_end,
+                "c_memo": content
+            },
 
 
-                success: (data) => {
-                    console.log(data)
-                    let result = data.result;
-                    if (result == "1") {
-                        $('.addDate').modal('hide');
-                        window.location.reload(); // 새로고침
+            success: (data) => {
+                console.log(data)
+                let result = data.result;
+                if (result == "1") {
+                    $('.addDate').modal('hide');
+                    window.location.reload(); // 새로고침
 
-                    } else {
-                        alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
-                    }
-
-                },
-
-                error: function () {
-                    console.log("error")
-                },
-                complete: function (data) {
-
+                } else {
+                    alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
                 }
 
-            })
+            },
+
+            error: function () {
+                console.log("error")
+            },
+            complete: function (data) {
+
+            }
+
         })
-    })
+    }
+
 
 }
 
@@ -190,7 +175,7 @@ function addNotice() {
                     "authorization": 'bearer ' + token
                 },
                 type: "POST",
-                url: "https://49.50.174.207:5000/server/notice/add?srv_id=" + srv_id,//  url
+                url: "https://49.50.174.207:5000/server/notice?srv_id=" + srv_id,//  url
                 dataType: "json",
 
                 data: {
@@ -251,7 +236,7 @@ function addMember() {
                     "authorization": 'bearer ' + token
                 },
                 type: "POST",
-                url: "https://49.50.174.207:5000/server/member/invent?srv_id=" + srv_id,//  url
+                url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,//  url
                 dataType: "json",
 
                 data: {
