@@ -54,7 +54,7 @@
   <!-- 상단 바-->
   <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style=" padding:0px">
     <a class="navbar-brand"></a>
-    <a class="navbar-brand" href="#">홈</a>
+    <a class="navbar-brand" id="homes">홈</a>
 
     <!--화면 줄어들었을때 버튼 토글로 변환-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -108,21 +108,21 @@
       <div class="col"></div>
       <div class="col">
         <!--검색창-->
-        <form class="card" style="padding-bottom: 1rem; padding-top: 1rem; border:none;">
+        <div class="card" style="padding-bottom: 1rem; padding-top: 1rem; border:none;">
           <div class="input-group">
             <input type="text" class="form-control" id = "keyword" >
-            <button type="submit" class="btn btn-outline-success" id = "search">검색</button>
+            <button class="btn btn-outline-success" id = "search">검색</button>
           </div>
 
-        </form>
+        </div>
       </div>
     </div>
 
     <!--카드-->
-    <div id="serverlist"></div>
+     <div id="serverlist"></div> 
+    
     <div>
     <!--js에서 카드 for로 가져옴-->
-    <span class="msg" style='color:black; font-size:1.2em;'></span>
     </div>
   </div>
     <br>
