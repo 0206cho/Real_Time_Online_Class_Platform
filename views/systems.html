@@ -14,6 +14,12 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--영상테스트 시 필요-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
+  <!--없으면 favicon.ico 오류발생-->
+
   <title>System</title>
 
 </head>
@@ -81,7 +87,7 @@
         <p>
         <div class="row">
           <h5 style="font-weight: bold;">이름</h5>
-          <div class="col-md-8" >
+          <div class="col-md-8">
             <span id="user_name" style='color:black'></span>
           </div>
           <div class="col-md-4">
@@ -218,35 +224,8 @@
     </p>
 
 
-
-    <!--영상설정-->
-    <h5 style="font-weight: bold;">영상설정</h5>
-
-    <!--영상테스트-->
-    <!-- <p>
-    <div class="row">
-      <div class="col">
-        <p>
-        <div>
-          <button type="button" class="btn btn-drdr" onclick="{getVideo()}">영상 테스트</button>
-          <video id="myVideo" width="400" height="300" style="width: 100%; height: 50%; background-color: #409169;">
-        </div>
-        </p>
-      </div>
-    </div>
-    </p> -->
-
-
-    <!--영상테스트-->
-    <p>
-    <div class="row">
-      <div class="col">
-        <p>
-
-        </p>
-      </div>
-    </div>
-
+<!--영상설정 이전버전-->
+    <!-- <h5 style="font-weight: bold;">영상설정</h5>
 
     <div class="row">
       <div class="col-md-8">
@@ -254,14 +233,12 @@
           <video id="myVideo" width="400" height="300" style="width: 100%; height: 50%; background-color: #409169;">
         </div>
       </div>
-      <!--카메라 선택-->
       <div class="col-md-4">
         <p>
           카메라
         <div class="dropdown">
           <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
             aria-expanded="false">
-            <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
             Default
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
@@ -274,6 +251,35 @@
         <br>
         <div>
           <button type="button" class="btn btn-drdr" style="width: 100%;" onclick="{getVideo()}">영상 테스트</button>
+        </div>
+        </p>
+      </div>
+    </div>
+    </p>
+    <br>
+    <Br> -->
+
+
+    <!--영상설정-->
+    <h5 style="font-weight: bold;">영상설정</h5>
+
+    <!--영상테스트-->
+    <div class="row">
+      <div class="col-md-8">
+        <div>
+          <video id="myFace" autoplay playsinline width="100%"></video>
+        </div>
+      </div>
+      <!--카메라 선택-->
+      <div class="col-md-4">
+        <p>
+          카메라
+        <div><select class="btn btn-drdr" id="cameras" style="width: 100%;"></select></div>        
+        <br>
+        <p>
+          영상테스트
+        <div>
+          <button class="btn btn-drdr" id="camera"  style="width: 100%;">카메라 끄기</button>
         </div>
         </p>
       </div>
