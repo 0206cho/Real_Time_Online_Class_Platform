@@ -104,13 +104,8 @@
           <div class="col-md-8">
             <span id="user_email" style='color:black'></span>
           </div>
-          <!-- <div class="col-md-4">
-            <button type="button" class="btn btn-change" style="width: 100%;" data-bs-toggle="modal"
-              data-bs-target="#emailModal">확인</button>
-          </div> -->
         </div>
         </p>
-
       </div>
     </div>
     <br>
@@ -144,124 +139,34 @@
     </p>
     <hr class="my-5">
 
-
     <!--음성설정-->
     <h4 style="font-weight: bold;">시스템설정</h4>
-    <br>
-    <h5 style="font-weight: bold;">음성설정</h5>
+    <!-- <br>
+ <h5 style="font-weight: bold;">음성설정</h5>
 
-    <!--장치-->
-    <!--마이크 테스트하기-->
-    <p>
-    <div class="row">
-      <div class="col">
-        <input type=checkbox id="chk-hear-mic"><label for="chk-hear-mic">&nbsp마이크 소리 듣기</label>
-      </div>
-    </div>
-    </p>
+ <p>
 
-    <p>
-    <div class="row">
+ <p>
+ <div class="row">
 
-      <div class="col">
-        <p>
-          녹음장치
-        <div class="dropdown">
-          <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false" style="width: 100%; text-align: left;">
-            <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
-            Default
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-            <li><a class="dropdown-item" href="#">Default</a></li>
-            <li><a class="dropdown-item" href="#">헤드셋 마이크</a></li>
-            <li><a class="dropdown-item" href="#">마이크배열</a></li>
-          </ul>
-        </div>
-        </p>
-      </div>
+   <div class="col">
+     <p>
+       오디오 테스트
+       <div><button class="btn btn-drdr" id="mute"  style="width: 100%;">음소거 켜기</button></div>
+     </p>
+   </div>
 
-      <div class="col">
-        <p>
-          출력장치
-        <div class="dropdown">
-          <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <!--버튼 크기 고정이지만 글자 왼쪽 정렬 : style="text-align: left; width: 15cm;"하면 화살표도 같이 왼쪽으로 감,,,-->
-            Default
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-            <li><a class="dropdown-item" href="#">Default</a></li>
-            <li><a class="dropdown-item" href="#">헤드셋 마이크</a></li>
-            <li><a class="dropdown-item" href="#">마이크배열</a></li>
-          </ul>
-        </div>
-        </p>
-      </div>
+   <div class="col">
+     <p>
+       마이크
+       <div><select class="btn btn-drdr" id="mutes" style="width: 100%;"></select></div>
+     </p>
+   </div>
 
-    </div>
-    </p>
+ </div>
+ </p>
 
-    <!--음량-->
-    <p>
-    <div class="row">
-
-      <div class="col">
-        <p>
-          입력음량
-        <div><input type="range" class="form-range" min="0" max="100" step="0.5" id="customRange3"></div>
-        </p>
-      </div>
-
-      <div class="col">
-        <p>
-          출력음량
-        <div><input type="range" class="form-range" id="customRange3"></div>
-        </p>
-      </div>
-
-    </div>
-    </p>
-
-
-<!--영상설정 이전버전-->
-    <!-- <h5 style="font-weight: bold;">영상설정</h5>
-
-    <div class="row">
-      <div class="col-md-8">
-        <div>
-          <video id="myVideo" width="400" height="300" style="width: 100%; height: 50%; background-color: #409169;">
-        </div>
-      </div>
-      <div class="col-md-4">
-        <p>
-          카메라
-        <div class="dropdown">
-          <button class="btn btn-drop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Default
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 100%;">
-            <li><a class="dropdown-item" href="#">Default</a></li>
-            <li><a class="dropdown-item" href="#">외부 카메라</a></li>
-            <li><a class="dropdown-item" href="#">웹 카메라</a></li>
-          </ul>
-        </div>
-        <br>
-        <br>
-        <div>
-          <button type="button" class="btn btn-drdr" style="width: 100%;" onclick="{getVideo()}">영상 테스트</button>
-        </div>
-        </p>
-      </div>
-    </div>
-    </p>
-    <br>
-    <Br> -->
-
-
-    <!--영상설정-->
-    <h5 style="font-weight: bold;">영상설정</h5>
+ <h5 style="font-weight: bold;">영상설정</h5> -->
 
     <!--영상테스트-->
     <div class="row">
@@ -272,15 +177,26 @@
       </div>
       <!--카메라 선택-->
       <div class="col-md-4">
+        <h5 style="font-weight: bold;">영상설정</h5>
         <p>
           카메라
-        <div><select class="btn btn-drdr" id="cameras" style="width: 100%;"></select></div>        
+        <div><select class="btn btn-drdr" id="cameras" style="width: 100%;"></select></div>
         <br>
         <p>
           영상테스트
         <div>
-          <button class="btn btn-drdr" id="camera"  style="width: 100%;">카메라 끄기</button>
+          <button class="btn btn-drdr" id="camera" style="width: 100%;">카메라 끄기</button>
         </div>
+        </p>
+        <br>
+        <h5 style="font-weight: bold;">음성설정</h5>
+        <p>
+          오디오 테스트
+        <div><select class="btn btn-drdr" id="mutes" style="width: 100%;"></select></div>
+        </p>
+        <p>
+          마이크
+        <div><button class="btn btn-drdr" id="mute" style="width: 100%;">음소거 켜기</button></div>
         </p>
       </div>
     </div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--영상테스트 시 필요-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <!--없으면 favicon.ico 오류발생-->
+
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <main>
+        <div id="call">
+            <div id="myStream">
+                
+                <video id="myFace" autoplay playsinline width="600" height="500"></video>
+                <button id="mute">Mute</button>
+                <button id="camera">끄기</button>
+                
+            </div>
+        </div>
+        <select id="cameras"></select>
+                <select id="mutes"></select>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="test.js"> </script>
+</body>
+
+</html>
+

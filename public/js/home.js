@@ -12,11 +12,9 @@ $(function start() {
         url: 'https://49.50.174.207:5000/home',
 
         success: (data) => {
-            console.log(data)
-
             var c_modal = "<div class='row'>  ";
 
-            if(data.list.length == 0){
+            if (data.list.length == 0) {
                 $(".msg").text("서버가 존재하지 않습니다.");
             }
 
@@ -25,10 +23,9 @@ $(function start() {
                     data.list[i].calendar_start = "예약없음"
                 }
                 server_id = data.list[i].srv_id;
-                console.log("serid : ", server_id)
 
                 c_modal = c_modal +
-                    '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 1rem;">'
+                    '<div class="col-lg-3 col-md-6 col-sm-12" id="contains" style="margin-bottom: 1rem;">'
                     + '<div class="card" width="100%" height="225">'
                     + '<div class="card-body">'
                     + '<h5 class="card-title" id="' + data.list[i].srv_id + '" style="font-weight: bold;">' + data.list[i].srv_name + '</h5>'
@@ -40,8 +37,6 @@ $(function start() {
                     + '<button type ="button" id="server-enter" class="btn btn-enter" onclick="func(' + server_id + ')">접속하기</button>'
                     + '</div></div></div>'
                 $("#serverlist").html(c_modal)
-
-
             }
             c_modal += "</div>"
 
@@ -52,6 +47,47 @@ $(function start() {
             console.log('실패')
             console.log(error)
         },
+    });
+});
+
+// 검색버튼
+$(function () {    
+    let k = $(this).val();
+    $("#keyword").keyup(function() {
+        k = $("#keyword").val();
+        console.log("키1",k);
+    })
+
+    $('#search').click(() => {        
+        alert(k)
+
+        $.ajax({
+            headers: {
+                "authorization": 'bearer ' + token,
+            },
+            type: 'GET',
+            url: 'https://49.50.174.207:5000/home?keyword=캡스톤',
+            dataType: "json",
+            success: (data) => {
+                console.log(data)
+                console.log("성공")
+                alert("sucesss");
+                let result = data.result;
+
+                if (result == "1") {
+                    alert("dsddddddddddddd")
+                    
+                }
+                else {
+                    alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
+                }
+
+            },
+            error: (error) => {
+                console.log('실패')
+                console.log(error)
+            },
+        });
     });
 });
 
@@ -105,8 +141,8 @@ $(function () {
             headers: {
                 "authorization": 'bearer ' + token,
             },
-            data:{
-                'srv_name' : server_name
+            data: {
+                'srv_name': server_name
             },
             url: 'https://49.50.174.207:5000/server?srv_name=' + server_name,
             type: "POST",
@@ -114,14 +150,14 @@ $(function () {
             success: (data) => {
                 console.log(data)
                 let result = data.result;
-    
+
                 if (result == "1") {
-                    alert("'" + server_name  + "' 서버가 추가되었습니다.")
+                    alert("'" + server_name + "' 서버가 추가되었습니다.")
                     console.log("추가된 서버명", server_name)
                     $('#exampleModal').modal('hide'); // 모달창 닫기
                     window.location.reload(); // 새로고침
                 }
-                else{
+                else {
                     alert("오류가 발생하였습니다. 다시 실행해주시길 바랍니다.")
                 }
             },

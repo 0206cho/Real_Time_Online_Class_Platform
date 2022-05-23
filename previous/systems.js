@@ -199,165 +199,64 @@ $("#modal_newpwconfirm").focusout(function () {
 	}
 });
 
-const myFace = document.getElementById("myFace");
-const cameraBtn = document.getElementById("camera"); // 카메라 켜기 버튼
-const muteBtn = document.getElementById("mute"); // 음소거 켜기 버튼
-const camerasSelect = document.getElementById("cameras"); //카메라정보들 가져오기
-const muteSelect = document.getElementById("mutes"); //카메라정보들 가져오기
+//영상테스트
+var myVideoStream = document.getElementById('myVideo')     // make it a global variable
+function getVideo() {
+  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+  navigator.getMedia({ video: true, audio: false },
 
-let myStream; // 스트림 = 비디오 + 오디오
-let muted = false;
-let cameraOff = false;
+    function (stream) {
+      myVideoStream.srcObject = stream
+      myVideoStream.play();
+    },
 
-async function getCameras() {
-  try {
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    //사용(또는 접근)이 가능한 미디어 입력장치나 출력장치들의 리스트를 가져오기
-    const cameras = devices.filter((device) => device.kind === "videoinput");  //비디오장치만 거르기
-    console.log(cameras);
-   
-    const currentCamera = myStream.getVideoTracks()[0];
-    cameras.forEach((camera) => { //화면에 장치들 보이게 
-      const option = document.createElement("option");
-      option.value = camera.deviceId;
-      option.innerText = camera.label;
-      if (currentCamera.label === camera.label) { //현재선택된 카메라를 옵션에서 보이게설정
-        option.selected = true;
-      }
-      camerasSelect.appendChild(option);
+    function (error) {
+      alert('webcam not working');
     });
-  } catch (e) {
-    console.log(e);
-  }
 }
-
-// 음성리스트
-async function getMutes() {
-  try {
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    //사용(또는 접근)이 가능한 미디어 입력장치나 출력장치들의 리스트를 가져오기
-    const mutes = devices.filter((device) => device.kind === "audioinput");   // 오디오 입력장치만 거르기
-    console.log(mutes);
-   
-    const currentMute = myStream.getVideoTracks()[0];
-    mutes.forEach((mute) => { //화면에 장치들 보이게 
-      const option = document.createElement("option");
-      option.value = mute.deviceId;
-      option.innerText = mute.label;
-      if (currentMute.label === mute.label) { //현재선택된 카메라를 옵션에서 보이게설정
-        option.selected = true;
-      }
-      muteSelect.appendChild(option);
-    });
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-async function getMedia(deviceId) {
-    const initialConstrains = {
-      audio: true,
-      video: { facingMode: "user" },
-    }; //모바일 장치의 전면카메라 요청
-    const cameraConstraints = {
-      audio: true,
-      video: { deviceId: { exact: deviceId } },
-    }; //해당 deviceid 카메라 요청 코드 
-    try {
-        myStream = await navigator.mediaDevices.getUserMedia(
-            deviceId ? cameraConstraints : initialConstrains,
-          ); //사용자에게 미디어 입력장치 사용권한을 요청
-          myFace.srcObject = myStream; //화면에 캠보이게
-          if (!deviceId) {
-            await getCameras(); //카메라들정보 가져옴
-            await getMutes();
-          }
-        } catch (e) {
-          console.log(e); /* 오류 처리 */
-        }
-    }
-    getMedia();
-    function handleMuteClick() { // 오디오 정보들
-      myStream
-        .getAudioTracks()
-        .forEach((track) => (track.enabled = !track.enabled));
-      if (!muted) {
-        muteBtn.innerText = "음소거 끄기";
-        muted = true;
-      } else {
-        muteBtn.innerText = "음소거 켜기";
-        muted = false;
-      }
-    }
-    function handleCameraClick() { //비디오정보들
-      myStream
-        .getVideoTracks()
-        .forEach((track) => (track.enabled = !track.enabled));
-        if (cameraOff) {
-            cameraBtn.innerText = "카메라 끄기";
-            cameraOff = false;
-          } else {
-            cameraBtn.innerText = "카메라 켜기";
-            cameraOff = true;
-          }
-        }
-        //다른카메라 누를시 카메라전환
-        async function handleCameraChange() {
-          await getMedia(camerasSelect.value); //해당 카메라의 id를 보내 카메라를 바꿈 
-        }
-
-        async function handleMuteChange() {
-          await getMedia(muteSelect.value); //해당 카메라의 id를 보내 카메라를 바꿈 
-        }
-        
-        muteBtn.addEventListener("click", handleMuteClick);
-        cameraBtn.addEventListener("click", handleCameraClick);
-        camerasSelect.addEventListener("input", handleCameraChange);
-        muteSelect.addEventListener("input", handleMuteChange);
-
 
 // 마이크테스트
-// const chkHearMic = document.getElementById("chk-hear-mic")
+const chkHearMic = document.getElementById("chk-hear-mic")
 
-// const audioCtx = new (window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
 
-// const analyser = audioCtx.createAnalyser()
+const analyser = audioCtx.createAnalyser()
 
-// function makeSound(stream) {
-//   const source = audioCtx.createMediaStreamSource(stream)
+function makeSound(stream) {
+  const source = audioCtx.createMediaStreamSource(stream)
 
-//   source.connect(analyser)
-//   analyser.connect(audioCtx.destination)
+  source.connect(analyser)
+  analyser.connect(audioCtx.destination)
 
-// }
+}
 
-// if (navigator.mediaDevices) {
-//   console.log('getUserMedia supported.')
+if (navigator.mediaDevices) {
+  console.log('getUserMedia supported.')
 
-//   const constraints = {
-//     audio: true
-//   }
-//   let chunks = []
+  const constraints = {
+    audio: true
+  }
+  let chunks = []
 
-//   navigator.mediaDevices.getUserMedia(constraints)
-//     .then(stream => {
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then(stream => {
 
-//       const mediaRecorder = new MediaRecorder(stream)
+      const mediaRecorder = new MediaRecorder(stream)
 
-//       chkHearMic.onchange = e => {
-//         if (e.target.checked == true) {
-//           audioCtx.resume()
-//           makeSound(stream)
-//         } else {
-//           audioCtx.suspend()
-//         }
-//       }
+      chkHearMic.onchange = e => {
+        if (e.target.checked == true) {
+          audioCtx.resume()
+          makeSound(stream)
+        } else {
+          audioCtx.suspend()
+        }
+      }
 
-//       mediaRecorder.ondataavailable = e => {
-//         chunks.push(e.data)
-//       }
-//     })
-//     .catch(err => {
-//       console.log('The following error occurred: ' + err)
-//     })
-// }
+      mediaRecorder.ondataavailable = e => {
+        chunks.push(e.data)
+      }
+    })
+    .catch(err => {
+      console.log('The following error occurred: ' + err)
+    })
+}

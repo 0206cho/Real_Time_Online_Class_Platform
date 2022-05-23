@@ -12,6 +12,11 @@
 	user-select: none;
 }
 
+/*검색 내용 색 변경*/
+.text-red {
+    color: red;
+}
+
 /*서버입장 버튼*/
 .btn-enter {
 	background-color: #C3E1D2;
