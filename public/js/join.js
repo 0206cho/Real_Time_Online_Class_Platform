@@ -5,8 +5,8 @@ $(function () {
 		var email = $('#email').val();
 		var password = $('#password').val();
 
-		console.log(email)
-		console.log(password)
+		// console.log(email)
+		// console.log(password)
 
 		$.ajax({
 			url: 'https://49.50.174.207:5000/login',
@@ -16,7 +16,7 @@ $(function () {
 				'pwd': password,
 			},
 			success: function (res) {
-				console.log(res)
+				// console.log(res)
 				let result = res.result;
 				let msg = res.msg;
 				// let token = res.accessToken;
@@ -115,7 +115,7 @@ $(function () {
 $(function () {
 	$('#email_check').click(() => {
 		var email = $('#r_email').val();
-		console.log("ddd", email)
+		// console.log("ddd", email)
 		$.ajax({
 			type: "GET",
 			url: "https://49.50.174.207:5000/emailCheck",
@@ -126,10 +126,10 @@ $(function () {
 				let msg = res.msg;
 				var val = $(r_email).val(),
 					regex = /^\S+@\S+$/i;
-				console.log(msg)
-				console.log(res)
-				console.log(result)
-				console.log(val)
+				// console.log(msg)
+				// console.log(res)
+				// console.log(result)
+				// console.log(val)
 
 				if (val == "" | val == null) {
 					$(".msg_r_email").text("이메일을 입력해주시길 바랍니다.");
@@ -143,7 +143,7 @@ $(function () {
 					$(".msg_r_email").text(msg);
 					$(".msg_r_email").css('color', 'green');
 					$('.r_email').attr("email_check_result", "success");
-					console.log(msg)
+					// console.log(msg)
 					document.getElementById("email_check_result").value = "1"; //중복확인을 했다는 flag
 				}
 				else if (result == -1) {
@@ -158,7 +158,7 @@ $(function () {
 				console.log(error)
 			}
 		});
-		console.log(msg);
+		// console.log(msg);
 	});
 });
 

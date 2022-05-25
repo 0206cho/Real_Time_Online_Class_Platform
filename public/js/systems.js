@@ -1,6 +1,6 @@
 $(function start() {
   let token = localStorage.getItem('access_token')
-  console.log(token);
+  // console.log(token);
 
   $.ajax({
     headers: {
@@ -10,10 +10,9 @@ $(function start() {
     url: 'https://49.50.174.207:5000/setting',
 
     success: (data) => {
-      console.log(data)
+      // console.log(data)
       //이름
       var user_name = data.list[0].user_name;
-      console.log(user_name)
       $('#usernameModal_input').val(user_name); //이름수정 모달에 기존 이름 전달
       $('#user_name').text(user_name);
 
@@ -25,7 +24,6 @@ $(function start() {
 
     },
     error: (error) => {
-      console.log('실패')
       console.log(error)
     },
   });
@@ -47,7 +45,7 @@ $(function () {
       url: 'https://49.50.174.207:5000/setting/name',
 
       success: (data) => {
-        console.log(data)
+        // console.log(data)
         let result = data.result;
         let msg = data.msg;
 
@@ -61,7 +59,7 @@ $(function () {
         }
       },
       error: (error) => {
-        console.log('실패')
+        // console.log('실패')
         console.log(error)
       },
     });
@@ -84,7 +82,7 @@ $(function () {
       url: 'https://49.50.174.207:5000/signout',
 
       success: (data) => {
-        console.log(data)
+        // console.log(data)
         let result = data.result;
         let msg = data.msg;
 
@@ -96,12 +94,12 @@ $(function () {
         }
         else {
           alert(msg)
-          console.log(result)
-          console.log(data)
+          // console.log(result)
+          // console.log(data)
         }
       },
       error: (error) => {
-        console.log('실패')
+        // console.log('실패')
         console.log(error)
       },
     });
@@ -135,7 +133,7 @@ $(function () {
       url: 'https://49.50.174.207:5000/setting/pwd',
 
       success: (data) => {
-        console.log(data)
+        // console.log(data)
         let result = data.result;
         let msg = data.msg;
 
@@ -146,12 +144,12 @@ $(function () {
         }
         else {
           alert(msg)
-          console.log(result)
-          console.log(data)
+          // console.log(result)
+          // console.log(data)
         }
       },
       error: (error) => {
-        console.log('실패')
+        // console.log('실패')
         console.log(error)
       },
     });
@@ -214,7 +212,7 @@ async function getCameras() {
     const devices = await navigator.mediaDevices.enumerateDevices();
     //사용(또는 접근)이 가능한 미디어 입력장치나 출력장치들의 리스트를 가져오기
     const cameras = devices.filter((device) => device.kind === "videoinput");  //비디오장치만 거르기
-    console.log(cameras);
+    // console.log(cameras);
    
     const currentCamera = myStream.getVideoTracks()[0];
     cameras.forEach((camera) => { //화면에 장치들 보이게 
@@ -237,7 +235,7 @@ async function getMutes() {
     const devices = await navigator.mediaDevices.enumerateDevices();
     //사용(또는 접근)이 가능한 미디어 입력장치나 출력장치들의 리스트를 가져오기
     const mutes = devices.filter((device) => device.kind === "audioinput");   // 오디오 입력장치만 거르기
-    console.log(mutes);
+    // console.log(mutes);
    
     const currentMute = myStream.getVideoTracks()[0];
     mutes.forEach((mute) => { //화면에 장치들 보이게 
@@ -315,49 +313,3 @@ async function getMedia(deviceId) {
         camerasSelect.addEventListener("input", handleCameraChange);
         muteSelect.addEventListener("input", handleMuteChange);
 
-
-// 마이크테스트
-// const chkHearMic = document.getElementById("chk-hear-mic")
-
-// const audioCtx = new (window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
-
-// const analyser = audioCtx.createAnalyser()
-
-// function makeSound(stream) {
-//   const source = audioCtx.createMediaStreamSource(stream)
-
-//   source.connect(analyser)
-//   analyser.connect(audioCtx.destination)
-
-// }
-
-// if (navigator.mediaDevices) {
-//   console.log('getUserMedia supported.')
-
-//   const constraints = {
-//     audio: true
-//   }
-//   let chunks = []
-
-//   navigator.mediaDevices.getUserMedia(constraints)
-//     .then(stream => {
-
-//       const mediaRecorder = new MediaRecorder(stream)
-
-//       chkHearMic.onchange = e => {
-//         if (e.target.checked == true) {
-//           audioCtx.resume()
-//           makeSound(stream)
-//         } else {
-//           audioCtx.suspend()
-//         }
-//       }
-
-//       mediaRecorder.ondataavailable = e => {
-//         chunks.push(e.data)
-//       }
-//     })
-//     .catch(err => {
-//       console.log('The following error occurred: ' + err)
-//     })
-// }

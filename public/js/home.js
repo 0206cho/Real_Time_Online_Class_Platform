@@ -5,7 +5,7 @@ let token = localStorage.getItem('access_token')
 let k = '';
 $("#keyword").keyup(function () {
     k = $("#keyword").val();
-    console.log("키1", k);
+    // console.log("키1", k);
 })
 
 // 검색버튼
@@ -32,8 +32,8 @@ function searchMsg() {
         url: 'https://49.50.174.207:5000/home?keyword=' + k,
         dataType: "json",
         success: (data) => {
-            console.log(data)
-            console.log("성공")
+            // console.log(data)
+            // console.log("성공")
             // alert("sucesss");
             let result = data.result;
 
@@ -74,7 +74,7 @@ function searchMsg() {
 
         },
         error: (error) => {
-            console.log('실패')
+            // console.log('실패')
             console.log(error)
         },
     });
@@ -83,7 +83,7 @@ function searchMsg() {
 // 접속하기 버튼
 function func(server_id) {
     let token = localStorage.getItem('access_token')
-    console.log(token);
+    // console.log(token);
 
     $.ajax({
         headers: {
@@ -93,11 +93,11 @@ function func(server_id) {
         url: "https://49.50.174.207:5000/server?srv_id=" + server_id,//  url
         dataType: "json",
         success: (data) => {
-            console.log(data)
+            // console.log(data)
             let result = data.result;
 
             if (result == "1") {
-                console.log("sffs", server_id)
+                // console.log("sffs", server_id)
                 localStorage.setItem("srv_id", server_id) // 서버스토리지에 서버아이디 저장
                 location.href = './date.html';
             }
@@ -122,9 +122,9 @@ $(function () {
 $(function () {
     $('#sever_add').click(() => {
         let token = localStorage.getItem('access_token')
-        console.log(token);
+        // console.log(token);
         var server_name = $('#server_name').val(); // 서버명
-        console.log(server_name)
+        // console.log(server_name)
 
         $.ajax({
             headers: {
@@ -137,12 +137,12 @@ $(function () {
             type: "POST",
             dataType: "json",
             success: (data) => {
-                console.log(data)
+                // console.log(data)
                 let result = data.result;
 
                 if (result == "1") {
                     alert("'" + server_name + "' 서버가 추가되었습니다.")
-                    console.log("추가된 서버명", server_name)
+                    // console.log("추가된 서버명", server_name)
                     $('#exampleModal').modal('hide'); // 모달창 닫기
                     window.location.reload(); // 새로고침
                 }
