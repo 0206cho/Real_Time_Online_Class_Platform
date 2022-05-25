@@ -1498,6 +1498,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     remoteVideoFullScreenBtn.setAttribute('id', peer_id + '_fullScreen');
     remoteVideoFullScreenBtn.className = 'fas fa-expand';
 
+
     // no mobile devices
     if (!isMobileDevice) {
         setTippy(remoteVideoParagraph, 'Participant name', 'bottom');
@@ -1531,7 +1532,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     remoteStatusMenu.appendChild(remoteVideoStatusIcon);
     remoteStatusMenu.appendChild(remoteAudioStatusIcon);
     remoteStatusMenu.appendChild(remoteYoutubeBtnBtn);
-    // remoteStatusMenu.appendChild(remotePrivateMsgBtn);
+    remoteStatusMenu.appendChild(remotePrivateMsgBtn);
     remoteStatusMenu.appendChild(remoteVideoToImgBtn);
     // remoteStatusMenu.appendChild(remotePeerKickOut);
     remoteStatusMenu.appendChild(remoteVideoFullScreenBtn);
@@ -1586,6 +1587,8 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     toggleClassElements('statusMenu', 'inline');
     // notify if peer started to recording own screen + audio
     if (peer_rec) notifyRecording(peer_name, 'Started');
+
+    remotePrivateMsgBtn.style.display = 'none';
 }
 
 /**
