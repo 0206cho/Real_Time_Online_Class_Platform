@@ -25,7 +25,7 @@ $(function () {
 					// $.cookie('token', token, { path: './home.html' }); // 쿠키 설정
 
 					localStorage.setItem("access_token", res['accessToken']) // 서버스토리지
-					alert(msg)
+					// alert(msg)
 					location.href = './home.html';
 				} else {
 					alert(msg)
