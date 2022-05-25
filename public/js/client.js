@@ -403,7 +403,7 @@ function getHtmlElementsById() {
  */
 function setButtonsToolTip() {
 
-    
+
     // not need for mobile
     if (isMobileDevice) return;
     // main buttons
@@ -610,17 +610,17 @@ function initClientPeer() {
     $.ajax({
         headers: {
             "authorization": 'bearer ' + token,
-          },  
+        },
         type: "GET",
         url: "https://49.50.174.207:5000/video/getname",//  url
         dataType: "json",
         success: (data) => {
-                    console.log(data.list[0].user_name)
-                    
-                    user_name = data.list[0].user_name
+            console.log(data.list[0].user_name)
 
-                    // myPeerName = user_name; //화상 이름
-                }
+            user_name = data.list[0].user_name
+
+            // myPeerName = user_name; //화상 이름
+        }
     })
 
 
@@ -652,7 +652,7 @@ function initClientPeer() {
     signalingSocket.on('peerAction', handlePeerAction);
     signalingSocket.on('wbCanvasToJson', handleJsonToWbCanvas);
     signalingSocket.on('whiteboardAction', handleWhiteboardAction);
-    signalingSocket.on('kickOut', handleKickedOut);
+    // signalingSocket.on('kickOut', handleKickedOut);
     signalingSocket.on('fileInfo', handleFileInfo);
     signalingSocket.on('fileAbort', handleFileAbort);
     signalingSocket.on('videoPlayer', handleVideoPlayer);
@@ -1446,7 +1446,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     const remoteAudioStatusIcon = document.createElement('button');
     const remotePrivateMsgBtn = document.createElement('button');
     const remoteYoutubeBtnBtn = document.createElement('button');
-    const remotePeerKickOut = document.createElement('button');
+    // const remotePeerKickOut = document.createElement('button');
     const remoteVideoToImgBtn = document.createElement('button');
     const remoteVideoFullScreenBtn = document.createElement('button');
     const remoteVideoAvatarImage = document.createElement('img');
@@ -1490,9 +1490,9 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     remoteVideoToImgBtn.setAttribute('id', peer_id + '_snapshot');
     remoteVideoToImgBtn.className = 'fas fa-camera-retro';
 
-    // remote peer kick out
-    remotePeerKickOut.setAttribute('id', peer_id + '_kickOut');
-    remotePeerKickOut.className = 'fas fa-sign-out-alt';
+    // // remote peer kick out
+    // remotePeerKickOut.setAttribute('id', peer_id + '_kickOut');
+    // remotePeerKickOut.className = 'fas fa-sign-out-alt';
 
     // remote video full screen mode
     remoteVideoFullScreenBtn.setAttribute('id', peer_id + '_fullScreen');
@@ -1507,7 +1507,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
         setTippy(remoteYoutubeBtnBtn, 'Send YouTube video', 'bottom');
         setTippy(remotePrivateMsgBtn, 'Send private message', 'bottom');
         setTippy(remoteVideoToImgBtn, 'Take a snapshot', 'bottom');
-        setTippy(remotePeerKickOut, 'Kick out', 'bottom');
+        // setTippy(remotePeerKickOut, 'Kick out', 'bottom');
         setTippy(remoteVideoFullScreenBtn, 'Full screen mode', 'bottom');
     }
 
@@ -1531,9 +1531,9 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     remoteStatusMenu.appendChild(remoteVideoStatusIcon);
     remoteStatusMenu.appendChild(remoteAudioStatusIcon);
     remoteStatusMenu.appendChild(remoteYoutubeBtnBtn);
-    remoteStatusMenu.appendChild(remotePrivateMsgBtn);
+    // remoteStatusMenu.appendChild(remotePrivateMsgBtn);
     remoteStatusMenu.appendChild(remoteVideoToImgBtn);
-    remoteStatusMenu.appendChild(remotePeerKickOut);
+    // remoteStatusMenu.appendChild(remotePeerKickOut);
     remoteStatusMenu.appendChild(remoteVideoFullScreenBtn);
 
     remoteMedia.setAttribute('id', peer_id + '_video');
@@ -1565,7 +1565,7 @@ function loadRemoteMediaStream(stream, peers, peer_id) {
     // handle video full screen mode
     handleVideoPlayerFs(peer_id + '_video', peer_id + '_fullScreen', peer_id);
     // handle kick out button event
-    handlePeerKickOutBtn(peer_id);
+    // handlePeerKickOutBtn(peer_id);
     // refresh remote peers avatar name
     setPeerAvatarImgName(peer_id + '_avatar', peer_name);
     // refresh remote peers hand icon status and title
@@ -5238,47 +5238,47 @@ function handleVideoPlayer(config) {
  * Handle peer kick out event button
  * @param {*} peer_id
  */
-function handlePeerKickOutBtn(peer_id) {
-    let peerKickOutBtn = getId(peer_id + '_kickOut');
-    peerKickOutBtn.addEventListener('click', (e) => {
-        kickOut(peer_id, peerKickOutBtn);
-    });
-}
+// function handlePeerKickOutBtn(peer_id) {
+//     let peerKickOutBtn = getId(peer_id + '_kickOut');
+//     peerKickOutBtn.addEventListener('click', (e) => {
+//         kickOut(peer_id, peerKickOutBtn);
+//     });
+// }
 
 /**
  * Kick out confirm
  * @param {*} peer_id
  * @param {*} peerKickOutBtn
  */
-function kickOut(peer_id, peerKickOutBtn) {
-    let pName = getId(peer_id + '_name').innerHTML;
+// function kickOut(peer_id, peerKickOutBtn) {
+//     let pName = getId(peer_id + '_name').innerHTML;
 
-    Swal.fire({
-        background: swalBackground,
-        position: 'center',
-        // imageUrl: confirmImg,
-        title: 'Kick out ' + pName,
-        text: 'Are you sure you want to kick out this participant?',
-        showDenyButton: true,
-        confirmButtonText: `Yes`,
-        denyButtonText: `No`,
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown',
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp',
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // send peer to kick out from room
-            sendToServer('kickOut', {
-                room_id: roomId,
-                peer_id: peer_id,
-                peer_name: myPeerName,
-            });
-        }
-    });
-}
+//     Swal.fire({
+//         background: swalBackground,
+//         position: 'center',
+//         // imageUrl: confirmImg,
+//         title: 'Kick out ' + pName,
+//         text: 'Are you sure you want to kick out this participant?',
+//         showDenyButton: true,
+//         confirmButtonText: `Yes`,
+//         denyButtonText: `No`,
+//         showClass: {
+//             popup: 'animate__animated animate__fadeInDown',
+//         },
+//         hideClass: {
+//             popup: 'animate__animated animate__fadeOutUp',
+//         },
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             // send peer to kick out from room
+//             sendToServer('kickOut', {
+//                 room_id: roomId,
+//                 peer_id: peer_id,
+//                 peer_name: myPeerName,
+//             });
+//         }
+//     });
+// }
 
 /**
  * You will be kicked out from the room and popup the peer name that performed this action
