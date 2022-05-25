@@ -110,7 +110,7 @@ $(function () {
     $('#logout').click(() => {
         $.ajax({
             success: function (result) {
-                alert("로그아웃")
+                // alert("로그아웃")
                 localStorage.clear();
                 location.href = "./join.html";
             }
