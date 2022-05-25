@@ -93,7 +93,7 @@ $(() => {
             + ' </div>'
             + ' </div>'
 
-          var video = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room=' + data.list.video_id + '"\'>참여하기</button>';
+          var video = '<button type="button" class="btn event_btn" onclick=\'location.href="http://127.0.0.1:5500/views/client.html?room=' + data.list[0].video_id + '"\'>참여하기</button>';
 
           $("#modal_video").html(video)
 
