@@ -86,7 +86,7 @@ function addCalendar() {
         console.log(token);
         let srv_id = localStorage.getItem('srv_id')
         console.log(srv_id)
-        alert('일정 추가')
+        // alert('일정 추가')
 
         console.log(start_date)
         console.log(start_time)
@@ -165,7 +165,7 @@ function addNotice() {
             console.log(token);
             let srv_id = localStorage.getItem('srv_id')
             console.log(srv_id)
-            alert('공지 추가')
+            // alert('공지 추가')
 
             console.log(notice_name)
             console.log(notice_memo)
@@ -227,7 +227,7 @@ function addMember() {
             console.log(token);
             let srv_id = localStorage.getItem('srv_id')
             console.log(srv_id)
-            alert('회원 추가')
+            // alert('회원 추가')
 
             console.log(member_add)
 
