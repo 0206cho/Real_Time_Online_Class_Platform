@@ -14,7 +14,7 @@ $(function start() {
             "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/server/notice?srv_id=" + srv_id + "&n_id=" + n_id,
+        url: "https://ip:port/server/notice?srv_id=" + srv_id + "&n_id=" + n_id,
 
         success: (data) => {
 

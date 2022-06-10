@@ -29,7 +29,7 @@ function searchMsg() {
             "authorization": 'bearer ' + token,
         },
         type: 'GET',
-        url: 'https://49.50.174.207:5000/home?keyword=' + k,
+        url: 'https://ip:port/home?keyword=' + k,
         dataType: "json",
         success: (data) => {
             // console.log(data)
@@ -90,7 +90,7 @@ function func(server_id) {
             "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/server?srv_id=" + server_id,//  url
+        url: "https://ip:port/server?srv_id=" + server_id,//  url
         dataType: "json",
         success: (data) => {
             // console.log(data)
@@ -133,7 +133,7 @@ $(function () {
             data: {
                 'srv_name': server_name
             },
-            url: 'https://49.50.174.207:5000/server?srv_name=' + server_name,
+            url: 'https://ip:port/server?srv_name=' + server_name,
             type: "POST",
             dataType: "json",
             success: (data) => {

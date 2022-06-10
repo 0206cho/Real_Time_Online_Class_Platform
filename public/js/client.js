@@ -522,7 +522,7 @@ function getPeerGeoLocation() {
 function getSignalingServer() {
     if (isHttps) {
         // return 'https://' + location.hostname + ':' + signalingServerPort;
-        return 'https://49.50.174.207:5000';
+        return 'https://ip:port';
         // if need: change it with YOUR-SERVER-DOMAIN-NAME
     }
     return (
@@ -612,7 +612,7 @@ function initClientPeer() {
             "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/video/getname",//  url
+        url: "https://ip:port/video/getname",//  url
         dataType: "json",
         success: (data) => {
             console.log(data.list[0].user_name)
@@ -636,7 +636,7 @@ function initClientPeer() {
     // signalingSocket = io.connect(signalingServer, {
     //     cors: { origin: '*' }
     // });
-    // signalingSocket = io.connect('https://49.50.174.207:5000/', {
+    // signalingSocket = io.connect('https://ip:port/', {
     //     cors: { origin: '*' }
     // });
 
@@ -750,7 +750,7 @@ function whoAreYou() {
     //         "authorization": 'bearer ' + token,
     //       },  
     //     type: "POST",
-    //     url: "https://49.50.174.207:5000//server/getname"+user_name,//  url
+    //     url: "https://ip:port//server/getname"+user_name,//  url
     //     dataType: "json",
 
     //     success: (data) => {

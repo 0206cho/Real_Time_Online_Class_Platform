@@ -46,7 +46,7 @@ $(() => {
           "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/server/calendar?srv_id=" + srv_id + " &c_id=" + c_id,//  url
+        url: "https://ip:port/server/calendar?srv_id=" + srv_id + " &c_id=" + c_id,//  url
         dataType: "json",
 
 
@@ -182,7 +182,7 @@ $(() => {
             "authorization": 'bearer ' + token,
           },
           type: "GET",
-          url: "https://49.50.174.207:5000/server/calendar?srv_id=" + srv_id,//  url
+          url: "https://ip:port/server/calendar?srv_id=" + srv_id,//  url
           dataType: "json",
 
           success: (data) => {

@@ -9,7 +9,7 @@ $(function () {
 		// console.log(password)
 
 		$.ajax({
-			url: 'https://49.50.174.207:5000/login',
+			url: 'https://ip:port/login',
 			type: 'post',
 			data: {
 				'email': email,
@@ -84,7 +84,7 @@ $(function () {
 		};
 		$.ajax({
 			type: "post",
-			url: "https://49.50.174.207:5000/signup",
+			url: "https://ip:port/signup",
 			data: form_data,
 			dataType: 'json',
 			success: function (res) {
@@ -118,7 +118,7 @@ $(function () {
 		// console.log("ddd", email)
 		$.ajax({
 			type: "GET",
-			url: "https://49.50.174.207:5000/emailCheck",
+			url: "https://ip:port/emailCheck",
 			data: { 'email': email },
 
 			success: function (res) {

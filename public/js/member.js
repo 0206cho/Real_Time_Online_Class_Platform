@@ -12,7 +12,7 @@ $(function () {
                 "authorization": 'bearer ' + token,
             },
             type: "GET",
-            url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,
+            url: "https://ip:port/server/member?srv_id=" + srv_id,
             // dataType: "text",
 
             success: (data) => {
@@ -75,7 +75,7 @@ $(function () {
                 "authorization": 'bearer ' + token,
             },
             type: "PUT",
-            url: "https://49.50.174.207:5000/server/member",
+            url: "https://ip:port/server/member",
 
             data: {
                 "srv_id": srv_id,

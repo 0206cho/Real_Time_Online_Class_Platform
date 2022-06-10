@@ -7,7 +7,7 @@ $(function start() {
       "authorization": 'bearer ' + token,
     },
     type: 'GET',
-    url: 'https://49.50.174.207:5000/setting',
+    url: 'https://ip:port/setting',
 
     success: (data) => {
       // console.log(data)
@@ -42,7 +42,7 @@ $(function () {
         'name': alertname
       },
       type: 'put',
-      url: 'https://49.50.174.207:5000/setting/name',
+      url: 'https://ip:port/setting/name',
 
       success: (data) => {
         // console.log(data)
@@ -79,7 +79,7 @@ $(function () {
         'pwd': password
       },
       type: 'put',
-      url: 'https://49.50.174.207:5000/signout',
+      url: 'https://ip:port/signout',
 
       success: (data) => {
         // console.log(data)
@@ -130,7 +130,7 @@ $(function () {
         'changePwd' : new_password
       },
       type: 'put',
-      url: 'https://49.50.174.207:5000/setting/pwd',
+      url: 'https://ip:port/setting/pwd',
 
       success: (data) => {
         // console.log(data)

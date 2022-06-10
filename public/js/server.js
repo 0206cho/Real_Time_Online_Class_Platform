@@ -10,7 +10,7 @@ $(function start() {
             "authorization": 'bearer ' + token,
         },
         type: "GET",
-        url: "https://49.50.174.207:5000/server/info?srv_id=" + srv_id,
+        url: "https://ip:port/server/info?srv_id=" + srv_id,
 
         success: (data) => {
             console.log(data.list[0].user_name)
@@ -105,7 +105,7 @@ function addCalendar() {
                 "authorization": 'bearer ' + token
             },
             type: "POST",
-            url: "https://49.50.174.207:5000/server/calendar",//  url
+            url: "https://ip:port/server/calendar",//  url
             dataType: "json",
 
             data: {
@@ -175,7 +175,7 @@ function addNotice() {
                     "authorization": 'bearer ' + token
                 },
                 type: "POST",
-                url: "https://49.50.174.207:5000/server/notice?srv_id=" + srv_id,//  url
+                url: "https://ip:port/server/notice?srv_id=" + srv_id,//  url
                 dataType: "json",
 
                 data: {
@@ -236,7 +236,7 @@ function addMember() {
                     "authorization": 'bearer ' + token
                 },
                 type: "POST",
-                url: "https://49.50.174.207:5000/server/member?srv_id=" + srv_id,//  url
+                url: "https://ip:port/server/member?srv_id=" + srv_id,//  url
                 dataType: "json",
 
                 data: {

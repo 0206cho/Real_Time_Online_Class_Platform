@@ -5,7 +5,7 @@ $(function () {
         var password = $('#password').val();
 
         $.ajax({
-            url: 'http://49.50.174.207:5000/login',
+            url: 'http://ip:port/login',
             type: 'post',
             data: {
                 'email': email,
@@ -78,7 +78,7 @@ $(function () {
         };
         $.ajax({
             type: "post",
-            url: "http://49.50.174.207:5000/signup",
+            url: "http://ip:port/signup",
             data: form_data,
             dataType: 'json',
             success: function (res) {
@@ -112,7 +112,7 @@ $(function () {
         console.log("ddd", email)
         $.ajax({
             type: "post",
-            url: "http://49.50.174.207:5000/emailCheck",
+            url: "http://ip:port/emailCheck",
             data: { 'email': email },
 
             success: function (res) {
